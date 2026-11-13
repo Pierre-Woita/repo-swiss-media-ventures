@@ -1,0 +1,25 @@
+/* ==========================================================================
+   Swiss Media Ventures AG – Unterseite „Über uns“ (Variante D)
+   --------------------------------------------------------------------------
+   Ergänzt styles.css und arbeitsweise.css (Prozess-Panels „.pstep“ werden
+   geerbt). Einzige Abweichung: Statt der Zahl „1.“ steht im Kreis ein Icon
+   (weiß, Kreis nur als weiße Outline, Hintergrund transparent).
+   ========================================================================== */
+
+.aw-badge--icon { background: transparent; border: 2px solid #fff; color: #fff; }
+.aw-badge--icon .icon { width: 1.6rem; height: 1.6rem; stroke-width: 1.6; }
+@media (max-width: 767.98px) {
+  .aw-badge--icon { background: #fff; border-color: #fff; color: #d92d79; }   /* < 768 px: pinkes Icon auf weißem Kreis (wie die Zahl bei „Arbeitsweise“) */
+}
+
+/* Headlines der Panels: längere Sätze als „Analysieren“ → etwas kleiner */
+.page-ueber-uns .pstep .aw-title { font-size: clamp(2rem, 8vw, 2.6rem); line-height: 1.07; }
+@media (min-width: 768px)  { .page-ueber-uns .pstep .aw-title { font-size: 2.6rem; } }
+@media (min-width: 1024px) { .page-ueber-uns .pstep .aw-title { font-size: 3.2rem; } }
+
+/* Infografik hat weißen Grund → komplett zeigen, nicht beschneiden */
+.pstep__media--fit img { object-fit: contain; background: #fff; }
+
+/* Weicher Zeilenumbruch nur ab 768 px */
+.br-md { display: none; }
+@media (min-width: 768px) { .br-md { display: inline; } }

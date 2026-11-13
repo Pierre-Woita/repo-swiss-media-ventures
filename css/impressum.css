@@ -1,0 +1,60 @@
+/* ==========================================================================
+   Impressum (Unterseite, nur Deutsch) – ergänzt styles.css
+   Nutzt ausschließlich die vorhandenen Tokens (Farben, Typo, Abstände).
+   Platzhalter für noch unbekannte Angaben: Klasse .ph (blaue Schriftfarbe).
+   ========================================================================== */
+
+:root {
+  --color-placeholder: #0a3fd6;   /* Platzhalter-Blau: klar vom Marken-Blau der Headlines unterscheidbar, Kontrast auf Weiß ≈ 7:1 (WCAG AA/AAA) */
+}
+
+.ph { color: var(--color-placeholder); }
+
+/* ---- Seitenkopf / -fuß ohne Navigation und ohne Verlinkung (Compliance, AGB, Datenschutz) ---- */
+.site-header--plain .site-header__inner { justify-content: flex-start; }
+.site-footer--plain .site-footer__inner { padding-top: 1.5rem; }
+
+/* ---- Inhalt ---- */
+.section--legal { padding-top: 1.5rem; padding-bottom: 4.8rem; }
+@media (min-width: 768px)  { .section--legal { padding-top: 2.9rem; padding-bottom: 7.2rem; } }
+@media (min-width: 1024px) { .section--legal { padding-top: 5.8rem; } }
+
+.legal { max-width: var(--text-max); }
+.legal .section-header { margin-bottom: var(--space-6); }
+
+.legal__block + .legal__block { margin-top: var(--space-5); }
+.legal__title {
+  font-size: var(--fs-card-title);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-snug);
+  color: var(--color-primary);
+}
+
+.legal__block > * + * { margin-top: var(--space-2); }
+.legal__block .legal__title + * { margin-top: var(--space-1); }
+.legal__block .legal__title + .legal__sub { margin-top: var(--space-1); }
+.legal__sub { font-weight: var(--fw-semibold); }
+.legal address { font-style: normal; }
+
+/* Aufzählungen und Zwischenüberschriften in längeren Rechtstexten (AGB, Datenschutz, Compliance) */
+.legal__block ul, .legal__block ol { padding-left: 1.4rem; display: grid; gap: var(--space-1); font-size: var(--fs-body); line-height: var(--lh-body); }
+.legal__block ul { list-style: disc; }
+.legal__block ol { list-style: decimal; }
+.legal__block h3 { font-size: var(--fs-body); font-weight: var(--fw-semibold); line-height: var(--lh-snug); color: var(--color-text); margin-top: var(--space-3); }
+.legal a:not(.btn) { text-decoration: underline; text-underline-offset: .15em; text-decoration-thickness: 1px; transition: color var(--dur) var(--ease); }
+.legal a:not(.btn):hover { color: var(--color-accent); }   /* gilt nur für Textlinks; Buttons behalten ihre eigenen Farben und Übergänge */
+.legal__block > .legal__address-title { margin-top: calc(var(--fs-body) * var(--lh-body)); }   /* eine Leerzeile nach dem einleitenden Satz */
+.legal__block > .legal__address { margin-top: var(--space-1); }
+.legal__cta--group { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-2); }   /* mehrere Buttons untereinander, linksbündig, Breite je nach Inhalt */
+.legal__block > .legal__cta { margin-top: var(--space-3); }   /* Abstand zwischen Text und Button */
+.legal__stand { color: var(--color-text-soft); }
+.legal__block p, .legal__block address { font-size: var(--fs-body); line-height: var(--lh-body); }
+
+/* Kontaktdaten als Bezeichnung/Wert-Liste */
+.legal__data { display: grid; grid-template-columns: max-content 1fr; column-gap: var(--space-4); row-gap: .15rem; margin: 0; }
+.legal__data dt { color: var(--color-text-soft); }
+.legal__data dd { margin: 0; overflow-wrap: anywhere; }
+@media (max-width: 479.98px) { .legal__data { grid-template-columns: 1fr; } .legal__data dd { margin-bottom: var(--space-1); } }
+
+.legal__block + .legal__block--divided { padding-top: var(--space-5); border-top: 1px solid var(--color-divider); }
+

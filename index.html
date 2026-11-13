@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Swiss Media Ventures – Digitale Produkte &amp; Medien aus der Schweiz</title>
+  <meta name="description" content="Die Swiss Media Ventures AG konzipiert, entwickelt, betreibt und vermarktet digitale Produkte und Medienangebote – inklusive Werbeflächen im Internet und in weiteren Medien.">
+  <meta name="robots" content="index, follow">
+  <link rel="preload" href="assets/fonts/OpenSans-VariableFont_wdth,wght.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="alternate" hreflang="x-default" href="index.html">
+  <link rel="alternate" hreflang="de" href="index.html">
+  <link rel="alternate" hreflang="en" href="en/index.html">
+  <link rel="icon" href="assets/img/icons/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/icons/apple-touch-icon.png">
+  <link rel="manifest" href="assets/img/icons/site.webmanifest.json">
+  <link rel="stylesheet" href="css/styles.css?v=20261031">
+  <!-- Swiss Media Ventures: Seiten-Styling (ergänzt css/styles.css) -->
+  <link rel="stylesheet" href="css/smv.css?v=1794579214">
+  <script src="js/main.js?v=1794574931" defer></script>
+</head>
+<body class="page-home">
+
+  <!-- ================================================================
+       SVG-Sprite: alle Icons (Linienstil, currentColor).
+       Verwendung: <svg class="icon"><use href="#i-name"/></svg>
+       ================================================================ -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <!-- Service-Icons -->
+      <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="1.2"/><path d="M12 1.5v5M12 17.5v5M1.5 12h5M17.5 12h5"/></symbol>
+      <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></symbol>
+      <symbol id="i-cube" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96 12 12.01l8.73-5.05M12 22.08V12"/></symbol>
+      <symbol id="i-bars" viewBox="0 0 24 24"><rect x="2" y="14" width="5" height="8" rx="1"/><rect x="9.5" y="8" width="5" height="14" rx="1"/><rect x="17" y="2" width="5" height="20" rx="1"/></symbol>
+      <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></symbol>
+      <symbol id="i-headset" viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></symbol>
+      <symbol id="i-server" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="7" rx="1.5"/><rect x="2" y="14" width="20" height="7" rx="1.5"/><path d="M6 6.5h.01M6 17.5h.01M10 6.5h8M10 17.5h8"/></symbol>
+      <symbol id="i-ai" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/><path d="M12 8.5l1.2 2.3 2.3 1.2-2.3 1.2-1.2 2.3-1.2-2.3-2.3-1.2 2.3-1.2z"/></symbol>
+      <symbol id="i-card" viewBox="0 0 24 24"><rect x="1.5" y="4" width="21" height="16" rx="2"/><path d="M1.5 10h21"/></symbol>
+      <symbol id="i-users" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+      <symbol id="i-cycle" viewBox="0 0 24 24"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></symbol>
+      <!-- UI-Icons -->
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>
+      <symbol id="i-chev-left" viewBox="0 0 24 24"><path d="m15 5-7 7 7 7"/></symbol>
+      <symbol id="i-chev-right" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+      <symbol id="i-burger" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 4v16M4 12h16"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+      <symbol id="i-check-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M7.5 12.4l3 3 6-6.4"/></symbol>
+      <symbol id="i-close" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5 5 19"/></symbol>
+    </defs>
+  </svg>
+
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+  <!-- ================================================================
+       HEADER
+       ================================================================ -->
+  <header class="site-header">
+    <div class="container container--header">
+     <div class="row site-header__inner">
+      <div class="col-auto col-lg-3">
+        <a class="brand" href="index.html" aria-label="Swiss Media Ventures – Startseite">
+          <img class="brand__logo" src="assets/logos/logo_swiss_alpha.png" width="833" height="303" alt="Swiss Media Ventures">
+        </a>
+      </div>
+
+      <button class="nav-toggle col-auto ms-auto" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menü öffnen" data-label-open="Menü schließen" data-label-closed="Menü öffnen">
+        <svg class="icon nav-toggle__open"><use href="#i-burger"/></svg>
+        <svg class="icon nav-toggle__close"><use href="#i-close"/></svg>
+      </button>
+
+      <div class="site-header__menu col-lg-9" id="site-nav">
+        <nav class="site-nav" aria-label="Hauptnavigation">
+          <ul class="site-nav__list">
+            <li class="site-nav__home"><a class="site-nav__link" href="index.html">Swiss Media Ventures</a></li>
+            <li><a class="site-nav__link" href="arbeitsweise.html">Was wir tun</a></li>
+            <li><a class="site-nav__link" href="leistungen.html">Was wir können</a></li>
+            <li><a class="site-nav__link" href="vorteile.html">Was wir bieten</a></li>
+            <li><a class="site-nav__link" href="ueberuns.html">Wer wir sind</a></li>
+          </ul>
+        </nav>
+
+        <!-- Sprachumschalter: DE (Hauptsprache) / EN -->
+        <div class="lang" role="group" aria-label="Sprache wählen">
+          <a href="index.html" lang="de" hreflang="de" aria-current="true">DE</a><span class="lang__sep" aria-hidden="true">|</span><a href="en/index.html" lang="en" hreflang="en">EN</a>
+        </div>
+      </div>
+     </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- 1. HERO -->
+    <section class="container container--hero" aria-labelledby="hero-title">
+      <div class="hero">
+        <picture>
+          <source media="(min-width: 768px)" srcset="assets/img/home/img_home_hero_hindernis_LG.jpg" width="1408" height="768">
+          <img class="hero__img" src="assets/img/home/img_home_hero_hindernis_mobile.jpg" width="1152" height="768"
+               alt="Mann im Anzug klettert an einer steilen Felswand über einem Schweizer Bergtal">
+        </picture>
+        <div class="hero__content">
+          <h1 class="hero__eyebrow">Full Service Digital<br>Business Operator</h1>
+          <p class="hero__title" id="hero-title">
+            <span>Wir betreiben Ihr<br>digitales Geschäft.</span>
+          </p>
+          <p class="hero__text">Swiss Media Ventures übernimmt für Sie den operativen Betrieb Ihres digitalen Geschäfts während Sie die strategische Richtung bestimmen.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. ARBEITSWEISE -->
+    <section class="section section--process container" id="arbeitsweise" aria-labelledby="process-title">
+     <div class="row">
+      <header class="section-header section-header--center-lg col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+        <h2 class="eyebrow">Was wir tun</h2>
+        <h3 class="section-header__title section-header__title--lg" id="process-title">Schritt für Schritt Ihr Ziel umsetzen</h3>
+        <p class="section-header__text">In vier Schritten entwickeln wir ein Verständnis und übernehmen die operative Komplexität und den laufenden Betrieb Ihres digitalen Geschäfts und koordinieren Technologie, Prozesse, Vermarktung, Weiterentwicklung und Expertise in einer Hand. Vier Schritte geben der Zusammenarbeit Struktur: Analysieren, Integrieren, Betreiben, Optimieren.</p>
+      </header>
+     </div>
+
+     <!-- Vier Schritte als feste Kacheln: ab 768 px 4 nebeneinander, darunter 2 × 2 bzw. untereinander -->
+     <div class="carousel process-carousel" data-carousel>
+       <div class="carousel__viewport" data-carousel-viewport tabindex="0" role="region" aria-label="So arbeiten wir – horizontal scrollbar">
+     <ol class="steps" aria-label="So arbeiten wir – vier Schritte">
+        <li class="step">
+          <div class="step__media"><picture><img class="step__img" loading="lazy" src="assets/img/home/img_home_section_analysieren_desktop.jpg" srcset="assets/img/home/img_home_section_analysieren_desktop.jpg 1x, assets/img/home/img_home_section_analysieren_desktop_@2x.jpg 2x" width="1050" height="525" alt="Zwei Kollegen im Gespräch, die ein Geschäftsmodell analysieren"></picture></div>
+          <div class="step__text">
+            <h3 class="step__title">Wir analysieren</h3>
+            <p class="step__desc">Gemeinsam das Terrain abstecken</p>
+            <p class="step__more"><a class="step__link" href="arbeitsweise.html?step=analysieren" aria-label="Weitere Informationen zu Analysieren"><svg class="icon card__more-icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+          </div>
+        </li>
+        <li class="step">
+          <div class="step__media"><picture><img class="step__img" loading="lazy" src="assets/img/home/img_home_section_integrieren_desktop.jpg" srcset="assets/img/home/img_home_section_integrieren_desktop.jpg 1x, assets/img/home/img_home_section_integrieren_desktop_@2x.jpg 2x" width="1050" height="525" alt="Zwei Teammitglieder arbeiten gemeinsam an einem Laptop"></picture></div>
+          <div class="step__text">
+            <h3 class="step__title">Wir integrieren</h3>
+            <p class="step__desc">Den Weg sorgfältig vorbereiten</p>
+            <p class="step__more"><a class="step__link" href="arbeitsweise.html?step=integrieren" aria-label="Weitere Informationen zu Integrieren"><svg class="icon card__more-icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+          </div>
+        </li>
+        <li class="step">
+          <div class="step__media"><picture><img class="step__img" loading="lazy" src="assets/img/home/img_home_section_betreiben_desktop.jpg" srcset="assets/img/home/img_home_section_betreiben_desktop.jpg 1x, assets/img/home/img_home_section_betreiben_desktop_@2x.jpg 2x" width="1050" height="525" alt="Mitarbeiterin mit Headset im Kundenservice"></picture></div>
+          <div class="step__text">
+            <h3 class="step__title">Wir betreiben</h3>
+            <p class="step__desc">Voll reinhängen ins Geschäft</p>
+            <p class="step__more"><a class="step__link" href="arbeitsweise.html?step=betreiben" aria-label="Weitere Informationen zu Betreiben"><svg class="icon card__more-icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+          </div>
+        </li>
+        <li class="step">
+          <div class="step__media"><picture><img class="step__img" loading="lazy" src="assets/img/home/img_home_section_optimieren_desktop.jpg" srcset="assets/img/home/img_home_section_optimieren_desktop.jpg 1x, assets/img/home/img_home_section_optimieren_desktop_@2x.jpg 2x" width="1050" height="525" alt="Mitarbeiter wertet Kennzahlen auf Monitoren aus"></picture></div>
+          <div class="step__text">
+            <h3 class="step__title">Wir optimieren</h3>
+            <p class="step__desc">Hindernisse überwinden. Neue Wege frei machen.</p>
+            <p class="step__more"><a class="step__link" href="arbeitsweise.html?step=optimieren" aria-label="Weitere Informationen zu Optimieren"><svg class="icon card__more-icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+          </div>
+        </li>
+     </ol>
+       </div>
+       <div class="carousel__controls">
+         <div class="carousel__dots" data-carousel-dots aria-hidden="true"></div>
+         <div class="carousel__nav">
+           <button class="icon-btn icon-btn--primary" type="button" data-carousel-prev aria-label="Vorheriger Schritt" disabled><svg class="icon" aria-hidden="true"><use href="#i-chev-left"/></svg></button>
+           <button class="icon-btn icon-btn--primary" type="button" data-carousel-next aria-label="Nächster Schritt"><svg class="icon" aria-hidden="true"><use href="#i-chev-right"/></svg></button>
+         </div>
+       </div>
+     </div>
+    </section>
+
+    <!-- 2. LEISTUNGEN – Textbereich -->
+    <section class="section section--services container" id="leistungen" aria-labelledby="services-title">
+      <div class="row">
+      <header class="section-header section-header--center-lg col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+        <h2 class="eyebrow">Was wir können</h2>
+        <h3 class="section-header__title section-header__title--xl" id="services-title">End-to-End für Ihr digitales Geschäft.</h3>
+        <p class="section-header__text">Um alle Bereiche Ihres Business zu betreiben, erfordert es eine Vielzahl an Aufgaben und Kompetenzen. Von Entwicklung und technischem Betrieb über Marketing und Vertrieb bis zu Kundenservice, Personal und kaufmännischer Steuerung. Wir führen diese Bereiche zusammen und koordinieren diese persönlich und automatisiert. Prioritäten und Verantwortlichkeiten stimmen wir persönlich mit Ihnen ab.</p>
+      </header>
+      </div>
+    </section>
+
+    <!-- 2b. LEISTUNGEN – Kacheln + Slider-Steuerung -->
+    <section class="section section--services section--services-tiles container" aria-label="Leistungsübersicht">
+      <div class="carousel" data-carousel>
+        <div class="carousel__viewport" data-carousel-viewport tabindex="0" role="region" aria-label="Leistungen – horizontal scrollbar">
+          <ul class="carousel__track">
+            <li class="card card--service card--linked">
+              <svg class="icon card__icon" aria-hidden="true"><use href="#i-target"/></svg>
+              <h3 class="card__title">Strategie &amp; Unternehmenssteuerung</h3>
+              <p class="card__text">Wir übersetzen Ihre Ziele in operative Prioritäten und koordinieren die Unternehmensbereiche.</p>
+              <p class="card__more"><a class="card__more-link" href="leistungen.html?step=strategie" aria-label="Weitere Informationen zu Strategie &amp; Unternehmenssteuerung"><svg class="icon card__more-icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+            </li>
+            <li class="card card--service card--linked">
+              <svg class="icon card__icon" aria-hidden="true"><use href="#i-gear"/></svg>
+              <h3 class="card__title">Technologie &amp; Plattformbetrieb</h3>
+              <p class="card__text">Wir betreuen die technische Grundlage Ihres Geschäfts und koordinieren Betrieb, Wartung und Weiterentwicklung.</p>
+              <p class="card__more"><a class="card__more-link" href="leistungen.html?step=technologie" aria-label="Weitere Informationen zu Technologie &amp; Plattformbetrieb"><svg class="icon card__more-icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+            </li>
+            <li class="card card--service card--linked">
+              <svg class="icon card__icon" aria-hidden="true"><use href="#i-cube"/></svg>
+              <h3 class="card__title">Produkt- &amp; Servicemanagement</h3>
+              <p class="card__text">Wir begleiten Ihre digitalen Produkte und Services im laufenden Betrieb und entwickeln das Angebot anhand von Nutzung und Nachfrage weiter.</p>
+              <p class="card__more"><a class="card__more-link" href="leistungen.html?step=produkt" aria-label="Weitere Informationen zu Produkt- &amp; Servicemanagement"><svg class="icon card__more-icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+            </li>
+            <li class="card card--service card--linked">
+              <svg class="icon card__icon" aria-hidden="true"><use href="#i-bars"/></svg>
+              <h3 class="card__title">Marketing &amp; Wachstum</h3>
+              <p class="card__text">Wir machen Ihr Angebot sichtbar und steuern Maßnahmen zur Kundengewinnung und Kundenbindung.</p>
+              <p class="card__more"><a class="card__more-link" href="leistungen.html?step=marketing" aria-label="Weitere Informationen zu Marketing &amp; Wachstum"><svg class="icon card__more-icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+            </li>
+            <li class="card card--service card--linked">
+              <svg class="icon card__icon" aria-hidden="true"><use href="#i-link"/></svg>
+              <h3 class="card__title">Vertrieb &amp; Partnerschaften</h3>
+              <p class="card__text">Wir organisieren Ihre Vertriebsprozesse und betreuen Geschäftspartner in Ihrem Auftrag.</p>
+              <p class="card__more"><a class="card__more-link" href="leistungen.html?step=vertrieb" aria-label="Weitere Informationen zu Vertrieb &amp; Partnerschaften"><svg class="icon card__more-icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+            </li>
+            <li class="card card--service card--linked">
+              <svg class="icon card__icon" aria-hidden="true"><use href="#i-headset"/></svg>
+              <h3 class="card__title">Kundenservice &amp; Community</h3>
+              <p class="card__text">Wir begleiten Ihre Kunden von der ersten Frage bis zur laufenden Nutzung.</p>
+              <p class="card__more"><a class="card__more-link" href="leistungen.html?step=kundenservice" aria-label="Weitere Informationen zu Kundenservice &amp; Community"><svg class="icon card__more-icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+            </li>
+            <li class="card card--service card--linked">
+              <svg class="icon card__icon" aria-hidden="true"><use href="#i-server"/></svg>
+              <h3 class="card__title">Server &amp; Hosting</h3>
+              <p class="card__text">Wir hosten Ihre Plattformen auf sicheren, leistungsstarken Servern und sorgen für zuverlässigen Betrieb.</p>
+              <p class="card__more"><a class="card__more-link" href="leistungen.html?step=finanzen" aria-label="Weitere Informationen zu Server &amp; Hosting"><svg class="icon card__more-icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+            </li>
+            <li class="card card--service card--linked">
+              <svg class="icon card__icon" aria-hidden="true"><use href="#i-ai"/></svg>
+              <h3 class="card__title">AI Engineering</h3>
+              <p class="card__text">Wir entwickeln und betreiben KI-gestützte Anwendungen und binden sie in Ihre Systeme und Abläufe ein.</p>
+              <p class="card__more"><a class="card__more-link" href="leistungen.html?step=ai-engineering" aria-label="Weitere Informationen zu AI Engineering"><svg class="icon card__more-icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+            </li>
+            <li class="card card--service card--linked">
+              <svg class="icon card__icon" aria-hidden="true"><use href="#i-users"/></svg>
+              <h3 class="card__title">Personal &amp; Ressourcen</h3>
+              <p class="card__text">Wir koordinieren die Menschen und Kapazitäten, die Ihr Geschäft im Alltag braucht.</p>
+              <p class="card__more"><a class="card__more-link" href="leistungen.html?step=personal" aria-label="Weitere Informationen zu Personal &amp; Ressourcen"><svg class="icon card__more-icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+            </li>
+            <li class="card card--service card--linked">
+              <svg class="icon card__icon" aria-hidden="true"><use href="#i-shield"/></svg>
+              <h3 class="card__title">Recht, Datenschutz &amp; Compliance</h3>
+              <p class="card__text">Wir organisieren die Umsetzung relevanter Vorgaben und koordinieren die Zusammenarbeit mit Rechts-, Steuer- und Datenschutzexperten.</p>
+              <p class="card__more"><a class="card__more-link" href="leistungen.html?step=recht" aria-label="Weitere Informationen zu Recht, Datenschutz &amp; Compliance"><svg class="icon card__more-icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+            </li>
+            <li class="card card--service card--linked">
+              <svg class="icon card__icon" aria-hidden="true"><use href="#i-cycle"/></svg>
+              <h3 class="card__title">Prozesse &amp; Qualitätsmanagement</h3>
+              <p class="card__text">Wir verbinden die Unternehmensbereiche durch klare Abläufe und eindeutige Zuständigkeiten.</p>
+              <p class="card__more"><a class="card__more-link" href="leistungen.html?step=prozesse" aria-label="Weitere Informationen zu Prozesse &amp; Qualitätsmanagement"><svg class="icon card__more-icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="carousel__controls">
+          <div class="carousel__dots" data-carousel-dots aria-hidden="true"></div>
+          <div class="carousel__nav">
+            <button class="icon-btn icon-btn--primary" type="button" data-carousel-prev aria-label="Vorherige Leistung" disabled>
+              <svg class="icon" aria-hidden="true"><use href="#i-chev-left"/></svg>
+            </button>
+            <button class="icon-btn icon-btn--primary" type="button" data-carousel-next aria-label="Nächste Leistung">
+              <svg class="icon" aria-hidden="true"><use href="#i-chev-right"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. VORTEILE – Textbereich -->
+    <section class="section section--benefits container" id="vorteile" aria-labelledby="benefits-title">
+     <div class="row">
+      <header class="section-header section-header--center-lg col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+        <h2 class="eyebrow">Was wir bieten</h2>
+        <h3 class="section-header__title" id="benefits-title">Ihr Business verdient einen Partner, der Verantwortung übernimmt.</h3>
+        <p class="section-header__text">Wenn operative Aufgaben bei einem verantwortlichen Partner zusammenlaufen, müssen Sie weniger Einzelheiten selbst koordinieren. Sie geben die strategische Richtung vor. Wir organisieren die Umsetzung im vereinbarten Rahmen und machen Entwicklungen nachvollziehbar. Dafür bündeln wir technisches, kaufmännisches und operatives Fachwissen. Im persönlichen Austausch stimmen wir Prioritäten ab und legen Verantwortlichkeiten fest.</p>
+      </header>
+     </div>
+    </section>
+
+    <!-- 4b. VORTEILE – Kacheln -->
+    <section class="section section--services section--services-tiles section--benefits-tiles container" aria-label="Vorteilsübersicht">
+      <div class="carousel" data-carousel>
+        <div class="carousel__viewport" data-carousel-viewport tabindex="0" role="region" aria-label="Vorteile – horizontal scrollbar">
+          <ul class="carousel__track">
+            <li class="card card--service card--linked step">
+              <div class="step__media"><picture><img class="step__img" loading="lazy" src="assets/img/vorteile/img_vorteile_kachel_01.png" srcset="assets/img/vorteile/img_vorteile_kachel_01.png 1x, assets/img/vorteile/img_vorteile_kachel_01_@2x.png 2x" width="620" height="420" alt="Uhr als Sinnbild für gewonnene Zeit"></picture></div>
+              <div class="step__text">
+                <h3 class="step__title">Mehr Freiraum im Tagesgeschäft</h3>
+                <p class="step__more"><a class="step__link" href="vorteile.html?step=freiraum" aria-label="Weitere Informationen zu Mehr Freiraum im Tagesgeschäft"><svg class="icon card__more-icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+              </div>
+            </li>
+            <li class="card card--service card--linked step">
+              <div class="step__media"><picture><img class="step__img" loading="lazy" src="assets/img/vorteile/img_vorteile_kachel_02.png" srcset="assets/img/vorteile/img_vorteile_kachel_02.png 1x, assets/img/vorteile/img_vorteile_kachel_02_@2x.png 2x" width="620" height="420" alt="Zentraler Knoten, der mehrere Fachbereiche verbindet"></picture></div>
+              <div class="step__text">
+                <h3 class="step__title">Weniger Abstimmung. Klare Verantwortung.</h3>
+                <p class="step__more"><a class="step__link" href="vorteile.html?step=verantwortung" aria-label="Weitere Informationen zu Weniger Abstimmung. Klare Verantwortung."><svg class="icon card__more-icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+              </div>
+            </li>
+            <li class="card card--service card--linked step">
+              <div class="step__media"><picture><img class="step__img" loading="lazy" src="assets/img/vorteile/img_vorteile_kachel_03.png" srcset="assets/img/vorteile/img_vorteile_kachel_03.png 1x, assets/img/vorteile/img_vorteile_kachel_03_@2x.png 2x" width="620" height="420" alt="Aufsteigende Balken mit Wachstumspfeil"></picture></div>
+              <div class="step__text">
+                <h3 class="step__title">Operative Stärke für Ihr Wachstum</h3>
+                <p class="step__more"><a class="step__link" href="vorteile.html?step=wachstum" aria-label="Weitere Informationen zu Operative Stärke für Ihr Wachstum"><svg class="icon card__more-icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+              </div>
+            </li>
+            <li class="card card--service card--linked step">
+              <div class="step__media"><picture><img class="step__img" loading="lazy" src="assets/img/vorteile/img_vorteile_kachel_04.png" srcset="assets/img/vorteile/img_vorteile_kachel_04.png 1x, assets/img/vorteile/img_vorteile_kachel_04_@2x.png 2x" width="620" height="420" alt="Kompass als Sinnbild für die strategische Richtung"></picture></div>
+              <div class="step__text">
+                <h3 class="step__title">Sie bestimmen die Richtung</h3>
+                <p class="step__more"><a class="step__link" href="vorteile.html?step=richtung" aria-label="Weitere Informationen zu Sie bestimmen die Richtung"><svg class="icon card__more-icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+              </div>
+            </li>
+            <li class="card card--service card--linked step">
+              <div class="step__media"><picture><img class="step__img" loading="lazy" src="assets/img/vorteile/img_vorteile_kachel_05.png" srcset="assets/img/vorteile/img_vorteile_kachel_05.png 1x, assets/img/vorteile/img_vorteile_kachel_05_@2x.png 2x" width="620" height="420" alt="Dashboard mit Kennzahlen und Diagrammen"></picture></div>
+              <div class="step__text">
+                <h3 class="step__title">Entlastung und Überblick</h3>
+                <p class="step__more"><a class="step__link" href="vorteile.html?step=ueberblick" aria-label="Weitere Informationen zu Entlastung und Überblick"><svg class="icon card__more-icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+              </div>
+            </li>
+            <li class="card card--service card--linked step">
+              <div class="step__media"><picture><img class="step__img" loading="lazy" src="assets/img/vorteile/img_vorteile_kachel_06.png" srcset="assets/img/vorteile/img_vorteile_kachel_06.png 1x, assets/img/vorteile/img_vorteile_kachel_06_@2x.png 2x" width="620" height="420" alt="Zahnräder und Funken als Sinnbild für Automatisierung"></picture></div>
+              <div class="step__text">
+                <h3 class="step__title">Weniger Routine. Mehr Effizienz.</h3>
+                <p class="step__more"><a class="step__link" href="vorteile.html?step=effizienz" aria-label="Weitere Informationen zu Weniger Routine. Mehr Effizienz."><svg class="icon card__more-icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="carousel__controls">
+          <div class="carousel__dots" data-carousel-dots aria-hidden="true"></div>
+          <div class="carousel__nav">
+            <button class="icon-btn icon-btn--primary" type="button" data-carousel-prev aria-label="Vorheriger Vorteil" disabled>
+              <svg class="icon" aria-hidden="true"><use href="#i-chev-left"/></svg>
+            </button>
+            <button class="icon-btn icon-btn--primary" type="button" data-carousel-next aria-label="Nächster Vorteil">
+              <svg class="icon" aria-hidden="true"><use href="#i-chev-right"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WER WIR SIND (Teaser): Aufbau wie der Header – Bild als Hintergrund, Textbox rechts; < 768 px Bild oben, Text darunter -->
+    <section class="home-about container container--hero" id="ueber-uns-teaser" aria-labelledby="home-about-title">
+      <div class="hero home-about__box">
+        <img class="home-about__img" src="assets/img/home/img_smv_above_the_clouds_hero.png" srcset="assets/img/home/img_smv_above_the_clouds_hero.png 1x, assets/img/home/img_smv_above_the_clouds_hero_@2x.png 2x" width="1520" height="620" alt="Blick über den Wolken auf Berggipfel im Morgenlicht" loading="lazy">
+        <div class="home-about__text">
+                <h2 class="eyebrow" id="home-about-title">Wer wir sind</h2>
+                <h3 class="home-about__sub">Wir bündeln Erfahrung</h3>
+                <p class="home-about__copy">Swiss Media Ventures AG führt spezialisierte Fachunternehmen für den Betrieb digitaler Geschäftsmodelle zusammen. Für Eigentümer digitaler Plattformen übernehmen wir die vereinbarten operativen Aufgaben und koordinieren die Zusammenarbeit der Beteiligten.</p>
+                <a class="btn btn--primary" href="ueberuns.html">Wir stellen uns vor
+                  <svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+                </a>
+              </div>
+      </div>
+    </section>
+
+    <!-- 5. KONTAKT-CTA -->
+    <section class="section section--cta container container--hero" id="kontakt" aria-labelledby="cta-title">
+     <div class="cta-panel">
+     <div class="row">
+      <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2 cta-inner">
+      <div class="section-header section-header--center">
+        <div class="cta-divider" aria-hidden="true"><img src="assets/img/kontakt/img_kontakt_section_team.jpg" srcset="assets/img/kontakt/img_kontakt_section_team.jpg 1x, assets/img/kontakt/img_kontakt_section_team_@2x.jpg 2x" width="620" height="420" alt="" loading="lazy"></div>
+        <h2 class="eyebrow">Wie Sie uns erreichen</h2>
+        <h3 class="section-header__title" id="cta-title">Gemeinsam den ersten Schritt gehen</h3>
+        <p class="section-header__text">Lassen Sie uns über Ihre Ausgangslage und Ihre Erwartungen sprechen. Daraus entwickeln wir ein gemeinsames Verständnis für die Aufgaben und die nächsten Schritte.</p>
+      </div>
+      <a class="btn btn--primary" href="kontakt.html">Korrespondenz starten
+        <svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+      </a>
+      </div>
+     </div>
+     </div>
+    </section>
+
+  </main>
+
+  <!-- ================================================================
+       FOOTER
+       ================================================================ -->
+  <footer class="site-footer">
+    <div class="container container--footer">
+     <div class="row site-footer__inner">
+      <div class="site-footer__brand col-lg-6">
+        <a class="brand brand--footer" href="index.html" aria-label="Swiss Media Ventures – Startseite">
+          <img class="brand__logo" src="assets/logos/logo_swiss_alpha_negativ.png" width="833" height="303" alt="Swiss Media Ventures" loading="lazy">
+        </a>
+        <p class="site-footer__copy">© 2026 Swiss Media Ventures AG. Alle Rechte vorbehalten.</p>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+      <nav class="site-footer__nav" aria-label="Seitenübersicht">
+        <ul class="footer-links footer-links--main">
+          <li><a href="arbeitsweise.html">Was wir tun</a></li>
+          <li><a href="leistungen.html">Was wir können</a></li>
+          <li><a href="vorteile.html">Was wir bieten</a></li>
+          <li><a href="ueberuns.html">Wer wir sind</a></li>
+          <li><a href="kontakt.html">Wie Sie uns erreichen</a></li>
+        </ul>
+      </nav>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+      <nav class="site-footer__legal" aria-label="Rechtliches">
+        <ul class="footer-links">
+          <li><a href="impressum.html">Impressum</a></li>
+          <li><a href="datenschutz.html">Datenschutzerklärung</a></li>
+          <li><a href="agb.html">AGB</a></li>
+          <li><a href="compliance.html">Compliance</a></li>
+        </ul>
+      </nav>
+      </div>
+     </div>
+    </div>
+  </footer>
+
+</body>
+</html>

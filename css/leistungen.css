@@ -1,0 +1,138 @@
+/* ==========================================================================
+   Swiss Media Ventures AG – Unterseite „Leistungen“
+   --------------------------------------------------------------------------
+   Ergänzt styles.css (Tokens, Raster, Buttons, Karten, Slider, Header/Footer
+   werden geerbt). Bildfrei: Typografie, Icons und Verläufe.
+   Aufbau:  1 Tokens  2 Ankernavigation (sticky)  3 Leistungs-Panels  4 Bewegung
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. TOKENS
+   ========================================================================== */
+:root {
+  --band-deep:   linear-gradient(135deg, #B41917 0%, #8A1210 100%);   /* Rot-Verlauf wie die Kacheln der Startseite */
+  --check-icon:  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23B41917' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E");
+  --panel-pad:   1.4rem;
+  --panel-gap:   1.5rem;
+  --anchor-h:    12.8rem;  /* Höhe der Ankernavigation + ca. 1 rem Luft: Abstand für scroll-margin, Section landet direkt unter der Navigation */
+}
+@media (min-width: 768px)  { :root { --panel-pad: 2.2rem; } }
+@media (min-width: 1024px) { :root { --panel-pad: 3rem; --panel-gap: 1.6rem; --anchor-h: 12.7rem; } }
+
+/* Spanisch: längere Kachel-Titel machen die Ankernavigation etwas höher (+ ca. 1,3 rem) */
+html[lang="es"], html[lang="nl"], html[lang="ru"] { --anchor-h: 14.1rem; }
+@media (min-width: 1024px) { html[lang="es"], html[lang="nl"], html[lang="ru"] { --anchor-h: 14.0rem; } }
+
+/* Niederländisch: sehr lange Zusammensetzungen (z. B. "gegevensbeschermingsprocessen") dürfen umbrechen,
+   sonst wird die Spalte auf Smartphones breiter als der Bildschirm. */
+html[lang="nl"] .svc, html[lang="ru"] .svc { overflow-wrap: anywhere; hyphens: auto; }
+
+
+/* ==========================================================================
+   2. ANKERNAVIGATION „Auf einen Blick“ – sticky unter dem Header
+   ========================================================================== */
+.anchor-nav {
+  position: sticky; top: calc(var(--header-h) - 1px); z-index: 90;
+  margin-top: 1.6rem; padding: .8rem 0 .9rem;
+  background: rgba(255, 255, 255, .92);
+  -webkit-backdrop-filter: saturate(1.4) blur(12px);
+  backdrop-filter: saturate(1.4) blur(12px);
+}
+.anchor-nav .carousel { margin-top: 0; }
+/* Platz für den 8-px-Schatten der Kacheln (der Slider schneidet sonst ab) */
+.anchor-nav .carousel__viewport { margin-inline-end: 0; padding: .4rem 1.2rem 1.2rem .4rem; margin: -.4rem 0 -.6rem -.4rem; }
+.anchor-nav .carousel__track { padding-inline-end: 0; }
+.anchor-nav .carousel__nav { justify-content: center; margin-top: .3rem; }   /* Steuerung zentriert unter den Kacheln */
+.anchor-nav .icon-btn { width: 2.4rem; height: 2.4rem; }
+.anchor-nav .icon-btn .icon { width: 1.1rem; height: 1.1rem; }
+
+/* Kachel: nur so hoch wie der Inhalt, weiß mit 8 px versetztem Schatten */
+.card--anchor { --card-w: 15rem; min-height: 0 !important; padding: 0; position: relative; overflow: hidden; isolation: isolate; background: #fff; box-shadow: 8px 8px 16px rgba(20, 24, 40, .14); }
+@media (min-width: 1024px) { .card--anchor { --card-w: 15rem; } }.card--anchor::before {   /* Hover: Farbverlauf Pink → Blau */
+  content: ""; position: absolute; inset: 0; z-index: -1; opacity: 0;
+  background: var(--band-deep); transition: opacity .25s var(--ease);
+}
+.card--anchor:hover { transform: none; }
+.card--anchor:hover::before, .card--anchor:focus-within::before, .card--anchor.is-active::before { opacity: 1; }
+.card__link {
+  display: flex; flex-direction: column; gap: .5rem; height: 100%;
+  padding: .9rem 1rem .95rem; border-radius: var(--radius-card);
+}
+.card__link:focus-visible { border-radius: var(--radius-card); }
+.card--anchor .card__icon { width: 2rem; height: 2rem; transition: color .25s var(--ease); }
+.card--anchor .card__title { margin-top: 0; color: var(--color-accent); font-size: 1rem; overflow-wrap: break-word; hyphens: auto; transition: color .25s var(--ease); }
+.card--anchor:hover .card__icon, .card--anchor:hover .card__title,
+.card--anchor:focus-within .card__icon, .card--anchor:focus-within .card__title,
+.card--anchor.is-active .card__icon, .card--anchor.is-active .card__title { color: #fff; }   /* aktiv = wie Hover */
+
+
+/* ==========================================================================
+   3. LEISTUNGS-PANELS (alle zehn im selben Gestaltungsmuster)
+   ========================================================================== */
+.services-stack { display: grid; gap: var(--panel-gap); padding-top: 1.5rem; }
+@media (min-width: 1024px) { .services-stack { padding-top: 2rem; } }
+
+.svc { scroll-margin-top: calc(var(--anchor-h) - 1rem); }   /* + scroll-padding-top der Seite (Header + 1 rem) = Header + --anchor-h: Section landet direkt unter der Ankernavigation */
+.svc__panel {
+  position: relative; overflow: hidden; isolation: isolate;
+  display: grid; gap: 1.6rem;
+  padding: var(--panel-pad);
+  border-radius: var(--radius-hero);
+  background: var(--band-deep); color: #fff;
+}
+
+/* Icon als dekoratives Hintergrundelement: stark vergrößert, oben rechts zu 25 % angeschnitten */
+.svc__bg {
+  --size: 17rem;
+  position: absolute; z-index: -1; top: calc(var(--size) * -.25); right: calc(var(--size) * -.25);
+  width: var(--size); height: var(--size); color: #fff; opacity: .28; stroke-width: .6; pointer-events: none;
+}
+@media (min-width: 768px)  { .svc__bg { --size: 22rem; } }
+@media (min-width: 1024px) { .svc__bg { --size: 28rem; } }
+.svc__head { display: grid; justify-items: start; align-content: start; }
+.svc__badge {
+  display: grid; place-items: center; width: 3.5rem; height: 3.5rem; margin-bottom: 1.1rem; border-radius: 50%;
+  background: transparent; color: #fff; border: 2px solid #fff;   /* invertiert: weißes Icon + weiße Outline, Hintergrund scheint durch */
+}
+.svc__badge .icon { width: 1.8rem; height: 1.8rem; stroke-width: 1.5; }
+@media (min-width: 768px) { .svc__badge { width: 4rem; height: 4rem; } .svc__badge .icon { width: 2rem; height: 2rem; } }
+.svc__title {
+  margin-top: 0;
+  font-size: calc(var(--fs-h2) * .92); font-weight: var(--fw-semibold); line-height: 1.08;
+  color: #fff; text-wrap: balance; overflow-wrap: break-word; hyphens: auto;
+}
+.svc__text { margin-top: .9rem; max-width: 48rem; color: rgba(255, 255, 255, .95); }
+.svc__text + .svc__text { margin-top: .6rem; }
+.svc__text { margin-top: 0; } .svc__title + .svc__text { margin-top: .9rem; }
+/* ab 768 px zweispaltig: Headline + Text links, Liste rechts */
+@media (min-width: 768px) {
+  .svc__panel { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 2.4rem; align-items: start; }
+}
+@media (min-width: 1024px) { .svc__panel { column-gap: 3.6rem; } }
+
+
+/* Liste: immer vertikal, Check-Häkchen statt Aufzählungspunkte, keine Hover-Effekte */
+.svc__list { display: grid; gap: .7rem; margin: 0; padding: 0; list-style: none; }
+.svc__list li {
+  position: relative; display: flex; align-items: center; gap: .9rem;
+  padding: 1rem 1.1rem; border-radius: var(--radius-card); line-height: 1.3; font-weight: var(--fw-semibold);
+  background: rgba(255, 255, 255, .14); border: 1px solid rgba(255, 255, 255, .4);
+  backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+}
+.svc__list li::before {
+  content: ""; flex: none; width: 2rem; height: 2rem; border-radius: 50%;
+  background: #fff var(--check-icon) center / 62% no-repeat;
+}
+
+
+/* ==========================================================================
+   4. BEWEGUNG
+   ========================================================================== */
+/* Einblenden beim Scrollen (nur für Elemente, die beim Laden unterhalb des Bildschirms liegen) */
+.reveal--hidden { opacity: 0; transform: translateY(1.6rem); }
+.reveal { transition: opacity .7s var(--ease), transform .7s var(--ease); }
+@media (prefers-reduced-motion: reduce) { .reveal--hidden { opacity: 1; transform: none; } }
+
+/* Swiss Media Ventures: Header scrollt mit (nicht sticky) – Ankernavigation klebt daher am oberen Rand */
+.anchor-nav { top: 0; }

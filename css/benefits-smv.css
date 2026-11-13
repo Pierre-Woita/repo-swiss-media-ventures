@@ -1,0 +1,31 @@
+/* Swiss Media Ventures – Seite „Benefits“ / „Vorteile“: überträgt das Design von „Services“ und „How we work“
+   (Reihenfolge: styles.css, smv.css, arbeitsweise.css, services-smv.css, how-smv.css, benefits-smv.css) */
+
+:root { --anchor-h: 12.8rem; }   /* Höhe der Ankernavigation (zweizeilige Titel) für scroll-margin */
+
+/* Seitenhintergrund weiss */
+body.page-vorteile, body.page-vorteile main { background: #FFFFFF; }
+
+/* Panel-Badge mit Häkchen: weisse Outline, transparent, weisses Icon */
+.aw-badge--icon { background: transparent; border: 2px solid #FFFFFF; color: #FFFFFF; }
+.aw-badge--icon .icon { width: 1.6rem; height: 1.6rem; stroke-width: 2; }
+
+/* ---------- Trust: weisse Section, Text links, Infografik rechts (ohne Rundung) ---------- */
+main > section:is(#trust, #vertrauen) { background: #FFFFFF; }
+:is(#trust, #vertrauen) .split { align-items: center; row-gap: 2rem; }
+:is(#trust, #vertrauen) .eyebrow { color: #B41917; font-weight: 800; font-style: normal; font-size: 30px; line-height: var(--lh-tight); }
+:is(#trust, #vertrauen) .section-header__title { color: #000000; }
+:is(#trust, #vertrauen) .section-header__text { color: #000000; }
+:is(#trust, #vertrauen) .split__media { margin: 0; }
+:is(#trust, #vertrauen) .split__media .media { display: block; width: 100%; height: auto; border-radius: 0; }
+@media (max-width: 767.98px) { :is(#trust, #vertrauen) .eyebrow { font-size: 28px; } }
+
+/* Ankernavigation: Häkchen-Icon schwarz im Kreis mit 2-px-Outline (wie die Nummern bei „How we work“);
+   bei Hover/aktiv weiss (Farbe über currentColor) */
+body.page-vorteile .anchor-nav .card--anchor .card__icon {
+  box-sizing: border-box; width: 2rem; height: 2rem; padding: .4rem;
+  border: 2px solid currentColor; border-radius: 50%; color: #000000; stroke-width: 2.4;
+}
+body.page-vorteile .anchor-nav .card--anchor:hover .card__icon,
+body.page-vorteile .anchor-nav .card--anchor:focus-within .card__icon,
+body.page-vorteile .anchor-nav .card--anchor.is-active .card__icon { color: #FFFFFF; }

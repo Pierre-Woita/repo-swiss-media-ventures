@@ -1,0 +1,189 @@
+/* Swiss Media Ventures – Seite „Contact“ / „Kontakt“: Panel-Design wie „How we work“ / „Benefits“
+   (Reihenfolge: styles.css, smv.css, arbeitsweise.css, how-smv.css, contact-smv.css) */
+
+/* Seitenhintergrund weiss */
+body.page-kontakt, body.page-kontakt main { background: #FFFFFF; }
+
+/* Panel auf Rasterbreite (Spalte 1 bis Ende Spalte 12), Abstand zum Header und Footer */
+.contact-hero { padding-inline: var(--gutter); padding-top: 2rem; padding-bottom: 4.8rem; }
+@media (min-width: 768px) { .contact-hero { padding-top: 3rem; padding-bottom: 7.2rem; } }
+
+/* Label, Headline, Copytext im Panel (weiss auf Rot-Schwarz-Verlauf); Panel selbst kommt aus how-smv.css */
+.contact-hero .pstep__text { gap: 1.1rem; }
+.contact-hero .eyebrow { margin: 0; color: #FFFFFF; font-size: 18px; font-weight: 800; font-style: normal; line-height: var(--lh-tight); }
+.contact-hero .section-header__title {
+  margin: 0; color: #FFFFFF; font-size: 28px; font-weight: 800; font-style: normal; line-height: var(--lh-tight);
+}
+@media (min-width: 768px)  { .contact-hero .section-header__title { font-size: 32px; } }
+@media (min-width: 1024px) { .contact-hero .section-header__title { font-size: 38px; } .contact-hero .eyebrow { font-size: 22px; } }
+.contact-hero .section-header__text { margin: 0; max-width: 40rem; color: rgba(255, 255, 255, .96); font-size: 14px; line-height: var(--lh-body); }
+@media (min-width: 1024px) { .contact-hero .section-header__text { font-size: 18px; } }
+
+/* Button wie der Hero-Button der Startseite */
+.contact-hero .btn {
+  margin-top: .6rem; border-radius: 0; background-color: #B41917; border: 1px solid #FFFFFF; color: #FFFFFF;
+  box-shadow: 0 1.2rem 2.8rem rgba(0, 0, 0, .55);
+  transition: background-color .35s var(--ease), transform .35s var(--ease), box-shadow .35s var(--ease);
+}
+.contact-hero .btn:hover { background-color: #5C0D0C; transform: translate(4px, -6px); box-shadow: 0 1.6rem 3.2rem rgba(0, 0, 0, .6); }
+.contact-hero .btn:hover .btn__icon { transform: none; }
+.contact-hero .btn:focus-visible { border-radius: 0; }
+@media (prefers-reduced-motion: reduce) { .contact-hero .btn:hover { transform: none; } }
+
+/* Section weiss statt dunklem Seitenverlauf; Panel auf Rasterbreite */
+main > section.container.contact-hero:not([aria-labelledby="hero-title"]) {
+  background: #FFFFFF; padding-inline: var(--gutter); padding-top: 2rem; padding-bottom: 4.8rem;
+}
+@media (min-width: 768px) { main > section.container.contact-hero:not([aria-labelledby="hero-title"]) { padding-top: 3rem; padding-bottom: 7.2rem; } }
+
+/* ---------- Dialog (Fragenfolge): Rot-Schwarz-Verlauf, eckig ---------- */
+.dialog { background: linear-gradient(to bottom right, #B41917 0%, #000000 100%); border-radius: 0; }
+@media (min-width: 768px) { .dialog { border-radius: 0; } }
+.dialog__progress, .dialog__progress span { border-radius: 0; }
+.dialog__progress span { background: #FFFFFF; }
+.dialog__close, .dialog__back { border-radius: 4px; }
+.dialog__btn, .dialog__field input, .dialog__tooltip, .dialog__btn.dialog__edit { border-radius: 0; }
+.dialog__btn.dialog__edit { border-radius: 50%; }
+
+/* ==========================================================================
+   Kontaktformular im Panel (Felder mit 4 px Radius)
+   ========================================================================== */
+.contact-hero .pstep__text { align-content: start; }
+.cform { display: grid; gap: 1rem; margin-top: .6rem; width: 100%; color: #FFFFFF; font-size: 14px; }
+@media (min-width: 1024px) { .cform { font-size: 16px; } }
+.cform__grid { display: grid; gap: .9rem; }
+@media (min-width: 768px) { .cform__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .cform__field--wide, .cform__choice--wide { grid-column: 1 / -1; } }
+.cform__field { display: grid; gap: .3rem; align-content: start; font-weight: 600; }
+.cform__hint { font-style: normal; font-weight: 400; opacity: .8; }
+.cform input[type="text"], .cform input[type="email"], .cform input[type="tel"], .cform select, .cform textarea {
+  width: 100%; padding: .7rem .85rem; font: inherit; font-weight: 400; color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, .55); border-radius: 4px; background: rgba(255, 255, 255, .12);
+}
+.cform textarea { resize: vertical; min-height: 7rem; }
+.cform input::placeholder, .cform textarea::placeholder { color: rgba(255, 255, 255, .6); }
+.cform input:focus, .cform select:focus, .cform textarea:focus { outline: none; border-color: #FFFFFF; background: rgba(255, 255, 255, .22); box-shadow: 0 0 0 2px rgba(255, 255, 255, .35); }
+.cform select { appearance: none; -webkit-appearance: none; padding-right: 2.4rem; cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right .8rem center; background-size: 1.1rem; }
+.cform select option { color: #000000; background: #FFFFFF; }
+.cform input:-webkit-autofill { -webkit-text-fill-color: #FFFFFF; transition: background-color 5000s ease-in-out 0s; }
+
+/* Radiogruppen */
+.cform__choice { display: flex; flex-wrap: wrap; gap: .5rem 1.4rem; margin: 0; padding: 0; border: 0; min-width: 0; }
+.cform__choice legend { width: 100%; padding: 0; margin-bottom: .35rem; font-weight: 600; }
+.cform__choice label { display: inline-flex; align-items: center; gap: .5rem; cursor: pointer; }
+.cform__choice input, .cform__check input { accent-color: #FFFFFF; width: 1.1rem; height: 1.1rem; margin: 0; flex: none; }
+
+/* Einwilligung, Hinweis, Fehler */
+.cform__check { display: flex; flex-wrap: wrap; align-items: flex-start; gap: .65rem; line-height: 1.4; cursor: pointer; }
+.cform__check a { color: #FFFFFF; text-decoration: underline; text-underline-offset: .15em; }
+.cform__note { margin: 0; font-size: .85em; opacity: .85; }
+.cform__error { color: #FFD166; font-size: .85em; line-height: 1.3; font-weight: 600; }
+.cform__error[hidden], .cform__status[hidden], .cform__thanks[hidden], .cform[hidden] { display: none; }
+.cform__check .cform__error { flex-basis: 100%; padding-left: 1.75rem; }
+.is-invalid input, .is-invalid select, .is-invalid textarea { border-color: #FFD166; box-shadow: 0 0 0 1px #FFD166; }
+.cform__check.is-invalid input { outline: 2px solid #FFD166; outline-offset: 2px; }
+.cform__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.4rem; }
+.cform__actions .btn { margin-top: 0; }
+.cform__status { margin: 0; color: #FFD166; font-weight: 600; }
+
+/* Honeypot: für Menschen unsichtbar */
+.cform__hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+/* Danke-Meldung */
+.cform__thanks { padding: 1.2rem 0; color: #FFFFFF; font-size: 14px; line-height: var(--lh-body); }
+@media (min-width: 1024px) { .cform__thanks { font-size: 18px; } }
+.cform__thanks:focus { outline: none; }
+.cform__thanks-title { margin: 0 0 .6rem; font-size: 24px; font-weight: 800; line-height: var(--lh-tight); color: #FFFFFF; }
+.cform__thanks p { margin: 0; }
+
+.cform .btn:disabled { opacity: .6; cursor: progress; transform: none; }
+
+/* ==========================================================================
+   Kontakt (DE/EN): zwei Sections – 1. Text links + Bild rechts, 2. Formular auf grauem Hintergrund
+   ========================================================================== */
+
+/* --- Section 1: Text (Gestaltung wie Section „Kontakt“ auf „Vorteile“, linksbündig) und Bild --- */
+.contact-intro__row { align-items: center; row-gap: 1.6rem; }
+.contact-intro__text { text-align: left; }
+.contact-intro .eyebrow, .contact-intro .section-header__title, .contact-intro .section-header__text { text-align: left; }
+.contact-intro .section-header__text { margin-top: .9rem; }
+.contact-intro__media { margin: 0; }
+.contact-intro__media img { display: block; width: 100%; height: auto; border-radius: 0; box-shadow: 0 .8rem 2rem rgba(20, 24, 40, .22); }
+@media (min-width: 768px) {
+  body.page-kontakt #main .contact-intro .section-header__title { font-size: 24px; }
+  .contact-intro__row { column-gap: 0; }
+  .contact-intro__text { padding-right: 2rem; }
+}
+@media (max-width: 767.98px) {
+  body.page-kontakt #main .contact-intro .section-header__title { font-size: 22px; }
+  body.page-kontakt #main .contact-intro .section-header__text { font-size: 18px; }
+}
+
+/* --- Section 2: Formular auf grauem Hintergrund #E9E6DF (volle Breite), Abstand zur ersten Section --- */
+body.page-kontakt main > section.contact-form-section { margin-top: 2rem; margin-bottom: 2rem; padding-block: 40px; background: #E9E6DF; }
+@media (min-width: 768px) { body.page-kontakt main > section.contact-form-section { margin-top: 3.6rem; margin-bottom: 3.6rem; } }
+.contact-form-section__inner { padding-inline: var(--gutter); }
+.contact-form-section__privacy { margin: 0 0 1.2rem; max-width: 48rem; color: #000000; font-size: var(--fs-body); line-height: var(--lh-body); }
+
+/* Formularfarben für hellen (grauen) Grund */
+.contact-form-section .cform { color: #000000; }
+.contact-form-section .cform input[type="text"], .contact-form-section .cform input[type="email"],
+.contact-form-section .cform input[type="tel"], .contact-form-section .cform select, .contact-form-section .cform textarea {
+  color: #000000; border: 1px solid #B7B5B3; background-color: #FFFFFF;
+}
+.contact-form-section .cform input::placeholder, .contact-form-section .cform textarea::placeholder { color: rgba(0, 0, 0, .5); }
+.contact-form-section .cform input:focus, .contact-form-section .cform select:focus, .contact-form-section .cform textarea:focus {
+  border-color: #B41917; background-color: #FFFFFF; box-shadow: 0 0 0 2px rgba(180, 25, 23, .25);
+}
+.contact-form-section .cform select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000000' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+}
+.contact-form-section .cform input:-webkit-autofill { -webkit-text-fill-color: #000000; }
+.contact-form-section .cform__choice input, .contact-form-section .cform__check input { accent-color: #B41917; }
+.contact-form-section .cform__check a { color: #B41917; }
+.contact-form-section .cform__error, .contact-form-section .cform__status { color: #B41917; }
+.contact-form-section .is-invalid input, .contact-form-section .is-invalid select, .contact-form-section .is-invalid textarea { border-color: #B41917; box-shadow: 0 0 0 1px #B41917; }
+.contact-form-section .cform__check.is-invalid input { outline-color: #B41917; }
+.contact-form-section .cform__thanks, .contact-form-section .cform__thanks-title { color: #000000; }
+
+/* --- Überarbeitung: kleineres Bild (wie „We operate“ auf „Vorteile“: 40 % der Breite), Headline im Formular, halber Abstand zwischen den Sections --- */
+@media (min-width: 768px) {
+  .contact-intro__row { margin-inline: 0; }
+  .contact-intro__row > * { padding-inline: 0; }
+  .contact-intro__text { flex: 1 1 0; width: auto; max-width: none; padding-right: 2rem; }
+  .contact-intro__media { flex: 0 0 40%; width: 40%; max-width: 40%; }
+  body.page-kontakt main > section.contact-intro { padding-bottom: 40px; }          /* vorher ca. 81 px */
+  body.page-kontakt main > section.contact-form-section { margin-top: 1.6rem; }    /* vorher 3,6 rem */
+}
+.contact-form-section__title { margin: 0 0 .6rem; color: #000000; font-size: 22px; font-weight: 800; font-style: normal; line-height: var(--lh-tight); }
+@media (min-width: 768px) { .contact-form-section__title { font-size: 24px; } }
+@media (max-width: 767.98px) {
+  body.page-kontakt main > section.contact-intro { padding-bottom: 28px; }          /* vorher 56 px */
+  body.page-kontakt main > section.contact-form-section { margin-top: 1rem; }       /* vorher 2 rem */
+}
+
+/* Kontakt (DE/EN), Section 1: Abstände wie auf den anderen Seiten (Label → Headline → Text), Headline mit größerem Zeilenabstand */
+.contact-intro .eyebrow { margin-bottom: 10px; }
+.contact-intro .section-header__text { margin-top: 19px; }
+body.page-kontakt #main .contact-intro .section-header__title { line-height: 1.3; }
+
+/* Formular: Text nach der Headline gleich groß wie der Copy-Text im oberen Bereich (< 768 px: 18 px; ab 768 px gilt dieselbe Schriftgröße wie oben) */
+@media (max-width: 767.98px) { .contact-form-section__privacy { font-size: 18px; } }
+
+/* Dropdown „Betreff“: Pfeil nicht mehr als Hintergrundbild des <select> (Chrome übernimmt es in der geöffneten Liste für jede Option
+   und zeigt dadurch viele Pfeile), sondern als eigenes Element über dem Feld */
+.cform select, .contact-form-section .cform select { background-image: none; grid-row: 2; grid-column: 1; }
+.cform select option { background-image: none; }
+.cform__field--select::after {
+  content: ""; grid-row: 2; grid-column: 1; justify-self: end; align-self: center; margin-right: .8rem; width: 1.1rem; height: 1.1rem; pointer-events: none;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+.contact-form-section .cform__field--select::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000000' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+}
+.cform__field--select .cform__error { grid-row: 3; }
+
+/* Formular: Hinweis „Pflichtfeld“ steht oben (nach dem Einleitungstext, vor dem ersten Feld), Schrift wie der Einleitungstext */
+.cform__note { margin: 0 0 1.2rem; font-size: var(--fs-body); line-height: var(--lh-body); opacity: 1; color: #000000; }
+@media (max-width: 767.98px) { .cform__note { font-size: 18px; } }

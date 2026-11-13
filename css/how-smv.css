@@ -1,0 +1,79 @@
+/* Swiss Media Ventures – Seite „How we work“ / „Arbeitsweise“: überträgt das Design von „Services“
+   (Reihenfolge: styles.css, smv.css, arbeitsweise.css, services-smv.css, how-smv.css) */
+
+:root { --band-deep: linear-gradient(135deg, #B41917 0%, #8A1210 100%); }   /* Hover der Ankerkacheln */
+
+/* Header scrollt mit (nicht sticky) – Ankernavigation klebt am oberen Rand */
+.anchor-nav { top: 0; }
+.pstep { scroll-margin-top: calc(var(--anchor-h) - 1rem); }
+
+/* Schritte auf Rasterbreite (Spalte 1 bis Ende Spalte 12) */
+.aw-steps.container--hero { padding-inline: var(--gutter); }
+
+/* ---------- Prozessschritte: Panel wie bei „Services“ (eckig, Verlauf Rot → Schwarz) ---------- */
+.pstep { border-radius: 0; background: linear-gradient(to bottom right, #B41917 0%, #000000 100%); }
+@media (min-width: 768px) {
+  .pstep { background: none; }
+  .pstep::before { border-radius: 0; background: linear-gradient(to bottom right, #B41917 0%, #000000 100%); }
+}
+/* Bilder ohne Rundung */
+.pstep__media, .pstep__media img, .pstep__media picture { border-radius: 0; }
+
+/* Headline: Open Sans ExtraBold 800, nicht kursiv; Mobil 28 / Tablet 32 / Desktop 38 px */
+.pstep .aw-title { font-size: 28px; font-weight: 800; font-style: normal; line-height: var(--lh-tight); color: #FFFFFF; }
+@media (min-width: 768px)  { .pstep .aw-title { font-size: 32px; } }
+@media (min-width: 1024px) { .pstep .aw-title { font-size: 38px; } }
+/* Subline und Copytext: Mobil/Tablet 14 px, Desktop 18 px */
+.pstep .aw-sub { font-size: 16px; font-weight: 700; line-height: var(--lh-snug); color: #FFFFFF; }
+.pstep .aw-text, .aw-list li { font-size: 14px; line-height: var(--lh-body); }
+@media (min-width: 1024px) { .pstep .aw-sub { font-size: 20px; } .pstep .aw-text, .aw-list li { font-size: 18px; } }
+
+/* Nummern-Badge: weisse 2-px-Outline, transparent (wie das Icon-Badge bei „Services“) */
+.aw-badge { background: transparent; color: #FFFFFF; border: 2px solid #FFFFFF; font-weight: 700; }
+
+/* Liste: ohne Rahmung, Divider #fff 50 % zwischen den Zeilen; Haken weiss (2 px) in Kreis mit 1 px Outline */
+.aw-list { gap: 0; }
+.aw-list li {
+  padding: .9rem 0; border: 0; border-radius: 0; background: none; font-weight: 600;
+  -webkit-backdrop-filter: none; backdrop-filter: none; border-top: 1px solid rgba(255, 255, 255, .5);
+}
+.aw-list li:first-child { border-top: 0; padding-top: 0; }
+.aw-list li:last-child { padding-bottom: 0; }
+.aw-list li::before {
+  box-sizing: border-box; width: 2.2rem; height: 2.2rem; border: 1px solid #FFFFFF; border-radius: 50%;
+  background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / 20px 20px no-repeat;
+}
+
+
+/* Seitenhintergrund weiss */
+body.page-arbeitsweise, body.page-arbeitsweise main { background: #FFFFFF; }
+
+
+/* ---------- Panels: Subline so gross wie die Headline, ExtraBold 800 italic ---------- */
+.pstep .aw-sub { font-size: 28px; font-weight: 800; font-style: italic; line-height: var(--lh-tight); }
+@media (min-width: 768px)  { .pstep .aw-sub { font-size: 32px; } }
+@media (min-width: 1024px) { .pstep .aw-sub { font-size: 38px; } }
+
+/* ---------- Ankernavigation: Kacheln 20 % höher (4,86 → 5,83 rem), Nummer als Icon: schwarze Zahl im Kreis mit Outline ---------- */
+.card--anchor { min-height: 5.83rem !important; }
+.anchor-nav .card--anchor .card__link .card__title:first-child {
+  display: grid; place-items: center; flex: none; box-sizing: border-box; width: 2rem; height: 2rem;
+  border: 2px solid #000000; border-radius: 50%;
+  color: #000000; font-size: 1rem; font-weight: 700; font-style: normal; line-height: 1;
+}
+.anchor-nav .card--anchor:hover .card__link .card__title:first-child,
+.anchor-nav .card--anchor:focus-within .card__link .card__title:first-child,
+.anchor-nav .card--anchor.is-active .card__link .card__title:first-child { color: #FFFFFF; border-color: #FFFFFF; }
+
+/* ---------- Zusammenarbeit: Aufbau, Styles und responsives Verhalten wie „Vertrauen“ auf der Vorteile-Seite
+   (weisse Section ohne Hintergrundfarbe, Text links, Bild rechts ohne Rundung, Standard-Textformat) ---------- */
+main > section:is(#collaboration, #zusammenarbeit) { background: #FFFFFF; }
+:is(#collaboration, #zusammenarbeit) .split { align-items: center; row-gap: 2rem; }
+:is(#collaboration, #zusammenarbeit) .eyebrow { color: #B41917; font-weight: 800; font-style: normal; font-size: 30px; line-height: var(--lh-tight); }
+:is(#collaboration, #zusammenarbeit) .section-header__title { color: #000000; }
+:is(#collaboration, #zusammenarbeit) .section-header__text { color: #000000; }
+:is(#collaboration, #zusammenarbeit) .split__text .section-header__text { font-size: var(--fs-body); }   /* Standard-Textgrösse wie die übrigen Texte */
+:is(#collaboration, #zusammenarbeit) .split__media { margin: 0; }
+:is(#collaboration, #zusammenarbeit) .split__media .media { display: block; width: 100%; height: auto; border-radius: 0; }
+@media (max-width: 767.98px) { :is(#collaboration, #zusammenarbeit) .eyebrow { font-size: 28px; } }
+@media (min-width: 768px) { main #collaboration .split, main #zusammenarbeit .split { flex-direction: row; } }

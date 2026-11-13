@@ -1,0 +1,1644 @@
+/* Swiss Media Ventures – gemeinsames Seiten-Styling (aus index.html ausgelagert, 2026-11-04). Pfade relativ zu /css/ */
+    /* Open Sans, lokal gehostet (OFL-Lizenz: assets/fonts/OFL.txt) – variable Schrift: Breite 75–100 %, Stärke 300–800 */
+    @font-face { font-family: "Open Sans"; font-style: normal; font-weight: 300 800; font-stretch: 75% 100%; font-display: swap;
+      src: url("../assets/fonts/OpenSans-VariableFont_wdth,wght.ttf") format("truetype"); }
+    @font-face { font-family: "Open Sans"; font-style: italic; font-weight: 300 800; font-stretch: 75% 100%; font-display: swap;
+      src: url("../assets/fonts/OpenSans-Italic-VariableFont_wdth,wght.ttf") format("truetype"); }
+    :root {
+      --font-sans: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      --section-gradient: linear-gradient(to bottom right, #4E302F 0%, #000000 100%);   /* je Section: links oben → rechts unten */
+      --color-bg: #000000;
+      --color-text-base: #B7B5B3;   /* Grundschrift: Warmes Grau */
+      --color-headline: #FFFFFF;    /* Headlines: Weiss */
+      --color-label: #B6AB95;       /* Labels/Eyebrows: Sandstein */
+      --color-link: #91B5CD;        /* Links im Inhalt: Himmelblau */
+      --color-link-hover: #C4D7E4;
+      --color-tile: #B41917;        /* Kacheln „Our services“: Rot */
+      /* Buttons & Akzent: Rot (wirkt auch auf aktive Navigation und Slider-Pfeile) */
+      --color-accent: #B41917;
+      --color-accent-hover: #8F1412;
+      --color-accent-on-light: #B41917;
+      --color-on-accent: #FFFFFF;
+      --shadow-btn: 0 .5rem 1.4rem rgba(180, 25, 23, .35);
+      --fw-regular: 400;            /* Grundschrift: Regular */
+      --fs-body: calc(1.05rem - 4px);        /* Grundschrift 4 px kleiner */
+      --fs-card-text: calc(1rem - 4px);
+      --tile-gradient: linear-gradient(to bottom right, #B41917 0%, #8A1210 100%);   /* Kacheln: Rot → dunkleres Rot */
+      --tile-gradient-90: linear-gradient(to bottom right, rgba(180, 25, 23, .9) 0%, rgba(138, 18, 16, .9) 100%);   /* wie Kacheln, 10 % transparent */
+      --fs-headline: 48px;          /* alle H1 und H2 */
+      --radius-media: 0;            /* alle Bilder ohne runde Ecken */
+      --radius-btn: 2px;            /* alle Buttons */
+      scroll-padding-top: 1rem;     /* Header scrollt mit, daher kein Versatz mehr nötig */
+      --fw-headline: 800;           /* Headlines: ExtraBold */
+      --band-pad: 3.5rem;           /* Innenabstand oben/unten je Section */
+      /* Logo Swiss Media Ventures (Seitenverhältnis 2,75 : 1) – Breite so gewählt, dass es in den Header passt */
+      --brand-w-header: 7.5rem;
+      --brand-w-footer: 11rem;
+    }
+    @media (min-width: 1024px) {
+      :root { --brand-w-header: 8.5rem; --brand-w-footer: 13rem; --band-pad: 5.8rem;
+              --fs-body: calc(1.2rem - 4px); --fs-card-text: calc(1.06rem - 4px); }
+    }
+
+    main { background: #000000; color: var(--color-text-base); }
+
+    /* Navigationsheader: weiss, Links schwarz, aktiv/hover rot unterstrichen */
+    .site-header { position: relative; background: #FFFFFF; color: #000; -webkit-backdrop-filter: none; backdrop-filter: none; }   /* nicht mehr sticky */
+    .site-header__menu { background: #FFFFFF; }
+    .site-nav__link, .lang__current { color: #000; }
+    .site-nav__link:hover, .site-nav__link[aria-current="page"], .lang__current:hover {
+      color: var(--color-accent); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: .35em;
+    }
+    @media (min-width: 1024px) {
+      /* Desktop: statt der bisherigen Balken-Linie dieselbe Unterstreichung */
+      .site-nav__link, .site-nav__link:hover, .site-nav__link[aria-current="page"] { border-bottom-color: transparent; }
+    }
+
+    /* Footer: weiss, Schrift und Links schwarz */
+    .site-footer { background: #FFFFFF; color: #000; padding-top: 2.5rem; }
+    .site-footer__copy, .footer-links, .footer-links a { color: #000; }
+    .footer-links a:hover { color: var(--color-accent); }
+    .site-footer__legal { border-left-color: #000 !important; }
+
+    /* Helle Dialoge behalten dunkle Schrift */
+    .dialog--light { color: var(--color-text); }
+
+    /* H1 und H2: einheitlich 48 px */
+    .hero__title, .section-header__title, .section-header__title--xl, .section-header__title--lg,
+    .section--cta .section-header__title { font-size: var(--fs-headline); }
+
+    /* Headlines: ExtraBold 800 Italic, Weiss */
+    .hero__title, .section-header__title, .card__title { font-weight: var(--fw-headline); font-style: italic; color: var(--color-headline); }
+
+    /* Labels */
+    .eyebrow, .hero__eyebrow { color: var(--color-label); }
+
+
+    /* Headerbild über die volle Breite, ohne Rand und runde Ecken */
+    section[aria-labelledby="hero-title"] { max-width: none; padding: 0; }
+    section[aria-labelledby="hero-title"] .hero { border-radius: 0; }
+
+    /* Jede Section: diagonaler Verlauf über die volle Browserbreite, Inhalt bleibt in der Container-Breite */
+    main > section:not([aria-labelledby="hero-title"]) {
+      background: var(--section-gradient);
+      padding-top: var(--band-pad); padding-bottom: var(--band-pad); margin-top: 0;
+    }
+    main > section.container:not([aria-labelledby="hero-title"]) {
+      max-width: none;
+      padding-inline: max(var(--gutter), calc((100% - var(--container-max)) / 2 + var(--gutter)));
+    }
+    /* Kachel-Section: Kacheln beginnen am oberen Rand und laufen über die volle Browserbreite;
+       nur die Steuerung (Button + Pfeile) bleibt in der Container-Breite */
+    main > section.container.section--services-tiles:not([aria-labelledby="hero-title"]) { padding-top: 0; padding-inline: 0; }
+    .section--services-tiles .carousel { margin-top: 0; }
+    .section--services-tiles .carousel__viewport { margin-top: 0; padding-top: 0; }
+    .section--services-tiles .card:hover { transform: none; }
+    .section--services-tiles .carousel__track { padding-inline-end: 0; }
+    .section--services-tiles .carousel__controls { padding-inline: max(var(--gutter), calc((100% - var(--container-max)) / 2 + var(--gutter))); }
+
+    /* Kontakt-Panel: kein heller Verlauf mehr, damit weisse Headline und helle Schrift lesbar bleiben */
+    .cta-panel { background: none; border-radius: 0; padding-block: 0; }
+
+    /* Our services – Textbereich: weisser Hintergrund, Label/Headline rot, Copy schwarz */
+    main > section:is(#services, #leistungen, #about, #ueberuns) { background: #FFFFFF; padding-top: calc(var(--band-pad) / 2); padding-bottom: calc(var(--band-pad) / 2); }   /* Abstand oben/unten halbiert */
+    :is(#services, #leistungen, #about, #ueberuns) .eyebrow { color: #B41917; font-weight: 800; font-style: italic; }
+    :is(#services, #leistungen, #about, #ueberuns) .section-header__title { color: #B41917; }
+    :is(#services, #leistungen, #about, #ueberuns) .section-header__text { color: #000000; }
+
+    /* Our services – Kacheln: roter Verlauf wie die Hero-Textbox, Pfeil statt Textlink, Steuerung mittig auf Weiss */
+    .section--services-tiles .card--service { background: var(--tile-gradient) !important; }
+    .section--services-tiles .card__title { font-size: calc(var(--fs-card-title) - 8px); }   /* 8 px kleiner */
+    main > section.section--services-tiles { background: #FFFFFF; }
+    .card__more-link { display: inline-flex; text-decoration: none; }
+    .card__more-icon { width: 1.6rem; height: 1.6rem; stroke-width: 1.8; transition: transform var(--dur) var(--ease); }
+    .card--linked:hover .card__more-icon { transform: translateX(.3rem); }
+    .section--services-tiles .carousel__controls { justify-content: center; }
+    .section--services-tiles .carousel__nav { margin-left: 0; }
+
+    /* ---------- Gemeinsamer Button-Stil wie in der Hero-Section (eckig, 1 px weisse Outline, grosser Schatten,
+       Hover: dunkles Rot, 6 px hoch / 4 px rechts, Pfeil bleibt stehen) ---------- */
+    .btn--hero,
+    .section--services-tiles .icon-btn--primary:not(:disabled) {
+      border-radius: 0; background-color: #B41917; border: 1px solid #FFFFFF; color: #FFFFFF;
+      box-shadow: 0 1.2rem 2.8rem rgba(0, 0, 0, .55);
+      transition: background-color .35s var(--ease), transform .35s var(--ease), box-shadow .35s var(--ease);
+    }
+    .btn--hero:hover,
+    .section--services-tiles .icon-btn--primary:not(:disabled):hover {
+      background-color: #5C0D0C; transform: translate(4px, -6px); box-shadow: 0 1.6rem 3.2rem rgba(0, 0, 0, .6);
+    }
+    .btn--hero:hover .btn__icon { transform: none; }
+    /* Slider-Navigation als Secondary Buttons: 1 px Outline, keine Füllung.
+       Aktiv: Outline + Icon rot; inaktiv: Outline in der Icon-Farbe. Hover: rote Füllung, weisses Icon, 8 px Schatten */
+    .section--services-tiles .icon-btn,
+    .section--services-tiles .icon-btn:disabled { background: transparent; box-shadow: none; opacity: 1; }
+    .section--services-tiles .icon-btn:disabled { color: var(--color-control-fg); border: 1px solid var(--color-control-fg); }
+    .section--services-tiles .icon-btn--primary:not(:disabled) { background-color: transparent; color: #B41917; border: 1px solid #B41917; box-shadow: none; }
+    .section--services-tiles .icon-btn--primary:not(:disabled):hover { background-color: #B41917; color: #FFFFFF; box-shadow: 0 0 8px rgba(0, 0, 0, .5); }
+    .btn--hero:focus-visible, .section--services-tiles .icon-btn:focus-visible { border-radius: 0; }
+    .section--services-tiles .icon-btn { border-radius: 0; }
+    @media (prefers-reduced-motion: reduce) {
+      .btn--hero:hover, .section--services-tiles .icon-btn--primary:not(:disabled):hover { transform: none; }
+    }
+
+    /* Our services – Textbereich & How we work – Textbereich: gleiche Typografie */
+    :is(#services, #leistungen, #about, #ueberuns) .section-header__title, :is(#how-we-work, #arbeitsweise) .section-header__title { color: #000000; }
+    :is(#how-we-work, #arbeitsweise) .eyebrow { color: #B41917; font-weight: 800; font-style: italic; }
+    :is(#how-we-work, #arbeitsweise) .section-header__text { color: #000000; }
+
+    /* Our services – Kacheln: Abstand nach der Slider-Navigation halbiert */
+    main > section.container.section--services-tiles:not([aria-labelledby="hero-title"]) { padding-bottom: calc(var(--band-pad) / 2); }
+    /* Platz für die vergrösserte Kachel oben (Viewport schneidet sonst ab); Kacheln bleiben optisch an der Oberkante */
+    .section--services-tiles .carousel__viewport { padding-top: 8px; margin-top: -8px; }
+    /* Hover: Pfeil bleibt, Kachel wächst an jeder Seite um 8 px über die Nachbarn, mit grossem Schatten */
+    .section--services-tiles .card--service { position: relative; isolation: isolate; }
+    .section--services-tiles .card--service::before {
+      content: ""; position: absolute; inset: 0; z-index: -1;
+      background: var(--tile-gradient);
+      /* 1) dunkles Rot als Überlagerung (animierbar), 2)+3) Schatten nur nach links/rechts */
+      box-shadow: inset 0 0 0 100vmax rgba(92, 13, 12, 0), -1.4rem 0 1.8rem -.6rem rgba(0, 0, 0, 0), 1.4rem 0 1.8rem -.6rem rgba(0, 0, 0, 0);
+      clip-path: inset(0 -4rem);   /* Schatten oben/unten abschneiden – nur über den Nachbarkacheln sichtbar */
+      transition: inset .35s var(--ease), box-shadow .35s var(--ease);
+    }
+    .section--services-tiles .card--service:hover { z-index: 3; box-shadow: none; }
+    .section--services-tiles .card--service:hover::before {
+      inset: -8px;
+      box-shadow: inset 0 0 0 100vmax rgba(92, 13, 12, .85), -1.4rem 0 1.8rem -.6rem rgba(0, 0, 0, .6), 1.4rem 0 1.8rem -.6rem rgba(0, 0, 0, .6);
+    }
+    .card--linked:hover .card__more-icon { transform: none; }
+    @media (prefers-reduced-motion: reduce) { .section--services-tiles .card--service::before { transition: none; } }
+
+    /* ---------- How we work: weisser Grund (schwarze Typografie), vier feste Kacheln ---------- */
+    main > section:is(#how-we-work, #arbeitsweise) { background: #FFFFFF; padding-top: calc(var(--band-pad) / 2); }   /* Abstand oben halbiert */
+    :is(#how-we-work, #arbeitsweise) .section-header__title { text-wrap: wrap; }   /* natürlicher Textfluss statt ausgeglichener Umbrüche */
+    .steps {
+      list-style: none; margin: calc(var(--fs-body) * var(--lh-body) * 1.5) 0 0; padding: 0;
+      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2px;   /* < 768 px: 2 × 2 */
+    }
+    @media (min-width: 768px) { .steps { grid-template-columns: repeat(4, minmax(0, 1fr)); } }   /* ab 768 px: je 1/4 */
+    .step { position: relative; display: flex; flex-direction: column; container-type: inline-size; background: #000; }
+    .step__media { position: relative; margin: 0; }
+    /* Bildhöhe um 1/4 erweitert: < 768 px 1:1 → 4:5, ab 768 px 4:3 → 16:15 */
+    .step__img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; }
+    @media (min-width: 768px) { .step__img { aspect-ratio: 16 / 15; } }
+    /* Bild läuft nach unten weich ins Schwarz der Textbox aus */
+    .step__media::after {
+      content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 45%; pointer-events: none;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .55) 55%, #000 100%);
+    }
+    /* Textbox schwarz, (mindestens) halb so hoch wie das Bild */
+    .step__text {
+      flex: 1; display: flex; flex-direction: column; gap: .4rem;
+      min-height: 62.5cqw; padding: 1rem;   /* halbe Bildhöhe */
+      background: #000; color: var(--color-text-base);
+    }
+    @media (min-width: 768px) { .step__text { min-height: 46.875cqw; } }
+    .step__title { margin: 0; font-size: 1.3rem; font-weight: var(--fw-headline); font-style: italic; line-height: 1.1; color: #FFFFFF; }
+    .step__sub { margin: 0; font-weight: 700; color: #FFFFFF; font-size: var(--fs-card-text); line-height: var(--lh-snug); }
+    .step__desc { margin: 0; font-size: var(--fs-card-text); line-height: 1.4; }
+    .step__more { margin: auto 0 0; padding-top: .4rem; }
+    /* Pfeil-Icon statt Textlink (wie „Our services“); ganze Kachel klickbar */
+    .step__link { display: inline-flex; color: #FFFFFF; }
+    .step__link::after { content: ""; position: absolute; inset: 0; }
+    .step__link:focus-visible { box-shadow: none; }
+    .step__link:focus-visible::after { box-shadow: var(--focus-ring); }
+    .steps__cta { display: flex; justify-content: center; margin-top: 2.2rem; }
+
+    /* Our services: Kacheln, weisse Schrift, 2 px Abstand, keine runden Ecken */
+    .section--services .carousel__track { gap: 2px; }
+    .section--services .card--service { background: var(--tile-gradient); border-radius: 0; color: #FFFFFF; }
+    .section--services .card__icon,
+    .section--services .card__title,
+    .section--services .card__text,
+    .section--services .card__more-link,
+    .section--services .card--linked:hover .card__more-link { color: #FFFFFF; }
+
+    /* ---------- Alle Buttons: Ecken 2 px, Open Sans Bold 700 Italic, Weiss ---------- */
+    .btn, .btn:focus-visible { border-radius: var(--radius-btn); }
+    .btn, .btn--primary, .btn--secondary { font-weight: 700; font-style: italic; color: #FFFFFF; }
+    .icon-btn, .icon-btn:focus-visible { border-radius: var(--radius-btn); }
+
+    /* ---------- Alle Bilder: keine runden Ecken ---------- */
+    img, .media { border-radius: 0; }
+
+    /* ---------- Hero: Bild + Textbox ---------- */
+    section[aria-labelledby="hero-title"] .hero::after { display: none; }
+    /* < 768 px: Bild läuft unten weich in die schwarze Textbox aus */
+    @media (max-width: 767.98px) {
+      section[aria-labelledby="hero-title"] picture { display: block; position: relative; }
+      section[aria-labelledby="hero-title"] picture::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 35%; pointer-events: none;
+        background: linear-gradient(180deg, rgba(0,0,0,0) 0%, #000 100%); }
+    }
+    section[aria-labelledby="hero-title"] .hero__content {
+      display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 1.2rem;
+      margin: 0; transform: none; border-radius: 0;
+      padding: 2.5rem 2rem 5rem;    /* Abstand nach dem Button verdoppelt (2,5 → 5 rem) */
+      background: #000000;
+      text-align: left; color: #FFFFFF;
+    }
+    /* Label: 3 px kleiner als H1, Open Sans Light 300 Italic, Weiss */
+    section[aria-labelledby="hero-title"] .hero__eyebrow {
+      color: #FFFFFF; font-size: calc(var(--fs-headline) - 3px); font-weight: 300; font-style: italic; line-height: var(--lh-tight);
+    }
+    section[aria-labelledby="hero-title"] .hero__title {
+      margin: 0; color: #FFFFFF;
+      font-size: var(--fs-headline); line-height: var(--lh-tight);
+    }
+    /* Hero-Button: eckig, 1 px weisse Outline */
+    section[aria-labelledby="hero-title"] .btn {
+      border-radius: 0; background-color: #B41917; border: 1px solid #FFFFFF; color: #FFFFFF;   /* rote Füllung */
+      box-shadow: 0 1.2rem 2.8rem rgba(0, 0, 0, .55);   /* grosser Schatten */
+      transition: background-color .35s var(--ease), transform .35s var(--ease), box-shadow .35s var(--ease);
+    }
+    /* Hover: deutlich dunkleres Rot, Button wandert 6 px nach oben und 4 px nach rechts, Pfeil bleibt stehen */
+    section[aria-labelledby="hero-title"] .btn:hover {
+      background-color: #5C0D0C;
+      transform: translate(4px, -6px);
+      box-shadow: 0 1.6rem 3.2rem rgba(0, 0, 0, .6);
+    }
+    section[aria-labelledby="hero-title"] .btn:hover .btn__icon { transform: none; }
+    section[aria-labelledby="hero-title"] .btn:active { transform: translate(4px, -6px) scale(.98); }
+    @media (prefers-reduced-motion: reduce) {
+      section[aria-labelledby="hero-title"] .btn { transition: background-color .35s var(--ease); }
+      section[aria-labelledby="hero-title"] .btn:hover, section[aria-labelledby="hero-title"] .btn:active { transform: none; }
+    }
+    section[aria-labelledby="hero-title"] .btn:focus-visible { border-radius: 0; }
+
+    /* < 768 px: zuerst das Bild, darunter die Textbox */
+    @media (max-width: 767.98px) {
+      section[aria-labelledby="hero-title"] .hero { display: block; aspect-ratio: auto; overflow: visible; background: none; }
+      /* Bildhöhe halbiert: 3:4 → 3:2; Ausschnitt oben, damit die beiden Personen und Monitore sichtbar bleiben */
+      section[aria-labelledby="hero-title"] .hero__img { position: static; display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; object-position: 50% 30%; }
+      section[aria-labelledby="hero-title"] .hero__content { position: static; padding: 2rem var(--gutter) 4rem; }   /* Abstand nach dem Button verdoppelt */
+    }
+    /* ab 768 px: Textbox liegt auf dem Bild, volle Bildhöhe, links bündig am Gestaltungsraster */
+    @media (min-width: 768px) {
+      section[aria-labelledby="hero-title"] .hero {
+        --hero-x: max(var(--gutter), calc((100% - var(--container-max)) / 2 + var(--gutter)));   /* linke Rasterkante */
+        --hero-w: calc(min(100%, var(--container-max)) - 2 * var(--gutter));                     /* Rasterbreite */
+        --box-cols: calc((var(--hero-w) + var(--grid-gutter)) / 2 - var(--grid-gutter));   /* 768–1023 px: 6 Spalten */
+        --col5-x: calc(var(--hero-x) + (var(--hero-w) + var(--grid-gutter)) * 4 / 12);            /* Beginn Spalte 5 */
+        --fade-w: calc((var(--hero-w) + var(--grid-gutter)) * 2 / 12 - var(--grid-gutter));      /* Spalte 5 bis Ende Spalte 6 */
+        background: #000;
+        display: block;
+      }
+      /* Bild beginnt mit Spalte 5 und läuft darunter bis zum rechten Rand; Verlauf liegt in Spalte 5–6 darüber */
+      section[aria-labelledby="hero-title"] .hero__img {
+        left: var(--col5-x); right: auto; width: calc(100% - var(--col5-x));
+        object-fit: cover; object-position: 50% center;
+      }
+      /* Verlauf Spalte 5 → Ende Spalte 6: von Schwarz zum Bild, das Motiv scheint zunehmend durch */
+      section[aria-labelledby="hero-title"] .hero::after {
+        content: ""; display: block; position: absolute; top: 0; bottom: 0; z-index: -1; pointer-events: none;
+        left: calc(var(--col5-x) - 1px); width: calc(var(--fade-w) + 1px);
+        background: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, .9) 15%, rgba(0, 0, 0, .68) 38%, rgba(0, 0, 0, .38) 62%, rgba(0, 0, 0, .14) 82%, rgba(0, 0, 0, 0) 100%);
+      }
+      section[aria-labelledby="hero-title"] .hero__content {
+        /* Box im Fluss: Hero wächst mit, falls der Text höher ist – Bild deckt immer die volle Höhe */
+        position: relative; top: auto; left: auto; min-height: var(--hero-h); margin-left: 0;
+        /* transparent: der Verlauf aus Spalte 5–6 soll nicht überdeckt werden; Text bleibt links im Raster */
+        background: transparent;
+        width: calc(var(--hero-x) + var(--box-cols));
+        padding-left: calc(var(--hero-x) + 2rem);
+        max-width: none;
+      }
+      /* ab 768 px: kein Verlauf, gerade Bildkante am Ende der Textbox (Tablet: Spalte 6, Desktop: Spalte 5) */
+      section[aria-labelledby="hero-title"] .hero::after { display: none; }
+      section[aria-labelledby="hero-title"] .hero__img {
+        left: calc(var(--hero-x) + var(--box-cols)); width: calc(100% - var(--hero-x) - var(--box-cols));
+      }
+    }
+    @media (min-width: 1024px) {
+      section[aria-labelledby="hero-title"] .hero {
+        --box-cols: calc((var(--hero-w) + var(--grid-gutter)) * 5 / 12 - var(--grid-gutter));   /* ab 1024 px: 5 von 12 Spalten */
+      }
+    }
+
+    /* ---------- Keyfacts: Breite wie Wrapper, roter Verlauf, Ziffern 800, Text 300 ---------- */
+    main > section.kpis { background: #FFFFFF; padding-top: 0; padding-bottom: 0; }
+    /* Verlauf nur auf der Inhaltsbreite (ohne Seitenränder) = Wrapper-Breite */
+    .kpis > .container { background: var(--tile-gradient); background-clip: content-box; padding-block: 0; }
+    .kpis__list { padding-block: 4rem; margin-block: 0; }
+    @media (min-width: 768px) { .kpis__list { padding-block: 2.6rem; } }
+    .kpis__value { font-weight: 800; }
+    .kpis__label { font-weight: 300; }
+
+    /* ---------- Your benefits: weisser Grund, Textbox + Bild wie in der Hero-Section ---------- */
+    main > section:is(#benefits, #vorteile) { background: #FFFFFF; }
+    :is(#benefits, #vorteile) .split { --gx: 0px; row-gap: 0; align-items: stretch; margin-inline: 0; background: #000; }
+    :is(#benefits, #vorteile) .split__text {
+      justify-content: center; gap: 1.2rem; padding: 2.5rem 2rem 5rem; background: #000; color: #FFFFFF;
+    }
+    :is(#benefits, #vorteile) .split__text .eyebrow, :is(#benefits, #vorteile) .split__text .section-header__title, :is(#benefits, #vorteile) .split__text .section-header__text,
+    :is(#benefits, #vorteile) .split__text .btn { margin: 0; }
+    /* Textbereich über der Box: Typografie wie „How we work“ */
+    :is(#benefits, #vorteile) .eyebrow { color: #B41917; font-weight: 800; font-style: italic; }
+    :is(#benefits, #vorteile) .section-header__title { color: #000000; }
+    :is(#benefits, #vorteile) .section-header__text { color: #000000; }
+    :is(#benefits, #vorteile) .split { margin-top: calc(var(--fs-body) * var(--lh-body) * 1.5); }
+    :is(#benefits, #vorteile) .split__text { display: flex; flex-direction: column; align-items: stretch; }
+    :is(#benefits, #vorteile) .split__text .btn { align-self: flex-start; }
+    /* Keyfacts als USPs (Muster: Vorteils-Kacheln der Seite „Benefits“: weisse Kachel, Häkchen, Schatten) */
+    .usps { list-style: none; margin: 0; padding: 0; width: 100%;
+      display: grid; grid-template-columns: minmax(0, 1fr); gap: .9rem; }   /* bis 1023 px untereinander */
+    @media (min-width: 1024px) { .usps { grid-template-columns: repeat(3, minmax(0, 1fr)); } }   /* ab 1024 px drei nebeneinander */
+    .usp { display: grid; align-content: start; gap: .35rem; padding: 1rem 1rem 1.1rem;
+      background: #FFFFFF; color: #000000; box-shadow: 8px 8px 16px rgba(0, 0, 0, .35); }
+    .usp__icon { width: 2rem; height: 2rem; color: #000000; stroke-width: 1.6; fill: none; stroke: currentColor; }
+    .usp__value { font-size: var(--fs-kpi-value); font-weight: 800; line-height: 1; color: #B41917; white-space: nowrap; }
+    .usp__label { font-size: var(--fs-card-text); font-weight: 300; line-height: var(--lh-snug); color: #000000; }
+    @media (min-width: 768px) { .usp__value { font-size: 2.2rem; } }
+    :is(#benefits, #vorteile) .split__media { position: relative; margin: 0; }
+    :is(#benefits, #vorteile) .split__media .media { display: block; width: 100%; height: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
+    :is(#benefits, #vorteile) .split__media::after { content: ""; position: absolute; pointer-events: none; }
+    @media (max-width: 767.98px) {
+      :is(#benefits, #vorteile) .split__media { order: -1; }   /* < 768 px: zuerst das Bild, darunter die Textbox */
+      :is(#benefits, #vorteile) .split__media::after { left: 0; right: 0; bottom: 0; height: 35%; background: linear-gradient(180deg, rgba(0,0,0,0) 0%, #000 100%); }
+      :is(#benefits, #vorteile) .split__text { padding: 2rem var(--gutter) 4rem; }
+    }
+    @media (min-width: 768px) {
+      :is(#benefits, #vorteile) .split__media .media { aspect-ratio: auto; position: absolute; inset: 0; }
+      :is(#benefits, #vorteile) .split__media { min-height: 100%; }
+      /* Bild läuft am linken Rand weich ins Schwarz der Textbox aus */
+      :is(#benefits, #vorteile) .split__media::after { top: 0; bottom: 0; left: -1px; width: clamp(60px, 18%, 180px);
+        background: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, .6) 40%, rgba(0, 0, 0, 0) 100%); }
+    }
+    /* Benefits-Button wie der Hero-Button */
+    :is(#benefits, #vorteile) .btn {
+      border-radius: 0; background-color: #B41917; border: 1px solid #FFFFFF; color: #FFFFFF;
+      box-shadow: 0 1.2rem 2.8rem rgba(0, 0, 0, .55);
+      transition: background-color .35s var(--ease), transform .35s var(--ease), box-shadow .35s var(--ease);
+    }
+    :is(#benefits, #vorteile) .btn:hover { background-color: #5C0D0C; transform: translate(4px, -6px); box-shadow: 0 1.6rem 3.2rem rgba(0, 0, 0, .6); }
+    :is(#benefits, #vorteile) .btn:hover .btn__icon { transform: none; }
+    :is(#benefits, #vorteile) .btn:focus-visible { border-radius: 0; }
+    @media (prefers-reduced-motion: reduce) { :is(#benefits, #vorteile) .btn:hover { transform: none; } }
+
+    /* =====================  Runde 2026-11-03: Buttons, Headlines, volle Breite  ===================== */
+    /* Alle Buttons: 4 px Rundung, kleiner Schatten, keine Outline, rote Füllung.
+       Hover: 1 px weisse Outline + schwarze Füllung blenden ein, Position bleibt */
+    #main .btn {
+      border-radius: 4px; border: 1px solid transparent; background-color: #B41917; color: #FFFFFF;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, .25); transform: none;
+      transition: background-color .3s var(--ease), border-color .3s var(--ease), box-shadow .3s var(--ease);
+    }
+    #main .btn:hover, #main .btn:active { background-color: #000000; border-color: #FFFFFF; transform: none; box-shadow: 0 2px 6px rgba(0, 0, 0, .25); }
+    #main .btn:hover .btn__icon { transform: none; }
+    #main .btn:focus-visible { border-radius: 4px; }
+
+    /* Slider-Navigation: aktiver Button mit kleinem Schatten; Hover ohne Umpositionierung, Füllung rot, Icon weiss */
+    .section--services-tiles .icon-btn--primary:not(:disabled) { box-shadow: 0 2px 6px rgba(0, 0, 0, .25); transform: none;
+      transition: background-color .3s var(--ease), color .3s var(--ease); }
+    .section--services-tiles .icon-btn--primary:not(:disabled):hover,
+    .section--services-tiles .icon-btn--primary:not(:disabled):active { background-color: #B41917; color: #FFFFFF; transform: none; box-shadow: 0 2px 6px rgba(0, 0, 0, .25); }
+
+    /* Alle Headlines: Open Sans ExtraBold 800, nicht kursiv */
+    .hero__title, .section-header__title, .card__title, .step__title { font-weight: 800; font-style: normal; }
+
+    /* How we work: ab 768 px laufen die Kacheln über die volle Viewport-Breite */
+    @media (min-width: 768px) {
+      main > section:is(#how-we-work, #arbeitsweise).container { padding-inline: 0; }
+      :is(#how-we-work, #arbeitsweise) > .row { margin-inline: calc(max(var(--gutter), calc((100% - var(--container-max)) / 2 + var(--gutter))) - var(--grid-gutter) / 2); }
+      :is(#how-we-work, #arbeitsweise) .steps__cta { padding-inline: max(var(--gutter), calc((100% - var(--container-max)) / 2 + var(--gutter))); }
+    }
+
+    /* Your benefits: Abstand oben halbiert; ab 768 px Textbox + Bild über die volle Viewport-Breite (wie Hero) */
+    main > section:is(#benefits, #vorteile) { padding-top: calc(var(--band-pad) / 2); }
+    @media (min-width: 768px) {
+      main > section:is(#benefits, #vorteile).container { padding-inline: 0; }
+      :is(#benefits, #vorteile) > .row:first-child { margin-inline: calc(max(var(--gutter), calc((100% - var(--container-max)) / 2 + var(--gutter))) - var(--grid-gutter) / 2); }
+      :is(#benefits, #vorteile) .split { flex-wrap: nowrap; }
+      :is(#benefits, #vorteile) .split__text {
+        flex: 0 0 auto; max-width: none;
+        width: calc(max(var(--gutter), calc((100% - var(--container-max)) / 2 + var(--gutter))) + calc((min(100%, var(--container-max)) - 2 * var(--gutter) + var(--grid-gutter)) / 2 - var(--grid-gutter)));            /* vom Browserrand bis zur Grenze von Spalte 6 */
+        padding-left: calc(max(var(--gutter), calc((100% - var(--container-max)) / 2 + var(--gutter))) + 2rem);        /* Text bleibt an der Rasterkante */
+      }
+      :is(#benefits, #vorteile) .split__media { flex: 1 1 auto; width: auto; max-width: none; }
+    }
+
+    /* USPs: ohne Icons, 1 px weisse Outline, schwarze Füllung, weisser Text */
+    .usp { background: #000000; border: 1px solid #FFFFFF; box-shadow: none; color: #FFFFFF; }
+    .usp__icon { display: none; }
+    .usp__value, .usp__label { color: #FFFFFF; }
+
+    /* =====================  Runde 2026-11-03 (2): Header, Textbereiche, Hover, Benefits, Kontakt, Footer  ===================== */
+    /* Navigationsheader höher */
+    .site-header__inner { padding-block: .9rem; }
+    @media (min-width: 1024px) { .site-header__inner { padding-block: 1.3rem; } }
+
+    /* Abstand oben in „Our services“, „How we work“ und „Your benefits“ nochmals halbiert */
+    main > section:is(#services, #leistungen, #about, #ueberuns), main > section:is(#how-we-work, #arbeitsweise), main > section:is(#benefits, #vorteile) { padding-top: calc(var(--band-pad) / 4); }
+
+    /* Labels und Button-Texte: ExtraBold 800, nicht kursiv */
+    :is(#services, #leistungen, #about, #ueberuns) .eyebrow, :is(#how-we-work, #arbeitsweise) .eyebrow, :is(#benefits, #vorteile) .eyebrow, :is(#contact, #kontakt) .eyebrow { font-weight: 800; font-style: normal; }
+    #main .btn { font-weight: 800; font-style: normal; }
+
+    /* Headlines < 768 px deutlich kleiner */
+    @media (max-width: 767.98px) {
+      .section-header__title, .section-header__title--xl, .section-header__title--lg,
+      .section--cta .section-header__title { font-size: 30px; hyphens: manual; }
+    }
+
+    /* Button direkt unter dem Copy-Text im Textbereich */
+    .btn--header { justify-self: start; margin-top: 1.4rem; }
+    @media (min-width: 768px) { .section-header--center-lg .btn--header { justify-self: center; } }
+
+    /* How we work – Hover: Bild skaliert innerhalb der Kachel, Verlauf wechselt zu Rot → Dunkelrot */
+    .step__media { overflow: hidden; }
+    .step__img { transition: transform .6s var(--ease); }
+    .step:hover .step__img { transform: scale(1.08); }
+    .step__media::after { z-index: 1; }
+    .step__media::before {
+      content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 45%; z-index: 2; pointer-events: none;
+      background: linear-gradient(180deg, rgba(180, 25, 23, 0) 0%, rgba(180, 25, 23, .55) 55%, #B41917 100%);
+      opacity: 0; transition: opacity .4s var(--ease);
+    }
+    .step__text { position: relative; isolation: isolate; }
+    .step__text::before {
+      content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+      background: linear-gradient(180deg, #B41917 0%, #5C0D0C 100%);
+      opacity: 0; transition: opacity .4s var(--ease);
+    }
+    .step:hover .step__media::before, .step:hover .step__text::before,
+    .step:focus-within .step__media::before, .step:focus-within .step__text::before { opacity: 1; }
+    .step__desc { transition: color .4s var(--ease); }
+    .step:hover .step__desc, .step:focus-within .step__desc { color: #FFFFFF; }   /* lesbar auf Rot */
+    @media (prefers-reduced-motion: reduce) { .step__img { transition: none; } .step:hover .step__img { transform: none; } }
+
+    /* Your benefits – Textbox: Copy linksbündig, Button, dann USPs als Liste mit Trennlinien */
+    .split__copy { margin: 0; color: var(--color-text-base); text-align: left; font-size: var(--fs-body); line-height: var(--lh-body); max-width: 40rem; }
+    .usps { grid-template-columns: minmax(0, 1fr) !important; gap: 0; margin-top: .6rem; }
+    .usp {
+      display: flex; align-items: baseline; gap: 1rem; padding: .9rem 0;
+      border: 0; background: none; box-shadow: none;
+    }
+    .usp + .usp { border-top: 1px solid rgba(255, 255, 255, .35); }
+    .usp__value { flex: 0 0 6.5rem; font-size: 2rem; }
+    .usp__label { font-size: var(--fs-body); }
+
+    /* Get to know us: weisser Grund, Typografie wie in den anderen Textbereichen */
+    main > section:is(#contact, #kontakt) { background: #FFFFFF; }
+    :is(#contact, #kontakt) .eyebrow { color: #B41917; }
+    :is(#contact, #kontakt) .section-header__title, :is(#contact, #kontakt) .section-header__text { color: #000000; }
+
+    /* Footer: schwarz, weisse Schrift, Links weiss, Hover unterstrichen */
+    .site-footer { background: #000000; color: #FFFFFF; }
+    .site-footer__copy, .footer-links, .footer-links a { color: #FFFFFF; }
+    .footer-links a:hover { color: #FFFFFF; text-decoration: underline; text-underline-offset: .2em; background-size: 0 1px; }
+    .site-footer__legal { border-left-color: #FFFFFF !important; }
+
+    /* =====================  Runde 2026-11-03 (3)  ===================== */
+    /* Get to know us: Abstand oben um 75 % reduziert */
+    main > section:is(#contact, #kontakt) { padding-top: calc(var(--band-pad) * .25); }
+    /* Our services: Abstand oben verdoppelt (1/4 → 1/2) */
+    main > section:is(#services, #leistungen, #about, #ueberuns) { padding-top: calc(var(--band-pad) / 2); }
+    /* Our services – Kachel-Hover: keine Vergrösserung, kein Schatten; nur die Hintergrundfarbe wechselt animiert */
+    .section--services-tiles .card--service:hover { z-index: auto; }
+    .section--services-tiles .card--service:hover::before {
+      inset: 0;
+      box-shadow: inset 0 0 0 100vmax rgba(92, 13, 12, .85), -1.4rem 0 1.8rem -.6rem rgba(0, 0, 0, 0), 1.4rem 0 1.8rem -.6rem rgba(0, 0, 0, 0);
+    }
+
+    /* =====================  Einheitliche Abstände vor den Sections  =====================
+       Abstand vom Ende der vorigen Section bis zum Label = Abstand Hero → Label „Our services“ (halber --band-pad).
+       Dafür haben die Sections davor keinen Innenabstand unten mehr; nur die letzte Section vor dem Footer behält ihn. */
+    main > section:is(#services, #leistungen, #about, #ueberuns), main > section:is(#how-we-work, #arbeitsweise), main > section:is(#benefits, #vorteile), main > section:is(#contact, #kontakt) { padding-top: calc(var(--band-pad) / 2); }
+    main > section.container.section--services-tiles:not([aria-labelledby="hero-title"]),
+    main > section:is(#services, #leistungen, #about, #ueberuns), main > section:is(#how-we-work, #arbeitsweise), main > section:is(#benefits, #vorteile) { padding-bottom: 0; }
+
+    /* Buttons: Text kursiv */
+    #main .btn { font-style: italic; }
+    /* Hero: Label nicht kursiv */
+    section[aria-labelledby="hero-title"] .hero__eyebrow { font-style: normal; }
+    /* Our services: Abstand Button „All services“ → Kacheln: 24 px mobil, 48 px ab 768 px */
+    main > section:is(#services, #leistungen, #about, #ueberuns) { padding-bottom: 24px; }
+    @media (min-width: 768px) { main > section:is(#services, #leistungen, #about, #ueberuns) { padding-bottom: 48px; } }
+
+    /* =====================  TEST Typo (2026-11-04)  ===================== */
+    /* H1 Hero: ExtraBold 800, 32 px */
+    section[aria-labelledby="hero-title"] .hero__title { font-size: 32px; font-weight: 800; line-height: var(--lh-tight); }
+    /* Label Hero: ExtraBold 800, Rot, 32 px */
+    section[aria-labelledby="hero-title"] .hero__eyebrow { font-size: 32px; font-weight: 800; font-style: normal; color: #B41917; }
+    /* H2 Sections: ExtraBold 800, 30 px (alle Viewports) */
+    .section-header__title, .section-header__title--xl, .section-header__title--lg,
+    .section--cta .section-header__title { font-size: 30px; font-weight: 800; }
+    /* Label Sections: ExtraBold 800, Rot, 30 px */
+    :is(#services, #leistungen, #about, #ueberuns) .eyebrow, :is(#how-we-work, #arbeitsweise) .eyebrow, :is(#benefits, #vorteile) .eyebrow, :is(#contact, #kontakt) .eyebrow {
+      font-size: 30px; font-weight: 800; font-style: normal; color: #B41917; line-height: var(--lh-tight);
+    }
+
+    /* =====================  Mobil (< 768 px)  ===================== */
+    .carousel__dots { display: none; }
+    @media (max-width: 767.98px) {
+      /* Schriftgrössen */
+      section[aria-labelledby="hero-title"] .hero__title,
+      section[aria-labelledby="hero-title"] .hero__eyebrow { font-size: 28px; }
+      .section-header__title, .section-header__title--xl, .section-header__title--lg,
+      .section--cta .section-header__title { font-size: 28px; }
+      :is(#services, #leistungen, #about, #ueberuns) .eyebrow, :is(#how-we-work, #arbeitsweise) .eyebrow, :is(#benefits, #vorteile) .eyebrow, :is(#contact, #kontakt) .eyebrow { font-size: 28px; }
+
+      /* Our services: Pfeile ausgeblendet, stattdessen schwarze Punkte als Positionsanzeige */
+      .section--services-tiles .carousel__nav { display: none; }
+      .section--services-tiles .carousel__dots { display: flex; justify-content: center; gap: .5rem; padding-block: .6rem; pointer-events: none; }
+      .carousel__dots span { width: 8px; height: 8px; border-radius: 50%; background: #000; opacity: .25; transition: opacity .2s var(--ease), transform .2s var(--ease); }
+      .carousel__dots span.is-active { opacity: 1; transform: scale(1.25); }
+
+      /* How we work: alle Kacheln untereinander, nur so hoch wie der Inhalt */
+      .steps { grid-template-columns: minmax(0, 1fr); }
+      .step__img { aspect-ratio: 3 / 2; }
+      .step__text { min-height: 0; }
+    }
+
+    /* =====================  Our services – Kacheln (2026-11-04)  ===================== */
+    /* Höhe +40 % (mobil 237 → 332 px, Desktop 17 → 23,8 rem) */
+    .section--services-tiles .card--service { min-height: 20.75rem; }
+    @media (min-width: 1024px) { .section--services-tiles .card--service { min-height: 23.8rem !important; } }
+    /* Icon 150 % gross, mittig im freien Raum über dem Text; Strichstärke 2 px
+       (Icons sind fix in px, damit die Strichstärke exakt 2 px ergibt: stroke-width = 2 × 24 / Icon-Grösse) */
+    .section--services-tiles .card--service { padding-right: var(--card-pad); }   /* symmetrischer Innenabstand, damit das Icon exakt mittig sitzt */
+    /* Icon horizontal mittig, in allen Kacheln auf gleicher Höhe; Text sitzt unten über dem Pfeil */
+    .section--services-tiles .card__icon { width: 62px; height: 62px; stroke-width: .774; margin: 1.6rem auto auto; }
+    @media (min-width: 1024px) {
+      .section--services-tiles .card__icon { width: 87px; height: 87px; stroke-width: .552; margin-top: 3.2rem; }
+      /* Desktop: Text rückt nach unten, geringerer Abstand zum Pfeil */
+      .section--services-tiles .card__more { margin-top: 0; padding-top: .7rem; }
+    }
+
+    /* Kachel-Headline ca. +30 %, Copy ca. +15 % */
+    .section--services-tiles .card__title { font-size: calc((var(--fs-card-title) - 8px) * 1.3); }
+    .section--services-tiles .card__text { font-size: calc(var(--fs-card-text) * 1.15); }
+    /* Icon mit Kreis: keine Füllung, 2 px Outline schwarz, 25 % transparent */
+    .section--services-tiles .card__icon {
+      box-sizing: content-box; padding: 14px; border: 2px solid rgba(0, 0, 0, .75); border-radius: 50%; fill: none;
+      overflow: visible;   /* sonst schneidet der runde Rahmen Teile der Linien ab */
+    }
+    @media (min-width: 1024px) { .section--services-tiles .card__icon { padding: 20px; } }
+    /* Mindestabstand Icon → Headline 1,2 rem; Icon etwas höher, damit die Kacheln nicht unnötig wachsen */
+    .section--services-tiles .card__icon { margin: 1.2rem auto 1.2rem; }
+    .section--services-tiles .card__title { margin-top: auto; }
+    @media (min-width: 1024px) { .section--services-tiles .card__icon { margin-top: 2rem; } }
+
+    /* =====================  Our services – Kacheln mit Bergmotiven  ===================== */
+    /* Headline Bold 700 */
+    .section--services-tiles .card__title { font-weight: 700; }
+    /* Hintergrund: roter Verlauf (10 % transparent) über einem dunklen, kontrastreichen Bergbild – je Kachel ein anderes Motiv */
+    .section--services-tiles .card--service { background: #000 !important; }
+    /* Verlauf 25 % transparent */
+    .section--services-tiles .card--service::before {
+      background: linear-gradient(to bottom right, rgba(180, 25, 23, .75) 0%, rgba(138, 18, 16, .75) 100%), var(--tile-bg, none) var(--tile-pos, center) / cover no-repeat;
+    }
+    /* Hover: Verlauf ohne Transparenz (blendet animiert ein), kein Wechsel zu dunklerem Rot */
+    .section--services-tiles .card--service::after {
+      content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+      background: var(--tile-gradient); opacity: 0; transition: opacity .35s var(--ease);
+    }
+    .section--services-tiles .card--service:hover::after { opacity: 1; }
+    .section--services-tiles .card--service:hover::before { box-shadow: none; }
+    @media (prefers-reduced-motion: reduce) { .section--services-tiles .card--service::after { transition: none; } }
+    /* Motive aus assets/img/home/kacheln (10 Kacheln, 450x620) */
+    .section--services-tiles .card--service:nth-child(1) { --tile-bg: url("../assets/img/home/kacheln/img_home_kacheln_01.jpg"); }
+    .section--services-tiles .card--service:nth-child(2) { --tile-bg: url("../assets/img/home/kacheln/img_home_kacheln_02.jpg"); }
+    .section--services-tiles .card--service:nth-child(3) { --tile-bg: url("../assets/img/home/kacheln/img_home_kacheln_03.jpg"); }
+    .section--services-tiles .card--service:nth-child(4) { --tile-bg: url("../assets/img/home/kacheln/img_home_kacheln_04.jpg"); }
+    .section--services-tiles .card--service:nth-child(5) { --tile-bg: url("../assets/img/home/kacheln/img_home_kacheln_05.jpg"); }
+    .section--services-tiles .card--service:nth-child(6) { --tile-bg: url("../assets/img/home/kacheln/img_home_kacheln_06.jpg"); }
+    .section--services-tiles .card--service:nth-child(7) { --tile-bg: url("../assets/img/home/kacheln/img_home_kacheln_07.jpg"); }
+    .section--services-tiles .card--service:nth-child(8) { --tile-bg: url("../assets/img/home/kacheln/img_home_kacheln_08.jpg"); }
+    .section--services-tiles .card--service:nth-child(9) { --tile-bg: url("../assets/img/home/kacheln/img_home_kacheln_09.jpg"); }
+    .section--services-tiles .card--service:nth-child(10) { --tile-bg: url("../assets/img/home/kacheln/img_home_kacheln_10.jpg"); }
+
+    /* Kachel-Icons: kein Kreisrahmen mehr, Strichstärke 3 px (stroke-width = 3 × 24 / Icon-Grösse) */
+    .section--services-tiles .card__icon { border: 0; padding: 0; border-radius: 0; stroke-width: 1.161; }
+    @media (min-width: 1024px) { .section--services-tiles .card__icon { padding: 0; stroke-width: .828; } }
+
+    /* =====================  How we work – Kacheln: Text-Styles wie „Our services“  ===================== */
+    /* Headline, Subline (Headline-Grösse, Bold Italic), Copy */
+    :is(#how-we-work, #arbeitsweise) .step__title { font-size: calc((var(--fs-card-title) - 8px) * 1.3); font-weight: 700; font-style: normal;
+      line-height: var(--lh-snug); color: #FFFFFF; }
+    :is(#how-we-work, #arbeitsweise) .step__sub { font-size: calc((var(--fs-card-title) - 8px) * 1.3); font-weight: 700; font-style: italic; line-height: var(--lh-snug); color: #FFFFFF; }   /* so gross wie die Headline */
+    :is(#how-we-work, #arbeitsweise) .step__desc { font-size: calc(var(--fs-card-text) * 1.15); line-height: var(--lh-body); }
+    /* Our services: Texte oben bündig auf einer Linie in allen Kacheln, Pfeil bleibt unten (Abstand variiert) */
+    .section--services-tiles .card__title { margin-top: 0; }
+    .section--services-tiles .card__icon { margin-bottom: 1.6rem; }
+    .section--services-tiles .card__more { margin-top: auto !important; padding-top: 1rem; }
+    @media (min-width: 1024px) { .section--services-tiles .card__icon { margin-bottom: 1.3rem; } }
+    /* Our services: Kachel +10 px höher, Icon 10 px nach oben (Text bleibt an seiner Linie), Icon-Strich 2 px */
+    .section--services-tiles .card--service { min-height: calc(350px + 10px); }
+    .section--services-tiles .card__icon { margin-top: calc(1.2rem - 10px); margin-bottom: calc(1.6rem + 10px); stroke-width: .774; }
+    @media (min-width: 1024px) {
+      .section--services-tiles .card--service { min-height: calc(23.8rem + 10px) !important; }
+      .section--services-tiles .card__icon { margin-top: calc(2rem - 10px); margin-bottom: calc(1.3rem + 10px); stroke-width: .552; }
+    }
+    /* =====================  Your benefits – Kacheln (Stil wie „Our services“)  ===================== */
+    /* Abstand Button „More benefits“ → Kacheln wie bei „Our services“ */
+    main > section:is(#benefits, #vorteile) { padding-bottom: 24px; }
+    @media (min-width: 768px) { main > section:is(#benefits, #vorteile) { padding-bottom: 48px; } }
+    /* Motive aus assets/img/home/cards_benefits (andere Reihenfolge als bei „Our services“, damit sich die Sections unterscheiden) */
+    .section--benefits-tiles .card--service:nth-child(1) { --tile-bg: url("../assets/img/home/kacheln/img_home_kacheln_11.jpg"); --tile-pos: center; }
+    .section--benefits-tiles .card--service:nth-child(2) { --tile-bg: url("../assets/img/home/kacheln/img_home_kacheln_12.jpg"); --tile-pos: center; }
+    .section--benefits-tiles .card--service:nth-child(3) { --tile-bg: url("../assets/img/home/kacheln/img_home_kacheln_13.jpg"); --tile-pos: center; }
+    .section--benefits-tiles .card--service:nth-child(4) { --tile-bg: url("../assets/img/home/kacheln/img_home_kacheln_05.jpg"); --tile-pos: center; }
+    .section--benefits-tiles .card--service:nth-child(5) { --tile-bg: url("../assets/img/home/kacheln/img_home_kacheln_06.jpg"); --tile-pos: center; }
+    .section--benefits-tiles .card--service:nth-child(6) { --tile-bg: url("../assets/img/home/kacheln/img_home_kacheln_07.jpg"); --tile-pos: center; }
+
+/* =====================  Ab 768 px (2026-11-04)  ===================== */
+@media (min-width: 768px) {
+  /* Header-Textbox: Abstand Headline → Button verdoppelt (1,2 → 2,4 rem) */
+  section[aria-labelledby="hero-title"] .hero__title { margin-bottom: 1.2rem; }
+  /* Slider-Navigation (Leistungen, Vorteile): 4 px abgerundete Ecken */
+  .section--services-tiles .icon-btn,
+  .section--services-tiles .icon-btn:focus-visible,
+  .section--services-tiles .icon-btn--primary:not(:disabled),
+  .section--services-tiles .icon-btn--primary:not(:disabled):hover { border-radius: 4px; }
+}
+
+/* Sprachauswahl-Overlay im Header: eckig, ohne Rundung */
+.lang__list, .lang__list a { border-radius: 0; }
+
+/* Header: dünne Trennlinie am unteren Rand – ausser auf der Startseite (body.page-home) */
+body:not(.page-home) .site-header { border-bottom: 1px solid #efefef; }
+
+/* Index „Our services“- und „Benefits“-Kacheln: Verlauf oben links Rot → unten rechts Schwarz, 30 % transparent über dem Bildmotiv
+   (Hover: einfarbig Rot #B41917). */
+.section--services-tiles .card--service::before {
+  background: linear-gradient(to bottom right, rgba(180, 25, 23, .7) 0%, rgba(0, 0, 0, .7) 100%), var(--tile-bg, none) var(--tile-pos, center) / cover no-repeat;
+}
+.section--services-tiles .card--service::after {
+  background: #B41917;   /* Hover: einfarbig Rot, ohne Verlauf */
+}
+
+/* ---------- Startseite Hero ab 768 px: Bild über die volle Breite, Textbox rechts (schwarz, 30 % transparent) ----------
+   Textbox beginnt am Raster: Tablet Spalte 7 (6 Spalten), Desktop Spalte 8 (5 Spalten) und läuft bis zum rechten Fensterrand.
+   Davor liegt ein Verlauf über eine Spalte (Desktop: Spalte 7) vom Bild zur Textbox. */
+@media (min-width: 768px) {
+  section[aria-labelledby="hero-title"] .hero {
+    --box-n: 6;
+    --col-step: calc((var(--hero-w) + var(--grid-gutter)) / 12);
+    --box-left: calc(var(--hero-x) + (12 - var(--box-n)) * var(--col-step));
+    --box-alpha: .7;
+  }
+  section[aria-labelledby="hero-title"] .hero__img { left: 0; right: auto; width: 100%; object-position: 30% center; }
+  section[aria-labelledby="hero-title"] .hero::after {
+    display: block; content: ""; position: absolute; top: 0; bottom: 0; z-index: -1; pointer-events: none;
+    left: calc(var(--box-left) - var(--col-step)); width: calc(var(--col-step) + 1px);
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .12) 25%, rgba(0, 0, 0, .35) 50%, rgba(0, 0, 0, .62) 75%, rgba(0, 0, 0, var(--box-alpha)) 100%);
+  }
+  section[aria-labelledby="hero-title"] .hero__content {
+    margin-left: var(--box-left); width: calc(100% - var(--box-left));
+    background: rgba(0, 0, 0, var(--box-alpha));
+    padding-left: 2rem; padding-right: var(--hero-x);
+  }
+}
+@media (min-width: 1024px) {
+  section[aria-labelledby="hero-title"] .hero { --box-n: 5; }
+}
+
+/* < 768 px: Badges (Icon bzw. Zahl) liegen auf dem Bild – weisser Kreis ohne Outline, Icon/Zahl in Rot */
+@media (max-width: 767.98px) {
+  .pstep .aw-badge, .pstep .aw-badge--icon { background: #FFFFFF; border: 0; color: #B41917; box-shadow: 0 0 8px rgba(0, 0, 0, .5); }
+}
+
+/* < 768 px: roter Kreis (2 px) um das Icon, innerhalb des weissen Badges */
+@media (max-width: 767.98px) {
+  .pstep .aw-badge { position: relative; }
+  .pstep .aw-badge::after { content: ""; position: absolute; inset: 4px; border: 2px solid #B41917; border-radius: 50%; pointer-events: none; }
+}
+
+/* Startseite, ab 768 px: Label 36 px, Headline 24 px (Hero ausgenommen) */
+@media (min-width: 768px) {
+  body.page-home #main .section .eyebrow { font-size: 36px; }
+  body.page-home #main .section .section-header__title,
+  body.page-home #main .section .section-header__title--xl,
+  body.page-home #main .section .section-header__title--lg { font-size: 24px; }
+}
+
+/* Startseite, < 768 px: Label 32 px, Headline 22 px, Copy-Text 18 px (Hero ausgenommen) */
+@media (max-width: 767.98px) {
+  body.page-home #main .section .eyebrow { font-size: 32px; }
+  body.page-home #main .section .section-header__title,
+  body.page-home #main .section .section-header__title--xl,
+  body.page-home #main .section .section-header__title--lg { font-size: 22px; }
+  body.page-home #main .section .section-header__text { font-size: 18px; }
+}
+
+/* Leistungen (DE/EN), Section Kontakt: ab 768 px Label 36 / Headline 24; < 768 px Label 32 / Headline 22 / Copy-Text 18 */
+@media (min-width: 768px) {
+  body.page-leistungen #main .section--cta .eyebrow { font-size: 36px; }
+  body.page-leistungen #main .section--cta .section-header__title { font-size: 24px; }
+}
+@media (max-width: 767.98px) {
+  body.page-leistungen #main .section--cta .eyebrow { font-size: 32px; }
+  body.page-leistungen #main .section--cta .section-header__title { font-size: 22px; }
+  body.page-leistungen #main .section--cta .section-header__text { font-size: 18px; }
+}
+
+/* Leistungen (DE/EN), erste Section vor der Ankernavigation: gleiche Grössen wie Section Kontakt */
+@media (min-width: 768px) {
+  body.page-leistungen #main > .section--services .eyebrow { font-size: 36px; }
+  body.page-leistungen #main > .section--services .section-header__title { font-size: 24px; }
+}
+@media (max-width: 767.98px) {
+  body.page-leistungen #main > .section--services .eyebrow { font-size: 32px; }
+  body.page-leistungen #main > .section--services .section-header__title { font-size: 22px; }
+  body.page-leistungen #main > .section--services .section-header__text { font-size: 18px; }
+}
+
+/* Arbeitsweise (DE/EN), erste Section und Section Kontakt: ab 768 px Label 36 / Headline 24; < 768 px Label 32 / Headline 22 / Copy-Text 18 */
+@media (min-width: 768px) {
+  body.page-arbeitsweise #main > .section--services .eyebrow, body.page-arbeitsweise #main .section--cta .eyebrow { font-size: 36px; }
+  body.page-arbeitsweise #main > .section--services .section-header__title, body.page-arbeitsweise #main .section--cta .section-header__title { font-size: 24px; }
+}
+@media (max-width: 767.98px) {
+  body.page-arbeitsweise #main > .section--services .eyebrow, body.page-arbeitsweise #main .section--cta .eyebrow { font-size: 32px; }
+  body.page-arbeitsweise #main > .section--services .section-header__title, body.page-arbeitsweise #main .section--cta .section-header__title { font-size: 22px; }
+  body.page-arbeitsweise #main > .section--services .section-header__text, body.page-arbeitsweise #main .section--cta .section-header__text { font-size: 18px; }
+}
+
+/* Arbeitsweise (DE/EN), Section Zusammenarbeit: gleiche Grössen */
+@media (min-width: 768px) {
+  body.page-arbeitsweise #main :is(#collaboration, #zusammenarbeit) .eyebrow { font-size: 36px; }
+  body.page-arbeitsweise #main :is(#collaboration, #zusammenarbeit) .section-header__title { font-size: 24px; }
+}
+@media (max-width: 767.98px) {
+  body.page-arbeitsweise #main :is(#collaboration, #zusammenarbeit) .eyebrow { font-size: 32px; }
+  body.page-arbeitsweise #main :is(#collaboration, #zusammenarbeit) .section-header__title { font-size: 22px; }
+  body.page-arbeitsweise #main :is(#collaboration, #zusammenarbeit) .section-header__text { font-size: 18px; }
+}
+
+/* Arbeitsweise (DE/EN), Schritte Analysieren bis Optimieren: ab 768 px Headline 32 / Subheadline 24; < 768 px Headline 28 / Subheadline 20 / Text 18 */
+@media (min-width: 768px) {
+  body.page-arbeitsweise #main .pstep .aw-title { font-size: 32px; }
+  body.page-arbeitsweise #main .pstep .aw-sub { font-size: 24px; }
+}
+@media (max-width: 767.98px) {
+  body.page-arbeitsweise #main .pstep .aw-title { font-size: 28px; }
+  body.page-arbeitsweise #main .pstep .aw-sub { font-size: 20px; }
+  body.page-arbeitsweise #main .pstep .aw-text, body.page-arbeitsweise #main .pstep .aw-list li { font-size: 18px; }
+}
+
+/* Alle Seiten: Label (rote Zeile über der Section-Headline) ab 768 px 36 px, darunter 32 px (Hero-Label ausgenommen) */
+@media (min-width: 768px) { body #main .eyebrow { font-size: 36px; } }
+@media (max-width: 767.98px) { body #main .eyebrow { font-size: 32px; } }
+
+/* Vorteile (DE/EN), Sections Ihre Vorteile, Vertrauen, Kontakt: Styles wie erste Section der Arbeitsweise
+   (Label 36/32 px global; Headline ab 768 px 24 px, darunter 22 px; Copy-Text < 768 px 18 px) */
+@media (min-width: 768px) {
+  body.page-vorteile #main :is(#vorteile, #benefits, #vertrauen, #trust, #kontakt, #contact) .section-header__title { font-size: 24px; }
+}
+@media (max-width: 767.98px) {
+  body.page-vorteile #main :is(#vorteile, #benefits, #vertrauen, #trust, #kontakt, #contact) .section-header__title { font-size: 22px; }
+  body.page-vorteile #main :is(#vorteile, #benefits, #vertrauen, #trust, #kontakt, #contact) .section-header__text { font-size: 18px; }
+}
+
+/* Über uns (DE/EN), erste Section und Kontakt: Headline ab 768 px 24 px, darunter 22 px; Copy-Text < 768 px 18 px (Label global 36/32 px) */
+@media (min-width: 768px) {
+  body.page-ueber-uns #main :is(#ueberuns, #about, #kontakt, #contact) .section-header__title { font-size: 24px; }
+}
+@media (max-width: 767.98px) {
+  body.page-ueber-uns #main :is(#ueberuns, #about, #kontakt, #contact) .section-header__title { font-size: 22px; }
+  body.page-ueber-uns #main :is(#ueberuns, #about, #kontakt, #contact) .section-header__text { font-size: 18px; }
+}
+
+/* Rechtsseiten (DE/EN), ab 768 px: Label 32 px, Headline (H1) 24 px */
+@media (min-width: 768px) {
+  body.page-impressum #main .legal .eyebrow { font-size: 32px; }
+  body.page-impressum #main .legal .section-header__title { font-size: 24px; }
+}
+
+/* Sprachauswahl: kein Dropdown mehr – DE | EN nebeneinander, aktive Sprache hervorgehoben */
+.lang { display: flex; align-items: center; gap: .55rem; }
+.lang a { color: #000000; text-decoration: none; font-weight: 400; padding: .3rem 0; }
+.lang a:hover { color: #B41917; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: .35em; }
+.lang a[aria-current="true"] { color: #B41917; font-weight: 400; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: .35em; }
+.lang__sep { color: #000000; opacity: .45; user-select: none; }
+
+/* Footer: erste Liste einspaltig (inkl. Über uns / Kontakt unter Vorteile), Bold 700; keine vertikale Trennlinie;
+   < 768 px: erste Liste links, zweite Liste rechts */
+.footer-links--main { grid-auto-flow: row; grid-template-rows: none; column-gap: 0; }
+.footer-links--main a { font-weight: 700; }
+.site-footer__legal, .site-footer__legal { border-left: 0 !important; padding-left: 0 !important; }
+@media (max-width: 767.98px) {
+  .site-footer__inner > div:nth-child(2), .site-footer__inner > div:nth-child(3) { flex: 0 0 auto; width: 50%; }
+}
+
+/* Startseite, Section „So arbeiten wir“, Teaser-Kacheln: Headline 24 px (alle Viewports) */
+body.page-home #main .steps .step__title { font-size: 24px; }
+
+/* Startseite, Sections „Unsere Leistungen“ und „Ihre Vorteile“, Kacheln: Hover ohne rote Fläche und ohne Verlauf – das Original-Bild wird eingeblendet */
+.section--services-tiles .card--service::after {
+  background: var(--tile-bg, none) var(--tile-pos, center) / cover no-repeat;
+}
+
+/* Über uns (DE und EN), ab 768 px: Panels ohne Hintergrundfläche; Icon, Headline und Copy-Text schwarz */
+@media (min-width: 768px) {
+  body.page-ueber-uns #main .pstep,
+  body.page-ueber-uns #main .pstep::before { background: none; }
+  body.page-ueber-uns #main .pstep .aw-title,
+  body.page-ueber-uns #main .pstep .aw-sub,
+  body.page-ueber-uns #main .pstep .aw-text,
+  body.page-ueber-uns #main .pstep .aw-list li { color: #000000; }
+  body.page-ueber-uns #main .pstep .aw-badge,
+  body.page-ueber-uns #main .pstep .aw-badge--icon { background: transparent; border: 2px solid #000000; color: #000000; box-shadow: none; }
+}
+
+/* Über uns (DE und EN), ab 768 px: Sections 1 (Global) und 3 (Expertise) mit grauem Hintergrundfonds #E9E6DF über die volle Seitenbreite;
+   Höhe richtet sich nach dem Inhalt, 40 px Padding oben und unten */
+@media (min-width: 768px) {
+  body.page-ueber-uns #main :is(#global, #international, #expertise) {
+    padding-block: 40px;
+    background: #E9E6DF;   /* Innenfläche; der Schatten füllt nur ausserhalb der Box */
+    box-shadow: 0 0 0 100vmax #E9E6DF;
+    clip-path: inset(0 -100vmax);
+  }
+  body.page-ueber-uns #main :is(#global, #international, #expertise) .pstep__text { padding-block: 0; }
+  body.page-ueber-uns #main :is(#global, #international, #expertise) .pstep__media { margin-top: 0; }
+}
+
+/* Über uns (DE und EN), < 768 px: Panels mit Bild – statt Farbverlauf grau #E9E6DF; Icon, Headline und Copy-Text schwarz */
+@media (max-width: 767.98px) {
+  body.page-ueber-uns #main .pstep { background: #E9E6DF; }
+  body.page-ueber-uns #main .pstep .aw-title,
+  body.page-ueber-uns #main .pstep .aw-sub,
+  body.page-ueber-uns #main .pstep .aw-text,
+  body.page-ueber-uns #main .pstep .aw-list li { color: #000000; }
+  body.page-ueber-uns #main .pstep .aw-badge,
+  body.page-ueber-uns #main .pstep .aw-badge--icon { color: #000000; }
+  body.page-ueber-uns #main .pstep .aw-badge::after { border-color: #000000; }
+}
+
+/* Über uns (DE und EN), < 768 px: Abstand zwischen den Panels verdoppelt (1,5 rem → 3 rem) */
+@media (max-width: 767.98px) {
+  body.page-ueber-uns #main .aw-steps { gap: 3rem; }
+}
+
+/* Vorteile (DE/EN): gleiche Gestaltung wie „Über uns“ */
+@media (min-width: 768px) {
+  body:is(.page-vorteile, .page-arbeitsweise) #main .pstep,
+  body:is(.page-vorteile, .page-arbeitsweise) #main .pstep::before { background: none; }
+  body:is(.page-vorteile, .page-arbeitsweise) #main .pstep .aw-title,
+  body:is(.page-vorteile, .page-arbeitsweise) #main .pstep .aw-sub,
+  body:is(.page-vorteile, .page-arbeitsweise) #main .pstep .aw-text,
+  body:is(.page-vorteile, .page-arbeitsweise) #main .pstep .aw-list li { color: #000000; }
+  body:is(.page-vorteile, .page-arbeitsweise) #main .pstep .aw-badge,
+  body:is(.page-vorteile, .page-arbeitsweise) #main .pstep .aw-badge--icon { background: transparent; border: 2px solid #000000; color: #000000; box-shadow: none; }
+  /* jedes zweite Panel (1., 3., 5., 7.) mit grauem Hintergrundfonds #E9E6DF über die volle Seitenbreite, 40 px Padding oben/unten */
+  body:is(.page-vorteile, .page-arbeitsweise) #main .aw-steps > .pstep:nth-of-type(odd) {
+    padding-block: 40px;
+    background: #E9E6DF;
+    box-shadow: 0 0 0 100vmax #E9E6DF;
+    clip-path: inset(0 -100vmax);
+  }
+  body:is(.page-vorteile, .page-arbeitsweise) #main .aw-steps > .pstep:nth-of-type(odd) .pstep__text { padding-block: 0; }
+  body:is(.page-vorteile, .page-arbeitsweise) #main .aw-steps > .pstep:nth-of-type(odd) .pstep__media { margin-top: 0; }
+}
+@media (max-width: 767.98px) {
+  body:is(.page-vorteile, .page-arbeitsweise) #main .pstep { background: #E9E6DF; }
+  body:is(.page-vorteile, .page-arbeitsweise) #main .pstep .aw-title,
+  body:is(.page-vorteile, .page-arbeitsweise) #main .pstep .aw-sub,
+  body:is(.page-vorteile, .page-arbeitsweise) #main .pstep .aw-text,
+  body:is(.page-vorteile, .page-arbeitsweise) #main .pstep .aw-list li { color: #000000; }
+  body:is(.page-vorteile, .page-arbeitsweise) #main .pstep .aw-badge,
+  body:is(.page-vorteile, .page-arbeitsweise) #main .pstep .aw-badge--icon { color: #000000; }
+  body:is(.page-vorteile, .page-arbeitsweise) #main .pstep .aw-badge::after { border-color: #000000; }
+  body:is(.page-vorteile, .page-arbeitsweise) #main .aw-steps { gap: 3rem; }
+}
+
+/* Vorteile (DE/EN): USP-Liste – Trennlinien #B7B5B3, Kreis und Haken schwarz */
+body:is(.page-vorteile, .page-arbeitsweise) #main .pstep .aw-list li { border-top-color: #B7B5B3; }
+body:is(.page-vorteile, .page-arbeitsweise) #main .pstep .aw-list li:first-child { border-top: 0; }
+body:is(.page-vorteile, .page-arbeitsweise) #main .pstep .aw-list li::before {
+  border-color: #000000;
+  background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000000' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / 20px 20px no-repeat;
+}
+
+/* Vorteile (DE/EN): Ankernavigation als vertikale Liste statt Slider – alle Tabs untereinander, gleich breit, nicht mehr sticky */
+body:is(.page-vorteile, .page-leistungen, .page-arbeitsweise) { --anchor-h: 2rem; }
+body:is(.page-vorteile, .page-leistungen, .page-arbeitsweise) .anchor-nav { position: static; background: none; -webkit-backdrop-filter: none; backdrop-filter: none; padding-block: 0; }
+body:is(.page-vorteile, .page-leistungen, .page-arbeitsweise) .anchor-nav .carousel__viewport { overflow: visible; padding: 0; margin: 0; scroll-snap-type: none; }
+body:is(.page-vorteile, .page-leistungen, .page-arbeitsweise) .anchor-nav .carousel__track { display: grid; grid-template-columns: minmax(0, 1fr); gap: .8rem; width: 100%; padding: 0; }
+body:is(.page-vorteile, .page-leistungen, .page-arbeitsweise) .anchor-nav .card--anchor { width: 100%; flex: none; }
+body:is(.page-vorteile, .page-leistungen, .page-arbeitsweise) .anchor-nav .card__link { flex-direction: row; align-items: center; gap: 1rem; }
+body:is(.page-vorteile, .page-leistungen, .page-arbeitsweise) .anchor-nav .carousel__nav,
+body:is(.page-vorteile, .page-leistungen, .page-arbeitsweise) .anchor-nav .carousel__dots { display: none !important; }
+
+/* Vorteile (DE/EN): Tabs der Ankernavigation als Secondary Buttons – nur so breit wie der Inhalt, zentriert untereinander */
+body:is(.page-vorteile, .page-leistungen, .page-arbeitsweise) .anchor-nav .carousel__track { justify-items: center; gap: .7rem; }
+body:is(.page-vorteile, .page-leistungen, .page-arbeitsweise) .anchor-nav .card--anchor {
+  width: auto; max-width: 100%; box-shadow: none; background: #FFFFFF;
+  border: 1px solid #B41917; border-radius: var(--radius-btn);
+}
+body:is(.page-vorteile, .page-leistungen, .page-arbeitsweise) .anchor-nav .card__link { min-height: var(--btn-h); padding: .35rem var(--btn-pad-x); gap: .7rem; border-radius: var(--radius-btn); }
+body:is(.page-vorteile, .page-leistungen, .page-arbeitsweise) .anchor-nav .card--anchor .card__title { color: #B41917; font-size: var(--fs-btn); font-weight: 700; font-style: italic; line-height: 1.2; text-align: left; }
+body:is(.page-vorteile, .page-leistungen, .page-arbeitsweise) .anchor-nav .card--anchor .card__icon { width: 1.5rem; height: 1.5rem; padding: .3rem; }
+body:is(.page-vorteile, .page-leistungen, .page-arbeitsweise) .anchor-nav .card--anchor:hover .card__title,
+body:is(.page-vorteile, .page-leistungen, .page-arbeitsweise) .anchor-nav .card--anchor:focus-within .card__title,
+body:is(.page-vorteile, .page-leistungen, .page-arbeitsweise) .anchor-nav .card--anchor.is-active .card__title { color: #FFFFFF; }
+
+/* Vorteile (DE/EN): Ankernavigation – Primary Button aus dem Hero (eckig), Fläche weiss, 1 px rote Outline, Text und Pfeil (nach unten) rot */
+body:is(.page-vorteile, .page-leistungen, .page-arbeitsweise) #main .anchor-nav .btn--anchor {
+  flex-direction: row; height: auto; border-radius: 0; background: #FFFFFF; color: #B41917; border: 1px solid #B41917;
+  padding: 0 var(--btn-pad-x); box-shadow: none; white-space: normal; text-align: center;
+}
+body:is(.page-vorteile, .page-leistungen, .page-arbeitsweise) #main .anchor-nav .btn--anchor:hover,
+body:is(.page-vorteile, .page-leistungen, .page-arbeitsweise) #main .anchor-nav .btn--anchor:focus-visible { background: #B41917; color: #FFFFFF; transform: none; box-shadow: none; }
+body:is(.page-vorteile, .page-leistungen, .page-arbeitsweise) #main .anchor-nav .btn--anchor:hover .btn__icon { transform: none; }
+
+/* Vorteile (DE/EN), Ankernavigation: Default explizit – Outline, Text und Icon rot, Fläche weiss; Hover/Aktiv: rot gefüllt, Text und Icon weiss */
+body:is(.page-vorteile, .page-leistungen, .page-arbeitsweise) #main .anchor-nav .btn--anchor,
+body:is(.page-vorteile, .page-leistungen, .page-arbeitsweise) #main .anchor-nav .btn--anchor .btn__icon { color: #B41917; }
+body:is(.page-vorteile, .page-leistungen, .page-arbeitsweise) #main .anchor-nav .btn--anchor { background: #FFFFFF; border-color: #B41917; }
+body:is(.page-vorteile, .page-leistungen, .page-arbeitsweise) #main .anchor-nav .btn--anchor:hover, body:is(.page-vorteile, .page-leistungen, .page-arbeitsweise) #main .anchor-nav .btn--anchor:active,
+body:is(.page-vorteile, .page-leistungen, .page-arbeitsweise) #main .anchor-nav .btn--anchor:hover .btn__icon, body:is(.page-vorteile, .page-leistungen, .page-arbeitsweise) #main .anchor-nav .btn--anchor:active .btn__icon { color: #FFFFFF; }
+body:is(.page-vorteile, .page-leistungen, .page-arbeitsweise) #main .anchor-nav .btn--anchor:active { background: #B41917; }
+/* < 768 px: Buttons linksbündig */
+@media (max-width: 767.98px) {
+  body:is(.page-vorteile, .page-leistungen, .page-arbeitsweise) .anchor-nav .carousel__track { justify-items: start; }
+  body:is(.page-vorteile, .page-leistungen, .page-arbeitsweise) #main .anchor-nav .btn--anchor { text-align: left; }
+}
+
+/* Vorteile (DE/EN), Ankernavigation: kleiner Schatten in allen Zuständen */
+body:is(.page-vorteile, .page-leistungen, .page-arbeitsweise) #main .anchor-nav .btn--anchor,
+body:is(.page-vorteile, .page-leistungen, .page-arbeitsweise) #main .anchor-nav .btn--anchor:hover,
+body:is(.page-vorteile, .page-leistungen, .page-arbeitsweise) #main .anchor-nav .btn--anchor:active,
+body:is(.page-vorteile, .page-leistungen, .page-arbeitsweise) #main .anchor-nav .btn--anchor:focus-visible { box-shadow: 0 2px 6px rgba(0, 0, 0, .25); }
+
+/* Vorteile (DE/EN), Ankernavigation: keine Liste – Buttons fließen nebeneinander, Zeile für Zeile (Tag-Cloud); ab 768 px zentriert, darunter linksbündig */
+body:is(.page-vorteile, .page-leistungen, .page-arbeitsweise) #main .anchor-nav .carousel__track { display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start; gap: .7rem; }
+@media (max-width: 767.98px) {
+  body:is(.page-vorteile, .page-leistungen, .page-arbeitsweise) #main .anchor-nav .carousel__track { justify-content: flex-start; }
+}
+
+/* Vorteile (DE/EN), ab 768 px: Ankernavigation sticky am oberen Rand – ab Oberkante des Button-Bereichs, endet mit Beginn der Section „Kontakt“ */
+@media (min-width: 768px) {
+  body:is(.page-vorteile, .page-leistungen, .page-arbeitsweise) { --anchor-h: 10.5rem; }
+  body:is(.page-vorteile, .page-leistungen, .page-arbeitsweise) #main .anchor-nav {
+    position: sticky; top: 0; z-index: 90; margin-top: 1.6rem; padding: .8rem 0 .9rem;
+    background: rgba(255, 255, 255, .96); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  }
+}
+
+/* Vorteile (DE/EN), Ankernavigation: Button des aktuell sichtbaren Bereichs (Scrollspy) wie im Hover-Zustand */
+body:is(.page-vorteile, .page-leistungen, .page-arbeitsweise) #main .anchor-nav .btn--anchor[aria-current="true"] { background: #B41917; color: #FFFFFF; }
+body:is(.page-vorteile, .page-leistungen, .page-arbeitsweise) #main .anchor-nav .btn--anchor[aria-current="true"] .btn__icon { color: #FFFFFF; }
+
+/* Vorteile (DE/EN): Abstand zwischen erster Section und Button-Bereich halbiert (< 768 px: 50 → 25 px; ab 768 px: 81 → ca. 41 px) */
+body:is(.page-vorteile, .page-leistungen, .page-arbeitsweise) #main :is(#vorteile, #benefits, #leistungen, #services, #arbeitsweise, #how-we-work) { padding-bottom: 12px; }
+body:is(.page-vorteile, .page-leistungen, .page-arbeitsweise) #main .anchor-nav { margin-top: .8rem; }
+@media (min-width: 768px) {
+  body:is(.page-vorteile, .page-leistungen, .page-arbeitsweise) #main :is(#vorteile, #benefits, #leistungen, #services, #arbeitsweise, #how-we-work) { padding-bottom: 24px; }
+  body:is(.page-vorteile, .page-leistungen, .page-arbeitsweise) #main .anchor-nav { margin-top: .4rem; }
+}
+
+/* Ankernavigation sticky (ab 768 px): Abstand beim Anspringen je Seite an die Höhe der Leiste angepasst */
+@media (min-width: 768px) {
+  body.page-leistungen { --anchor-h: 14.6rem; }
+  body.page-arbeitsweise { --anchor-h: 6rem; }
+}
+
+/* Ankernavigation (Leistungen, Vorteile, Arbeitsweise; DE/EN): Button-Text Open Sans Regular 400 Italic */
+body:is(.page-vorteile, .page-leistungen, .page-arbeitsweise) #main .anchor-nav .btn--anchor { font-weight: 400; font-style: italic; }
+
+/* Leistungen (DE/EN): Gestaltung der Panels wie auf „Vorteile“ */
+body.page-leistungen #main .svc .svc__title,
+body.page-leistungen #main .svc .svc__text,
+body.page-leistungen #main .svc .svc__list li { color: #000000; }
+body.page-leistungen #main .svc .svc__badge { background: transparent; border: 2px solid #000000; color: #000000; box-shadow: none; }
+body.page-leistungen #main .svc .svc__list li { border-top-color: #B7B5B3; }
+body.page-leistungen #main .svc .svc__list li:first-child { border-top: 0; }
+body.page-leistungen #main .svc .svc__list li::before {
+  border-color: #000000;
+  background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000000' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / 20px 20px no-repeat;
+}
+@media (min-width: 768px) {
+  body.page-leistungen #main .svc .svc__panel { background: none; padding-block: 40px; }
+  /* jedes zweite Panel (1., 3., 5. …) mit grauem Hintergrundfonds #E9E6DF über die volle Seitenbreite */
+  body.page-leistungen #main .services-stack > .svc:nth-of-type(odd) .svc__panel {
+    background: #E9E6DF; box-shadow: 0 0 0 100vmax #E9E6DF; clip-path: inset(0 -100vmax);
+  }
+}
+@media (max-width: 767.98px) {
+  body.page-leistungen #main .svc .svc__panel { background: #E9E6DF; }
+  body.page-leistungen #main .services-stack { gap: 3rem; }
+}
+
+/* Leistungen (DE/EN): Panel-Headlines verkleinert, damit sie in der linken Spalte bleiben */
+@media (min-width: 768px)  { body.page-leistungen #main .svc .svc__title { font-size: 22px; } }
+@media (min-width: 1024px) { body.page-leistungen #main .svc .svc__title { font-size: 26px; } }
+@media (min-width: 1280px) { body.page-leistungen #main .svc .svc__title { font-size: 32px; } }
+
+/* Arbeitsweise (DE/EN), Section Zusammenarbeit: Hintergrund #B41917, Text #FFFFFF */
+body.page-arbeitsweise #main :is(#zusammenarbeit, #collaboration) { background: #B41917; }
+body.page-arbeitsweise #main :is(#zusammenarbeit, #collaboration)::before { background: none; }
+@media (min-width: 768px) {
+  body.page-arbeitsweise #main :is(#zusammenarbeit, #collaboration) { box-shadow: 0 0 0 100vmax #B41917; }
+}
+body.page-arbeitsweise #main :is(#zusammenarbeit, #collaboration) .aw-title,
+body.page-arbeitsweise #main :is(#zusammenarbeit, #collaboration) .aw-sub,
+body.page-arbeitsweise #main :is(#zusammenarbeit, #collaboration) .aw-text { color: #FFFFFF; }
+
+/* Über uns (DE/EN), < 768 px: Bild der Section mit „fit“-Medienfläche stößt direkt an die graue Fläche – Medienfläche nimmt die Bildhöhe an, keine weißen Ränder */
+@media (max-width: 767.98px) {
+  body.page-ueber-uns #main .pstep__media--fit { aspect-ratio: auto; background: none; }
+  body.page-ueber-uns #main .pstep__media--fit picture,
+  body.page-ueber-uns #main .pstep__media--fit img { position: static; display: block; width: 100%; height: auto; object-fit: fill; background: none; }
+}
+
+/* < 1024 px (Burger-Menü): Navigations-Flyout fährt von rechts in den Viewport, der Screen dahinter wird mit Schwarz (30 % Transparenz) abgedunkelt */
+@media (max-width: 1023.98px) {
+  .site-header::after {
+    content: ""; position: fixed; inset: 0; z-index: 1; pointer-events: none;
+    background: rgba(0, 0, 0, .7); opacity: 0; transition: opacity .3s ease;
+  }
+  .site-header[data-open="true"]::after { opacity: 1; }
+  .site-header .site-header__menu {
+    display: block; position: fixed; top: 0; right: 0; bottom: 0; left: auto; z-index: 2;
+    width: min(80vw, 20rem); max-width: none; height: 100%; overflow-y: auto;
+    padding: calc(var(--header-h) + 1rem) 1.5rem 1.5rem;
+    background: #FFFFFF; box-shadow: -.5rem 0 1.5rem rgba(0, 0, 0, .2);
+    transform: translateX(100%); visibility: hidden;
+    transition: transform .3s ease, visibility 0s linear .3s;
+  }
+  .site-header[data-open="true"] .site-header__menu { transform: translateX(0); visibility: visible; transition: transform .3s ease, visibility 0s; }
+  .site-header .nav-toggle { position: relative; z-index: 3; }
+}
+@media (max-width: 1023.98px) and (prefers-reduced-motion: reduce) {
+  .site-header::after, .site-header .site-header__menu { transition: none; }
+}
+
+/* Leistungen (DE und EN), alle Panels, < 768 px: Section optisch zweigeteilt –
+   oben ein eigener Hintergrund (wie die Kachel auf der Startseite: Verlauf Rot → Schwarz über dem Kachelbild, kleiner Ausschnitt) mit weißem Icon */
+@media (max-width: 767.98px) {
+  body.page-leistungen #main .svc .svc__panel { --banner-h: 7rem; padding-top: calc(var(--banner-h) + var(--panel-pad)); }
+  body.page-leistungen #main .svc .svc__panel::before {
+    content: ""; position: absolute; z-index: 0; top: 0; left: 0; right: 0; height: var(--banner-h);
+    background: linear-gradient(to bottom right, rgba(180, 25, 23, .7) 0%, rgba(0, 0, 0, .7) 100%), var(--banner-img) center / cover no-repeat;
+  }
+  body.page-leistungen #main .svc .svc__badge {
+    position: absolute; z-index: 1; top: 0; left: 0; right: 0; width: auto; height: var(--banner-h); margin: 0;
+    border: 0; border-radius: 0; background: none; color: #FFFFFF;
+  }
+  body.page-leistungen #main .svc .svc__badge .icon { width: 3.2rem; height: 3.2rem; stroke-width: 1.4; }
+  /* Bild je Panel = Kachel auf der Startseite */
+  body.page-leistungen #main :is(#strategie, #strategy) .svc__panel { --banner-img: url("../assets/img/home/kacheln/img_home_kacheln_01.jpg"); }
+  body.page-leistungen #main :is(#technologie, #technology) .svc__panel { --banner-img: url("../assets/img/home/kacheln/img_home_kacheln_02.jpg"); }
+  body.page-leistungen #main :is(#produkt, #product) .svc__panel { --banner-img: url("../assets/img/home/kacheln/img_home_kacheln_03.jpg"); }
+  body.page-leistungen #main #marketing .svc__panel { --banner-img: url("../assets/img/home/kacheln/img_home_kacheln_04.jpg"); }
+  body.page-leistungen #main :is(#vertrieb, #sales) .svc__panel { --banner-img: url("../assets/img/home/kacheln/img_home_kacheln_05.jpg"); }
+  body.page-leistungen #main :is(#kundenservice, #customer-service) .svc__panel { --banner-img: url("../assets/img/home/kacheln/img_home_kacheln_06.jpg"); }
+  body.page-leistungen #main :is(#finanzen, #finance) .svc__panel { --banner-img: url("../assets/img/home/kacheln/img_home_kacheln_07.jpg"); }
+  body.page-leistungen #main :is(#personal, #people) .svc__panel { --banner-img: url("../assets/img/home/kacheln/img_home_kacheln_08.jpg"); }
+  body.page-leistungen #main :is(#recht, #legal) .svc__panel { --banner-img: url("../assets/img/home/kacheln/img_home_kacheln_09.jpg"); }
+  body.page-leistungen #main :is(#prozesse, #processes) .svc__panel { --banner-img: url("../assets/img/home/kacheln/img_home_kacheln_10.jpg"); }
+}
+
+/* Leistungen (DE/EN), ab 768 px: keine vollbreiten grauen Streifen mehr – jedes Panel eine Box mit grauem Hintergrund #E9E6DF (wie mobil) */
+@media (min-width: 768px) {
+  body.page-leistungen #main .services-stack > .svc:nth-of-type(n) .svc__panel {
+    background: #E9E6DF; box-shadow: none; clip-path: none; padding-block: var(--panel-pad);
+  }
+}
+
+/* Leistungen (DE/EN), ab 768 px: Panel horizontal geteilt – links ein Streifen mit dem Kachel-Hintergrund der Startseite
+   (Verlauf Rot → Schwarz über dem Kachelbild) und weißem Icon, oben ausgerichtet (wie mobil, dort als Streifen oben) */
+@media (min-width: 768px) {
+  body.page-leistungen #main .svc .svc__panel { --strip-w: 6.5rem; padding-left: calc(var(--strip-w) + var(--panel-pad)); }
+  body.page-leistungen #main .svc .svc__panel::before {
+    content: ""; position: absolute; z-index: 0; top: 0; bottom: 0; left: 0; width: var(--strip-w);
+    background: linear-gradient(to bottom right, rgba(180, 25, 23, .7) 0%, rgba(0, 0, 0, .7) 100%), var(--banner-img) center / cover no-repeat;
+  }
+  body.page-leistungen #main .svc .svc__badge {
+    position: absolute; z-index: 1; top: var(--panel-pad); left: 0; width: var(--strip-w); height: auto; margin: 0;
+    border: 0; border-radius: 0; background: none; color: #FFFFFF;
+  }
+  body.page-leistungen #main .svc .svc__badge .icon { width: 3rem; height: 3rem; stroke-width: 1.4; }
+  body.page-leistungen #main :is(#strategie, #strategy) .svc__panel { --banner-img: url("../assets/img/home/kacheln/img_home_kacheln_01.jpg"); }
+  body.page-leistungen #main :is(#technologie, #technology) .svc__panel { --banner-img: url("../assets/img/home/kacheln/img_home_kacheln_02.jpg"); }
+  body.page-leistungen #main :is(#produkt, #product) .svc__panel { --banner-img: url("../assets/img/home/kacheln/img_home_kacheln_03.jpg"); }
+  body.page-leistungen #main #marketing .svc__panel { --banner-img: url("../assets/img/home/kacheln/img_home_kacheln_04.jpg"); }
+  body.page-leistungen #main :is(#vertrieb, #sales) .svc__panel { --banner-img: url("../assets/img/home/kacheln/img_home_kacheln_05.jpg"); }
+  body.page-leistungen #main :is(#kundenservice, #customer-service) .svc__panel { --banner-img: url("../assets/img/home/kacheln/img_home_kacheln_06.jpg"); }
+  body.page-leistungen #main :is(#finanzen, #finance) .svc__panel { --banner-img: url("../assets/img/home/kacheln/img_home_kacheln_07.jpg"); }
+  body.page-leistungen #main :is(#personal, #people) .svc__panel { --banner-img: url("../assets/img/home/kacheln/img_home_kacheln_08.jpg"); }
+  body.page-leistungen #main :is(#recht, #legal) .svc__panel { --banner-img: url("../assets/img/home/kacheln/img_home_kacheln_09.jpg"); }
+  body.page-leistungen #main :is(#prozesse, #processes) .svc__panel { --banner-img: url("../assets/img/home/kacheln/img_home_kacheln_10.jpg"); }
+}
+
+/* Leistungen (DE/EN), ab 768 px: Icon im Streifen vertikal mittig */
+@media (min-width: 768px) {
+  body.page-leistungen #main .svc .svc__badge { top: 0; bottom: 0; height: auto; place-items: center; }
+}
+
+/* Startseite, Section „Was wir bieten“: Slider bleibt, Kacheln sehen aus wie die Teaser in „Was wir tun“
+   (Bild oben mit weichem Auslauf ins Schwarz, schwarze Textbox, Hover wie dort) */
+.section--benefits-tiles .card--service.step { padding: 0 !important; min-height: 0 !important; background: #000000 !important; border-radius: 0; }
+.section--benefits-tiles .card--service.step::before, .section--benefits-tiles .card--service.step::after { display: none !important; }
+.section--benefits-tiles .card--service.step:hover { transform: none; box-shadow: none; }
+.section--benefits-tiles .step__title { font-size: 24px; font-weight: 700; font-style: normal; line-height: var(--lh-snug); color: #FFFFFF; }
+.section--benefits-tiles .step__desc { font-size: calc(var(--fs-card-text) * 1.15); line-height: var(--lh-body); }
+
+/* Startseite, „Was wir bieten“: nur Headlines, Kacheln gleich hoch wie die Kacheln in „Was wir können“ – das Bild nimmt die Resthöhe */
+.section--benefits-tiles .card--service.step { height: 20.75rem; }
+@media (min-width: 1024px) { .section--benefits-tiles .card--service.step { height: calc(23.8rem + 10px); } }
+.section--benefits-tiles .step__media { flex: 1 1 auto; min-height: 0; }
+.section--benefits-tiles .step__img { height: 100%; aspect-ratio: auto; }
+.section--benefits-tiles .step__text { flex: 0 0 auto; min-height: 0; }
+
+/* Arbeitsweise (DE und EN), Panel „Analysieren“: H2 in Rot, Subline Open Sans ExtraBold 800 */
+body.page-arbeitsweise #main :is(#analysieren, #analyze) .aw-title { color: #B41917; }
+body.page-arbeitsweise #main :is(#analysieren, #analyze) .aw-sub { font-weight: 800; font-style: normal; }
+
+/* Arbeitsweise (DE und EN), Panel „Integrieren“: H2 in Rot, Subline nicht kursiv */
+body.page-arbeitsweise #main :is(#integrieren, #integrate) .aw-title { color: #B41917; }
+body.page-arbeitsweise #main :is(#integrieren, #integrate) .aw-sub { font-weight: 800; font-style: normal; }
+
+/* Arbeitsweise (DE und EN), Panel „Betreiben“: H2 in Rot, Subline nicht kursiv */
+body.page-arbeitsweise #main :is(#betreiben, #operate) .aw-title { color: #B41917; }
+body.page-arbeitsweise #main :is(#betreiben, #operate) .aw-sub { font-weight: 800; font-style: normal; }
+
+/* Arbeitsweise (DE und EN), Panel „Optimieren“: H2 in Rot, Subline nicht kursiv */
+body.page-arbeitsweise #main :is(#optimieren, #optimize) .aw-title { color: #B41917; }
+body.page-arbeitsweise #main :is(#optimieren, #optimize) .aw-sub { font-weight: 800; font-style: normal; }
+
+/* Arbeitsweise (DE und EN), Section „Zusammenarbeit“: Subline nicht kursiv */
+body.page-arbeitsweise #main :is(#zusammenarbeit, #collaboration) .aw-sub { font-weight: 800; font-style: normal; }
+
+/* Startseite, Hero: Zeilenabstand des weißen Textes um 4 px vergrößert (1,1 × Schriftgröße + 4 px) */
+body.page-home section[aria-labelledby="hero-title"] .hero__title { line-height: calc(var(--lh-tight) * 1em + 4px); }
+
+/* Startseite: H2 (rote Label-Zeile der Sections) – Zeilenabstand um 4 px erhöht (1,1 × Schriftgröße + 4 px) */
+body.page-home #main h2.eyebrow { line-height: calc(var(--lh-tight) * 1em + 4px); }
+
+/* Startseite, Hero: Copy-Text unter der Headline (weiß) */
+.hero__text { margin: 0; max-width: 40rem; color: rgba(255, 255, 255, .95); font-size: 14px; line-height: var(--lh-body); }
+@media (min-width: 1024px) { .hero__text { font-size: 16px; } }
+
+/* Startseite, Hero ab 768 px: Abstand zwischen weißem Text und Copy-Text auf den Abstand H1 → weißer Text angeglichen (17 px) */
+@media (min-width: 768px) { .hero__title + .hero__text { margin-top: -16px; } }
+
+/* Startseite, Hero: H1 (rot) 4 px größer (≥ 768 px: 36 px, darunter 32 px) */
+body.page-home section[aria-labelledby="hero-title"] .hero__eyebrow { font-size: 32px; }
+@media (min-width: 768px) { body.page-home section[aria-labelledby="hero-title"] .hero__eyebrow { font-size: 36px; } }
+
+/* Startseite, „Was wir tun“-Teaser: Copy-Text 4 px kleiner als die Headline (24 px → 20 px) */
+body.page-home #main .steps .step__desc { font-size: 20px; color: #FFFFFF; }
+
+/* Arbeitsweise (DE/EN): Subline – Zeilenabstand vergrößert (vorher 1,1) */
+body.page-arbeitsweise #main .pstep .aw-sub { line-height: 1.3; }
+
+/* Startseite: Headlines aller Kacheln und Teaser einheitlich 20 px
+   (Teaser „Was wir tun“, Kacheln „Was wir können“, Kacheln „Was wir bieten“) */
+body.page-home #main .steps .step__title,
+body.page-home #main .section--services-tiles .card__title,
+body.page-home #main .section--benefits-tiles .step__title { font-size: 20px; }
+
+/* Startseite: Headlines der Kacheln und Teaser – ab 768 px alle 24 px; < 768 px Slider-Kacheln 20 px, Teaser 24 px */
+body.page-home #main .steps .step__title { font-size: 24px; }
+@media (min-width: 768px) {
+  body.page-home #main .section--services-tiles .card__title,
+  body.page-home #main .section--benefits-tiles .step__title { font-size: 24px; }
+}
+
+/* Startseite, < 768 px: Hero-Copy 16/23 px, Section-Copy 16/23 px, Kachel-Text „Was wir können“ 14/21 px */
+@media (max-width: 767.98px) {
+  body.page-home .hero__text { font-size: 16px; line-height: 23px; }
+  body.page-home #main .section .section-header__text { font-size: 16px; line-height: 23px; }
+  body.page-home #main .section--services-tiles:not(.section--benefits-tiles) .card__text { font-size: 14px; line-height: 21px; }
+}
+
+/* Startseite, < 768 px: Sections „Was wir können“ und „Was wir tun“ – Abstand vor der Headline zur vorherigen Section 56 px, danach um ein Drittel verkleinert auf 37 px */
+@media (max-width: 767.98px) { body.page-home #main > section:is(#leistungen, #services, #arbeitsweise, #how-we-work) { padding-top: 37px; } }
+
+/* Startseite: Höhe der Kacheln „Was wir bieten“ wird per Skript von den Kacheln „Was wir können“ übernommen (Fallback: feste Werte) */
+.section--benefits-tiles .card--service.step { height: var(--tile-h, 20.75rem); }
+@media (min-width: 1024px) { .section--benefits-tiles .card--service.step { height: var(--tile-h, calc(23.8rem + 10px)); } }
+
+/* Vorteile (DE/EN): Headlines der Panels wie die H2-Headlines der Panels auf „Leistungen“
+   (ExtraBold 800, nicht kursiv; < 768 px 28 px, 768–1023 px 22 px, 1024–1279 px 26 px, ab 1280 px 32 px) */
+body.page-vorteile #main .pstep .aw-title,
+body.page-vorteile #main .pstep .aw-sub { font-size: 28px; font-weight: 800; font-style: normal; line-height: var(--lh-tight); }
+@media (min-width: 768px)  { body.page-vorteile #main .pstep .aw-title, body.page-vorteile #main .pstep .aw-sub { font-size: 22px; } }
+@media (min-width: 1024px) { body.page-vorteile #main .pstep .aw-title, body.page-vorteile #main .pstep .aw-sub { font-size: 26px; } }
+@media (min-width: 1280px) { body.page-vorteile #main .pstep .aw-title, body.page-vorteile #main .pstep .aw-sub { font-size: 32px; } }
+
+/* Vorteile (DE/EN): Zeilenabstand der Panel-Headlines = 1,3 × Schriftgröße */
+body.page-vorteile #main .pstep .aw-title,
+body.page-vorteile #main .pstep .aw-sub { line-height: 1.3; }
+
+/* Über uns (DE/EN): Panel-Headlines wie auf „Vorteile“ – ExtraBold 800, nicht kursiv; < 768 px 28 px, 768–1023 px 22 px, 1024–1279 px 26 px, ab 1280 px 32 px; Zeilenabstand 1,3 × Schriftgröße */
+body.page-ueber-uns #main .pstep .aw-title,
+body.page-ueber-uns #main .pstep .aw-sub { font-size: 28px; font-weight: 800; font-style: normal; line-height: 1.3; }
+@media (min-width: 768px)  { body.page-ueber-uns #main .pstep .aw-title, body.page-ueber-uns #main .pstep .aw-sub { font-size: 22px; } }
+@media (min-width: 1024px) { body.page-ueber-uns #main .pstep .aw-title, body.page-ueber-uns #main .pstep .aw-sub { font-size: 26px; } }
+@media (min-width: 1280px) { body.page-ueber-uns #main .pstep .aw-title, body.page-ueber-uns #main .pstep .aw-sub { font-size: 32px; } }
+
+/* Kontakt-Sections: Bild im Kreis als visueller Trenner über der Headline */
+.cta-divider { width: 120px; height: 120px; margin: 0 auto 1.4rem; border-radius: 50%; overflow: hidden; }
+.cta-divider img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 85% center; border-radius: 50%; }   /* Ausschnitt nach rechts verschoben: beide Gesichter im Kreis */
+@media (min-width: 768px) { .cta-divider { width: 140px; height: 140px; margin-bottom: 1.6rem; } }
+
+/* Startseite: Section „Wer wir sind“ (Teaser) – Layout und Styling wie das erste Panel der Seite „Über uns“:
+   ab 768 px grauer Streifen #E9E6DF über die volle Breite, Text links, Bild rechts (40 %); darunter eine graue Box mit Bild oben */
+.home-about { margin-top: 3rem; }
+.home-about__inner { display: grid; background: #E9E6DF; }
+.home-about__media { order: -1; aspect-ratio: 4 / 3; background: #16384f; }
+.home-about__media img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 0; }
+.home-about__text { display: grid; align-content: center; justify-items: start; gap: 1.1rem; padding: 24px; }
+.home-about__title { margin: 0; color: #000000; font-size: 28px; font-weight: 800; font-style: normal; line-height: 1.3; }
+.home-about__sub { margin: 0; color: #000000; font-size: 20px; font-weight: 800; font-style: normal; line-height: 1.3; }
+.home-about__copy { margin: 0; max-width: 40rem; color: #000000; font-size: 16px; line-height: 23px; }
+.home-about__text .btn { margin-top: .4rem; }
+@media (min-width: 768px) {
+  .home-about { margin-top: 4rem; padding-block: 40px; background: #E9E6DF; box-shadow: 0 0 0 100vmax #E9E6DF; clip-path: inset(0 -100vmax); }
+  .home-about__inner { grid-template-columns: minmax(0, 1fr) 9% 31%; background: none; }
+  .home-about__text { grid-column: 1; grid-row: 1; padding: 0 1.6rem 0 2.2rem; }
+  .home-about__media { grid-column: 2 / 4; grid-row: 1; order: 0; align-self: start; aspect-ratio: 620 / 420; overflow: hidden; box-shadow: 0 .8rem 2rem rgba(20, 24, 40, .22); }
+  .home-about__title { font-size: 22px; }
+  .home-about__sub { font-size: 18px; }
+  .home-about__copy { font-size: 16px; line-height: 23px; }
+}
+@media (min-width: 1024px) { .home-about__title { font-size: 26px; } .home-about__sub { font-size: 20px; } }
+@media (min-width: 1280px) { .home-about__title { font-size: 32px; } }
+/* Startseite „Wer wir sind“: allgemeine Section-Verläufe/Abstände überstimmen */
+body.page-home main > section.home-about { background: none; padding: 0; margin-top: 3rem; }
+@media (max-width: 767.98px) { body.page-home main > section.home-about .home-about__wrap { padding-inline: var(--gutter); } }
+@media (min-width: 768px) { body.page-home main > section.home-about { background: #E9E6DF; padding-block: 40px; margin-top: 4rem; } }
+/* „Wer wir sind“: Abstand nach oben als weiße Fläche (statt Außenabstand, der den dunklen Seitenhintergrund zeigt) */
+body.page-home main > section.home-about { margin-top: 0; background: #FFFFFF; padding-top: 3rem; }
+@media (min-width: 768px) {
+  body.page-home main > section.home-about { background: #E9E6DF; padding-top: 40px; }
+  body.page-home main > section.home-about::before { content: ""; display: block; height: 4rem; margin: -40px 0 40px; background: #FFFFFF; }
+}
+
+/* Startseite – Korrekturen:
+   · Seitenhintergrund hinter den Sections weiß (dunkler Seitengrund schimmerte als feine Linie an den Section-Kanten durch)
+   · „Wer wir sind“: kein Schatten-/Clip-Trick mehr nötig (Section ist bereits volle Breite)
+   · alle H3 der Startseite: Zeilenabstand 1,3 × Schriftgröße */
+body.page-home main { background: #FFFFFF; }
+body.page-home main > section.home-about { box-shadow: none; clip-path: none; }
+body.page-home #main h3 { line-height: 1.3; }
+body.page-home #main h2.eyebrow.home-about-eyebrow { margin: 0; }
+/* „Wer wir sind“ (Startseite): Label rot wie in den anderen Sections; Abstand nach oben über die vorherige Section statt Zusatzfläche */
+body.page-home #main .home-about .eyebrow { margin: 0; color: #B41917; font-weight: 800; font-style: normal; line-height: calc(var(--lh-tight) * 1em + 4px); }
+body.page-home main > section.home-about::before { display: none; }
+@media (min-width: 768px) {
+  body.page-home main > section.home-about { padding-top: 40px; }
+  body.page-home main > section.section--benefits-tiles { padding-bottom: 4rem; }
+}
+
+/* Startseite: Section „Wer wir sind“ – Aufbau wie der Header (Hero):
+   ab 768 px Bild über die volle Breite, schwarze Textbox (30 % transparent) rechts am Raster (Tablet 6, Desktop 5 von 12 Spalten);
+   < 768 px Bild oben, darunter die schwarze Textbox. Die Höhe richtet sich nach dem Inhalt. */
+body.page-home main > section.home-about { max-width: none; padding: 0; margin: 0; background: #FFFFFF; }
+body.page-home main > section.home-about::before { display: none; }
+.home-about__box { display: block; aspect-ratio: auto; overflow: hidden; border-radius: 0; background: #000; }
+.home-about__img { position: static; z-index: auto; display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; object-position: 50% 50%; }
+.home-about__box .home-about__text { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 1.2rem;
+  padding: 2rem var(--gutter) 4rem; background: #000000; color: #FFFFFF; }
+.home-about__box .home-about__sub { color: #FFFFFF; font-size: 24px; }
+.home-about__box .home-about__copy { color: rgba(255, 255, 255, .95); max-width: 40rem; font-size: 16px; line-height: 23px; }
+.home-about__box .btn { border-radius: 0; background-color: #B41917; border: 1px solid #FFFFFF; color: #FFFFFF; box-shadow: 0 1.2rem 2.8rem rgba(0, 0, 0, .55);
+  transition: background-color .35s var(--ease), transform .35s var(--ease), box-shadow .35s var(--ease); }
+.home-about__box .btn:hover { background-color: #5C0D0C; transform: translate(4px, -6px); box-shadow: 0 1.6rem 3.2rem rgba(0, 0, 0, .6); }
+.home-about__box .btn:hover .btn__icon { transform: none; }
+@media (prefers-reduced-motion: reduce) { .home-about__box .btn:hover { transform: none; } }
+@media (min-width: 768px) {
+  .home-about__box {
+    --hero-x: max(var(--gutter), calc((100% - var(--container-max)) / 2 + var(--gutter)));
+    --hero-w: calc(min(100%, var(--container-max)) - 2 * var(--gutter));
+    --col-step: calc((var(--hero-w) + var(--grid-gutter)) / 12);
+    --box-n: 6; --box-alpha: .7;
+    --box-left: calc(var(--hero-x) + (12 - var(--box-n)) * var(--col-step));
+    position: relative; isolation: isolate;
+  }
+  .home-about__img { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; aspect-ratio: auto; object-position: 50% 50%; }
+  .home-about__box::after { content: ""; display: block; position: absolute; top: 0; bottom: 0; z-index: -1; pointer-events: none;
+    left: calc(var(--box-left) - var(--col-step)); width: calc(var(--col-step) + 1px);
+    background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.12) 25%, rgba(0,0,0,.35) 50%, rgba(0,0,0,.62) 75%, rgba(0,0,0,var(--box-alpha)) 100%); }
+  .home-about__box .home-about__text { margin-left: var(--box-left); width: calc(100% - var(--box-left)); min-height: var(--hero-h);
+    padding: 2.5rem var(--hero-x) 3rem 2rem; background: rgba(0, 0, 0, var(--box-alpha)); }
+}
+@media (min-width: 1024px) { .home-about__box { --box-n: 5; } }
+body.page-home #main .home-about__box .btn { border-radius: 0; background-color: #B41917; border: 1px solid #FFFFFF; color: #FFFFFF; }
+body.page-home #main .home-about__box .btn:hover { background-color: #5C0D0C; }
+
+/* „Wer wir sind“ (Startseite): Textbox links – ab 768 px vom linken Fensterrand bis Ende Spalte 5, schwarz 30 % transparent;
+   Verlauf von Ende Spalte 5 bis Ende Spalte 7 von 30 % Transparenz (Schwarz .7) zu 0 % Deckkraft. */
+@media (min-width: 768px) {
+  .home-about__box { --box-end: calc(var(--hero-x) + 5 * var(--col-step) - var(--grid-gutter)); }
+  .home-about__box::after { left: var(--box-end); width: calc(2 * var(--col-step));
+    background: linear-gradient(90deg, rgba(0,0,0,var(--box-alpha)) 0%, rgba(0,0,0,.5) 25%, rgba(0,0,0,.28) 50%, rgba(0,0,0,.1) 75%, rgba(0,0,0,0) 100%); }
+  .home-about__box .home-about__text { margin-left: 0; width: var(--box-end); padding: 2.5rem 2rem 3rem calc(var(--hero-x) + 2rem); }
+}
+
+/* „Wer wir sind“ (Startseite), ab 768 px: 80 px Abstand vor der Section; Innenabstand oben und unten der Textbox 40 px */
+@media (min-width: 768px) {
+  body.page-home main > section.section--benefits-tiles { padding-bottom: 80px; }
+  .home-about__box .home-about__text { padding-top: 40px; padding-bottom: 40px; }
+}
+@media (min-width: 768px) { body.page-home main > section.home-about { margin-top: 80px; } }   /* main-Hintergrund ist weiß */
+
+/* „Wer wir sind“ (Startseite), ab 768 px: Innenabstand oben und unten der Textbox 24 px */
+@media (min-width: 768px) { .home-about__box .home-about__text { padding-top: 24px; padding-bottom: 24px; } }
+
+/* „Wer wir sind“ (Startseite), ab 768 px: Mindesthöhe um ein Viertel reduziert (Header-Höhe × 0,75); darüber richtet sich die Höhe nach dem Inhalt */
+@media (min-width: 768px) { .home-about__box .home-about__text { min-height: calc(var(--hero-h) * .75); } }
+@media (min-width: 768px) { .home-about__box .home-about__text { gap: .75rem; padding-right: 1.25rem; } .home-about__box .home-about__copy { max-width: none; } }
+@media (min-width: 768px) { .home-about__box { min-height: calc(var(--hero-h) * .75); } .home-about__box .home-about__text { min-height: 0; } }
+
+/* Leistungen (DE/EN): neues Panel „AI Engineering“ – Bild = Kachel 13 */
+body.page-leistungen #main #ai-engineering .svc__panel { --banner-img: url("../assets/img/home/kacheln/img_home_kacheln_13.jpg"); }
+
+/* Startseite, „Was wir können“: 11 Kacheln – neue Kachel „AI Engineering“ (Position 8) mit Motiv 13, die folgenden rücken nach */
+.section--services-tiles:not(.section--benefits-tiles) .card--service:nth-child(8) { --tile-bg: url("../assets/img/home/kacheln/img_home_kacheln_13.jpg"); }
+.section--services-tiles:not(.section--benefits-tiles) .card--service:nth-child(9) { --tile-bg: url("../assets/img/home/kacheln/img_home_kacheln_08.jpg"); }
+.section--services-tiles:not(.section--benefits-tiles) .card--service:nth-child(10) { --tile-bg: url("../assets/img/home/kacheln/img_home_kacheln_09.jpg"); }
+.section--services-tiles:not(.section--benefits-tiles) .card--service:nth-child(11) { --tile-bg: url("../assets/img/home/kacheln/img_home_kacheln_10.jpg"); }
+
+/* „Wer wir sind“ (Startseite): Hintergrund nicht mehr volle Breite, sondern Container-Breite wie die Panels auf „Leistungen“;
+   Overlay als EINE durchgehende Ebene (Box Spalte 1–5 schwarz 30 % transparent, Verlauf bis Ende Spalte 7) – keine Nähte, Box füllt die volle Höhe. */
+body.page-home main > section.home-about { max-width: var(--container-max); margin-inline: auto; padding-inline: var(--gutter); }
+.home-about__box .btn,
+body.page-home #main .home-about__box .btn { border: 0; }
+@media (min-width: 768px) {
+  .home-about__box { --hero-x: 0px; --hero-w: 100%; display: flex; align-items: stretch; }   /* Raster beginnt jetzt an der Boxkante */
+  .home-about__box::after { display: none; }
+  .home-about__box .home-about__text { position: relative; flex: 0 0 auto; background: transparent; padding-left: 2rem; }
+  .home-about__box .home-about__text::before { content: ""; position: absolute; z-index: -1; top: 0; bottom: 0; left: 0; pointer-events: none;
+    width: calc(140% + .4 * var(--grid-gutter));   /* Box (Spalte 1–5) + 2 Spalten Verlauf */
+    background: linear-gradient(90deg, rgba(0,0,0,.7) 0%, rgba(0,0,0,.7) 70%, rgba(0,0,0,.5) 77%, rgba(0,0,0,.28) 85%, rgba(0,0,0,.1) 93%, rgba(0,0,0,0) 100%); }
+}
+
+/* „Wer wir sind“ (Startseite): Inhalte (Text + Button) beginnen in Spalte 2 des 12-Spalten-Rasters der Box
+   (Padding-% bezieht sich auf die Boxbreite: Spaltenschritt = (Breite + Spaltenabstand) / 12) */
+.home-about__box .home-about__text { position: relative; padding-left: calc((100% + var(--grid-gutter)) / 12); padding-right: var(--gutter); }
+/* < 768 px: Verlauf vom schwarzen Hintergrund hoch ins Bild – unterste 35 % der Bildhöhe (Bild 3:2 → Verlauf 30:7), wie im Header */
+@media (max-width: 767.98px) {
+  .home-about__box .home-about__text::before { content: ""; position: absolute; left: 0; right: 0; bottom: 100%; aspect-ratio: 30 / 7; pointer-events: none;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, #000 100%); }
+}
+/* ab 768 px: Satzbreite bis Ende Spalte 6; Overlay bleibt Spalte 1–5 schwarz + Verlauf bis Spalte 7 (Breite 7 Spalten relativ zur Textbreite von 6 Spalten) */
+@media (min-width: 768px) {
+  .home-about__box .home-about__text { width: calc(6 * (100% + var(--grid-gutter)) / 12 - var(--grid-gutter)); padding-right: 0; }
+  .home-about__box .home-about__text::before { width: calc(116.667% + var(--grid-gutter) / 6); }
+}
+
+/* Startseite „Was wir tun“: < 768 px als Kachel-Slider mit Slidersteuerung (Punkte) wie „Was wir bieten“;
+   ab 768 px bleibt es bei den vier festen Kacheln nebeneinander (Slider-Hülle ist dort unsichtbar). */
+@media (min-width: 768px) {
+  .process-carousel, .process-carousel .carousel__viewport { display: contents; }
+  .process-carousel .carousel__controls { display: none; }
+}
+@media (max-width: 767.98px) {
+  .process-carousel { margin: calc(var(--fs-body) * var(--lh-body) * 1.5) calc(-1 * var(--gutter)) 0; }   /* Kacheln laufen über die volle Breite */
+  .process-carousel .carousel__viewport { margin-block: 0; padding-block: 0; }
+  .process-carousel .steps { display: flex; gap: 2px; width: max-content; margin: 0; }
+  .process-carousel .step { flex: none; width: var(--card-w); height: var(--tile-h, 20.75rem); scroll-snap-align: start; padding: 0; min-height: 0; background: #000; }
+  .process-carousel .step__media { flex: 1 1 auto; min-height: 0; }
+  .process-carousel .step__img { height: 100%; aspect-ratio: auto; }
+  .process-carousel .step__text { flex: 0 0 auto; min-height: 0; }
+  .process-carousel .carousel__controls { margin-top: 1.3rem; padding-inline: var(--gutter); justify-content: center; }
+  .process-carousel .carousel__nav { display: none; }
+  .process-carousel .carousel__dots { display: flex; justify-content: center; gap: .5rem; padding-block: .6rem; pointer-events: none; }
+}
+
+/* „Wer wir sind“ (Startseite), < 768 px:
+   · Bild ein Drittel niedriger (3:2 → 9:4); Farbverlauf (untere 35 % der Bildhöhe) angepasst
+   · Abstand nach dem Button zum unteren Rand halbiert (4 rem → 2 rem)
+   · Abstand vor der Section = Abstand vor der Section „Was wir bieten“ (halbe Section-Höhe)
+   · Abstand zur Section „Kontakt“ verdoppelt (Zusatzabstand = bisheriger Abstand, siehe margin-bottom) */
+@media (max-width: 767.98px) {
+  body.page-home main > section.home-about { margin-top: calc(var(--band-pad) / 2); margin-bottom: calc(var(--band-pad) / 2); }
+  .home-about__img { aspect-ratio: 9 / 4; }
+  .home-about__box .home-about__text { padding-bottom: 2rem; }
+  .home-about__box .home-about__text::before { aspect-ratio: 45 / 7; }
+}
+
+/* ======================================================================
+   Leistungen (DE/EN): Ankernavigation – klebt oben (alle Breiten); sobald sie am oberen Browserrand „stuck“ ist (.is-stuck, per Skript),
+   wechseln die Kacheln in EINE horizontale Reihe (Slider): ohne Pfeil-Icon, kleineres Innenpadding links/rechts, höher (zweizeiliger Text).
+   ab 768 px: Richtungs-Buttons links/rechts am Slider (Stil wie die Kacheln); < 768 px: Slider-Punkte unter der Leiste.
+   ====================================================================== */
+.anchor-sentinel { display: flow-root; height: 0; }
+.anchor-nav__arrow, .anchor-nav__dots { display: none; }
+body.page-leistungen #main .anchor-nav {
+  position: sticky; top: 0; z-index: 90; padding: .8rem 0 .9rem;
+  background: rgba(255, 255, 255, .96); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+}
+body.page-leistungen #main .anchor-nav.is-stuck { padding: .55rem 0; box-shadow: 0 2px 8px rgba(0, 0, 0, .12); }
+body.page-leistungen #main .anchor-nav.is-stuck .carousel { display: flex; align-items: stretch; gap: .6rem; margin: 0; }
+body.page-leistungen #main .anchor-nav.is-stuck .carousel__viewport {
+  flex: 1 1 auto; min-width: 0; overflow-x: auto; overflow-y: hidden; margin: 0; padding: 0;
+  overscroll-behavior-x: contain; scroll-snap-type: x proximity; scrollbar-width: none;
+}
+body.page-leistungen #main .anchor-nav.is-stuck .carousel__viewport::-webkit-scrollbar { display: none; }
+body.page-leistungen #main .anchor-nav.is-stuck .carousel__track {
+  display: flex; flex-wrap: nowrap; justify-content: flex-start; align-items: stretch; width: max-content; gap: .5rem; padding: 0;
+}
+body.page-leistungen #main .anchor-nav.is-stuck .carousel__track > li { flex: none; display: flex; max-width: 13rem; scroll-snap-align: start; }
+body.page-leistungen #main .anchor-nav.is-stuck .btn--anchor {
+  width: 100%; height: auto; min-height: 3.5rem; padding: .4rem .7rem; align-items: center; justify-content: center;
+  text-align: center; line-height: 1.2; white-space: normal;
+}
+body.page-leistungen #main .anchor-nav.is-stuck .btn--anchor .btn__icon { display: none; }
+
+/* Richtungs-Buttons: Stil wie die Kacheln (eckig, weiß, 1 px rote Outline, rotes Icon, kleiner Schatten; Hover/aktiv rot gefüllt) */
+@media (min-width: 768px) {
+  body.page-leistungen #main .anchor-nav.is-stuck .anchor-nav__arrow {
+    display: inline-flex; align-items: center; justify-content: center; flex: none; width: 3rem; padding: 0; cursor: pointer;
+    background: #FFFFFF; color: #B41917; border: 1px solid #B41917; border-radius: 0; box-shadow: 0 2px 6px rgba(0, 0, 0, .25);
+    transition: background-color .2s var(--ease), color .2s var(--ease);
+  }
+  body.page-leistungen #main .anchor-nav.is-stuck .anchor-nav__arrow:hover:not(:disabled) { background: #B41917; color: #FFFFFF; }
+  body.page-leistungen #main .anchor-nav.is-stuck .anchor-nav__arrow:disabled { opacity: .35; cursor: default; box-shadow: none; }
+  body.page-leistungen #main .anchor-nav.is-stuck .anchor-nav__arrow .icon { width: 1.3rem; height: 1.3rem; }
+}
+/* < 768 px: Slider-Punkte unterhalb der Leiste */
+@media (max-width: 767.98px) {
+  body.page-leistungen #main .anchor-nav.is-stuck .anchor-nav__dots { display: flex; justify-content: center; gap: .5rem; padding-top: .5rem; pointer-events: none; }
+  .anchor-nav__dots span { width: 8px; height: 8px; border-radius: 50%; background: #000; opacity: .25; transition: opacity .2s var(--ease), transform .2s var(--ease); }
+  .anchor-nav__dots span.is-active { opacity: 1; transform: scale(1.25); }
+}
+/* Abstand beim Anspringen: Höhe der kompakten Leiste (+ Luft) */
+body.page-leistungen { --anchor-h: 7.5rem; }
+@media (min-width: 768px) { body.page-leistungen { --anchor-h: 6.8rem; } }
+@media (max-width: 767.98px) {
+  body.page-leistungen #main .anchor-nav.is-stuck .carousel { flex-direction: column; gap: 0; }
+  body.page-leistungen #main .anchor-nav.is-stuck .carousel__viewport { flex: none; width: 100%; }
+}
+
+/* ======= Vorteile (DE/EN): gleiche Slider-Leiste wie auf „Leistungen“ (alle Breiten) ======= */
+/* ======================================================================
+   Leistungen (DE/EN): Ankernavigation – klebt oben (alle Breiten); sobald sie am oberen Browserrand „stuck“ ist (.is-stuck, per Skript),
+   wechseln die Kacheln in EINE horizontale Reihe (Slider): ohne Pfeil-Icon, kleineres Innenpadding links/rechts, höher (zweizeiliger Text).
+   ab 768 px: Richtungs-Buttons links/rechts am Slider (Stil wie die Kacheln); < 768 px: Slider-Punkte unter der Leiste.
+   ====================================================================== */
+body.page-vorteile #main .anchor-nav {
+  position: sticky; top: 0; z-index: 90; padding: .8rem 0 .9rem;
+  background: rgba(255, 255, 255, .96); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+}
+body.page-vorteile #main .anchor-nav.is-stuck { padding: .55rem 0; box-shadow: 0 2px 8px rgba(0, 0, 0, .12); }
+body.page-vorteile #main .anchor-nav.is-stuck .carousel { display: flex; align-items: stretch; gap: .6rem; margin: 0; }
+body.page-vorteile #main .anchor-nav.is-stuck .carousel__viewport {
+  flex: 1 1 auto; min-width: 0; overflow-x: auto; overflow-y: hidden; margin: 0; padding: 0;
+  overscroll-behavior-x: contain; scroll-snap-type: x proximity; scrollbar-width: none;
+}
+body.page-vorteile #main .anchor-nav.is-stuck .carousel__viewport::-webkit-scrollbar { display: none; }
+body.page-vorteile #main .anchor-nav.is-stuck .carousel__track {
+  display: flex; flex-wrap: nowrap; justify-content: flex-start; align-items: stretch; width: max-content; gap: .5rem; padding: 0;
+}
+body.page-vorteile #main .anchor-nav.is-stuck .carousel__track > li { flex: none; display: flex; max-width: 13rem; scroll-snap-align: start; }
+body.page-vorteile #main .anchor-nav.is-stuck .btn--anchor {
+  width: 100%; height: auto; min-height: 3.5rem; padding: .4rem .7rem; align-items: center; justify-content: center;
+  text-align: center; line-height: 1.2; white-space: normal;
+}
+body.page-vorteile #main .anchor-nav.is-stuck .btn--anchor .btn__icon { display: none; }
+
+/* Richtungs-Buttons: Stil wie die Kacheln (eckig, weiß, 1 px rote Outline, rotes Icon, kleiner Schatten; Hover/aktiv rot gefüllt) */
+@media (min-width: 768px) {
+  body.page-vorteile #main .anchor-nav.is-stuck .anchor-nav__arrow {
+    display: inline-flex; align-items: center; justify-content: center; flex: none; width: 3rem; padding: 0; cursor: pointer;
+    background: #FFFFFF; color: #B41917; border: 1px solid #B41917; border-radius: 0; box-shadow: 0 2px 6px rgba(0, 0, 0, .25);
+    transition: background-color .2s var(--ease), color .2s var(--ease);
+  }
+  body.page-vorteile #main .anchor-nav.is-stuck .anchor-nav__arrow:hover:not(:disabled) { background: #B41917; color: #FFFFFF; }
+  body.page-vorteile #main .anchor-nav.is-stuck .anchor-nav__arrow:disabled { opacity: .35; cursor: default; box-shadow: none; }
+  body.page-vorteile #main .anchor-nav.is-stuck .anchor-nav__arrow .icon { width: 1.3rem; height: 1.3rem; }
+}
+/* < 768 px: Slider-Punkte unterhalb der Leiste */
+@media (max-width: 767.98px) {
+  body.page-vorteile #main .anchor-nav.is-stuck .anchor-nav__dots { display: flex; justify-content: center; gap: .5rem; padding-top: .5rem; pointer-events: none; }
+  .anchor-nav__dots span { width: 8px; height: 8px; border-radius: 50%; background: #000; opacity: .25; transition: opacity .2s var(--ease), transform .2s var(--ease); }
+  .anchor-nav__dots span.is-active { opacity: 1; transform: scale(1.25); }
+}
+/* Abstand beim Anspringen: Höhe der kompakten Leiste (+ Luft) */
+body.page-vorteile { --anchor-h: 7.5rem; }
+@media (min-width: 768px) { body.page-vorteile { --anchor-h: 6.8rem; } }
+@media (max-width: 767.98px) {
+  body.page-vorteile #main .anchor-nav.is-stuck .carousel { flex-direction: column; gap: 0; }
+  body.page-vorteile #main .anchor-nav.is-stuck .carousel__viewport { flex: none; width: 100%; }
+}
+
+/* ======= Arbeitsweise (DE/EN): gleiche Slider-Leiste wie auf „Leistungen“ (dauerhaft, alle Breiten) ======= */
+body.page-arbeitsweise #main .anchor-nav {
+  position: sticky; top: 0; z-index: 90; padding: .8rem 0 .9rem;
+  background: rgba(255, 255, 255, .96); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+}
+body.page-arbeitsweise #main .anchor-nav.is-stuck { padding: .55rem 0; box-shadow: 0 2px 8px rgba(0, 0, 0, .12); }
+body.page-arbeitsweise #main .anchor-nav.is-stuck .carousel { display: flex; align-items: stretch; gap: .6rem; margin: 0; }
+body.page-arbeitsweise #main .anchor-nav.is-stuck .carousel__viewport {
+  flex: 1 1 auto; min-width: 0; overflow-x: auto; overflow-y: hidden; margin: 0; padding: 0;
+  overscroll-behavior-x: contain; scroll-snap-type: x proximity; scrollbar-width: none;
+}
+body.page-arbeitsweise #main .anchor-nav.is-stuck .carousel__viewport::-webkit-scrollbar { display: none; }
+body.page-arbeitsweise #main .anchor-nav.is-stuck .carousel__track {
+  display: flex; flex-wrap: nowrap; justify-content: flex-start; align-items: stretch; width: max-content; gap: .5rem; padding: 0;
+}
+body.page-arbeitsweise #main .anchor-nav.is-stuck .carousel__track > li { flex: none; display: flex; max-width: 13rem; scroll-snap-align: start; }
+body.page-arbeitsweise #main .anchor-nav.is-stuck .btn--anchor {
+  width: 100%; height: auto; min-height: 3.5rem; padding: .4rem .7rem; align-items: center; justify-content: center;
+  text-align: center; line-height: 1.2; white-space: normal;
+}
+body.page-arbeitsweise #main .anchor-nav.is-stuck .btn--anchor .btn__icon { display: none; }
+
+@media (min-width: 768px) {
+  body.page-arbeitsweise #main .anchor-nav.is-stuck .anchor-nav__arrow {
+    display: inline-flex; align-items: center; justify-content: center; flex: none; width: 3rem; padding: 0; cursor: pointer;
+    background: #FFFFFF; color: #B41917; border: 1px solid #B41917; border-radius: 0; box-shadow: 0 2px 6px rgba(0, 0, 0, .25);
+    transition: background-color .2s var(--ease), color .2s var(--ease);
+  }
+  body.page-arbeitsweise #main .anchor-nav.is-stuck .anchor-nav__arrow:hover:not(:disabled) { background: #B41917; color: #FFFFFF; }
+  body.page-arbeitsweise #main .anchor-nav.is-stuck .anchor-nav__arrow:disabled { opacity: .35; cursor: default; box-shadow: none; }
+  body.page-arbeitsweise #main .anchor-nav.is-stuck .anchor-nav__arrow .icon { width: 1.3rem; height: 1.3rem; }
+}
+@media (max-width: 767.98px) {
+  body.page-arbeitsweise #main .anchor-nav.is-stuck .anchor-nav__dots { display: flex; justify-content: center; gap: .5rem; padding-top: .5rem; pointer-events: none; }
+  .anchor-nav__dots span { width: 8px; height: 8px; border-radius: 50%; background: #000; opacity: .25; transition: opacity .2s var(--ease), transform .2s var(--ease); }
+  .anchor-nav__dots span.is-active { opacity: 1; transform: scale(1.25); }
+}
+body.page-arbeitsweise { --anchor-h: 7.5rem; }
+@media (min-width: 768px) { body.page-arbeitsweise { --anchor-h: 6.8rem; } }
+@media (max-width: 767.98px) {
+  body.page-arbeitsweise #main .anchor-nav.is-stuck .carousel { flex-direction: column; gap: 0; }
+  body.page-arbeitsweise #main .anchor-nav.is-stuck .carousel__viewport { flex: none; width: 100%; }
+}
+
+/* Section „Kontakt“ (Startseite, Arbeitsweise, Vorteile, Leistungen; DE/EN), < 768 px: Ausrichtung zentriert */
+@media (max-width: 767.98px) {
+  body:is(.page-home, .page-arbeitsweise, .page-vorteile, .page-leistungen) #main .section--cta .cta-panel,
+  body:is(.page-home, .page-arbeitsweise, .page-vorteile, .page-leistungen) #main .section--cta .section-header,
+  body:is(.page-home, .page-arbeitsweise, .page-vorteile, .page-leistungen) #main .section--cta .eyebrow,
+  body:is(.page-home, .page-arbeitsweise, .page-vorteile, .page-leistungen) #main .section--cta .section-header__title,
+  body:is(.page-home, .page-arbeitsweise, .page-vorteile, .page-leistungen) #main .section--cta .section-header__text { text-align: center; }
+  body:is(.page-home, .page-arbeitsweise, .page-vorteile, .page-leistungen) #main .section--cta .btn { display: flex; width: fit-content; max-width: 100%; margin-inline: auto; justify-content: center; }
+}
+@media (max-width: 767.98px) {
+  body:is(.page-home, .page-arbeitsweise, .page-vorteile, .page-leistungen) #main .section--cta .section-header { justify-items: stretch; }
+}
+
+/* Navigations-Flyout, < 768 px: erster Punkt „Swiss Media Ventures“ (Link zur Startseite); ab 768 px ausgeblendet */
+@media (min-width: 1024px) { .site-nav__home { display: none; } }   /* sichtbar überall dort, wo das Burger-Menü erscheint (< 1024 px) */
+
+/* Leistungen (DE/EN): Ankernavigation dauerhaft als Slider (keine Tagcloud mehr); Schatten nur, wenn die Leiste oben klebt */
+body.page-leistungen #main .anchor-nav[data-anchor-slider="permanent"].is-stuck { box-shadow: none; }
+body.page-leistungen #main .anchor-nav[data-anchor-slider="permanent"].is-stuck.is-pinned { box-shadow: 0 2px 8px rgba(0, 0, 0, .12); }
+
+/* Ankernavigation (Leistungen, Vorteile, Arbeitsweise), < 768 px: Slider-Punkte sind anklickbar (Klick = zur Kachel scrollen);
+   Bereich 40 px hoch (Klickfläche je Punkt 24 × 40 px), Punkte vertikal mittig */
+@media (max-width: 767.98px) {
+  body:is(.page-leistungen, .page-vorteile, .page-arbeitsweise) #main .anchor-nav.is-stuck .anchor-nav__dots {
+    display: flex; justify-content: center; align-items: center; gap: 0; padding: 0; height: 40px; pointer-events: auto;
+  }
+  .anchor-nav__dots button { position: relative; flex: none; width: 24px; height: 40px; padding: 0; border: 0; background: none; cursor: pointer; }
+  .anchor-nav__dots button::before {
+    content: ""; position: absolute; left: 50%; top: 50%; width: 8px; height: 8px; margin: -4px 0 0 -4px; border-radius: 50%;
+    background: #000; opacity: .25; transition: opacity .2s var(--ease), transform .2s var(--ease);
+  }
+  .anchor-nav__dots button.is-active::before { opacity: 1; transform: scale(1.25); }
+  .anchor-nav__dots button:focus-visible { outline: 2px solid #B41917; outline-offset: -4px; }
+}
+
+/* Startseite, < 768 px: Slider-Punkte (Was wir tun / können / bieten) anklickbar – Bereich 40 px hoch (Klickfläche je Punkt 24 × 40 px), Punkte vertikal mittig */
+@media (max-width: 767.98px) {
+  .section--services-tiles .carousel__dots, .process-carousel .carousel__dots {
+    display: flex; justify-content: center; align-items: center; gap: 0; padding: 0; height: 40px; pointer-events: auto;
+  }
+  .carousel__dots button { position: relative; flex: none; width: 24px; height: 40px; padding: 0; border: 0; background: none; cursor: pointer; }
+  .carousel__dots button::before {
+    content: ""; position: absolute; left: 50%; top: 50%; width: 8px; height: 8px; margin: -4px 0 0 -4px; border-radius: 50%;
+    background: #000; opacity: .25; transition: opacity .2s var(--ease), transform .2s var(--ease);
+  }
+  .carousel__dots button.is-active::before { opacity: 1; transform: scale(1.25); }
+  .carousel__dots button:focus-visible { outline: 2px solid #B41917; outline-offset: -4px; }
+}
+
+/* Ankernavigation Vorteile und Arbeitsweise (DE/EN): dauerhaft als Slider wie auf „Leistungen“; Schatten nur, wenn die Leiste oben klebt */
+body:is(.page-vorteile, .page-arbeitsweise) #main .anchor-nav[data-anchor-slider="permanent"].is-stuck { box-shadow: none; }
+body:is(.page-vorteile, .page-arbeitsweise) #main .anchor-nav[data-anchor-slider="permanent"].is-stuck.is-pinned { box-shadow: 0 2px 8px rgba(0, 0, 0, .12); }
+
+/* Arbeitsweise (DE/EN) – Ankernavigation mit nur wenigen Links:
+   ab 768 px: Styling der Links bleibt, Gruppe horizontal zentriert, kein Slider, keine Pfeil-Buttons;
+   < 768 px: Slider nur, wenn Links über den Viewport hinausragen oder angeschnitten sind (.is-scrollable, per Skript) – nur dann Slider-Punkte */
+@media (min-width: 768px) {
+  body.page-arbeitsweise #main .anchor-nav.is-stuck .anchor-nav__arrow { display: none; }
+  body.page-arbeitsweise #main .anchor-nav.is-stuck .carousel__viewport { overflow: visible; }
+  body.page-arbeitsweise #main .anchor-nav.is-stuck .carousel__track { width: 100%; flex-wrap: wrap; justify-content: center; }
+}
+@media (max-width: 767.98px) {
+  body.page-arbeitsweise #main .anchor-nav:not(.is-scrollable) .anchor-nav__dots { display: none; }
+}
+
+/* Barrierefreiheit (WCAG 1.4.10 Reflow): auch bei 320 px kein Überlaufen langer Wörter (z. B. „Unternehmenssteuerung“) –
+   Silbentrennung nach Sprache (lang) und Umbruch innerhalb von Wörtern als Rückfall; Raster-/Flex-Kinder dürfen schrumpfen */
+@media (max-width: 767.98px) {
+  main h1, main h2, main h3, main h4, main p, main li, main .btn, main address, main legend, main label {
+    overflow-wrap: anywhere; hyphens: auto; -webkit-hyphens: auto;
+  }
+  main :is(.pstep__text, .svc__head, .svc__panel, .aw-list, .svc__list, .pstep, .svc) { min-width: 0; }
+}
+
+/* Barrierefreiheit (WCAG 2.5.8 Zielgröße): Footer-Links mindestens 24 px hoch */
+.footer-links a { display: inline-flex; align-items: center; min-height: 24px; }
+@media (max-width: 767.98px) {
+  body #main :is(.svc__head, .pstep__text, .svc__panel) > * { min-width: 0; max-width: 100%; }
+  body #main :is(.svc__title, .svc__text, .aw-title, .aw-sub, .aw-text, .aw-list li, .svc__list li) { overflow-wrap: anywhere; hyphens: auto; -webkit-hyphens: auto; }
+}

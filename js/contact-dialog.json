@@ -1,0 +1,997 @@
+{
+  "_readme": "Zentrale Datenquelle des Kontakt-Fragebogens (Dialog auf den Kontaktseiten in 7 Sprachen). Struktur pro Sprache: intro (Einstieg), questions[] (Fragen + Antworten; die Sprache \"de\" ist die kanonische Referenz – aus ihr werden die Antworten fürs answers-Object/der Auswertung immer entnommen), summary (Zusammenfassung), privacyHref (Sprachversion der Datenschutzerklärung), form (Schritt „Ihre Daten“, Feldtexte; die Feld-STRUKTUR selbst liegt in js/contact-dialog.js), thanks (Abschluss), editLabel (Aria-Label des Änderungs-Buttons in der Zusammenfassung).",
+  "en": {
+    "editLabel": "Edit answer",
+    "intro": {
+      "title": "Before we begin:",
+      "text": [
+        "Please take a little time for this. If a collaboration is not currently an option, we will tell you openly at the end. Thank you for your understanding and for your input.",
+        "We treat your information confidentially and with due care to protect your data."
+      ],
+      "start": "Let's go"
+    },
+    "questions": [
+      {
+        "question": "What is the main reason you are looking for an external operator?",
+        "answers": [
+          "Gain time and reduce day-to-day work",
+          "Add missing resources or expertise",
+          "Scale the business without building up proportionally",
+          "Professionalize the business or prepare it for a future sale"
+        ]
+      },
+      {
+        "question": "How would you describe your digital business model?",
+        "answers": [
+          "Intermediary platform or marketplace",
+          "Add missing resources or expertise",
+          "Digital services delivered through a platform",
+          "Transaction-based or hybrid model"
+        ]
+      },
+      {
+        "question": "What stage is your digital business at?",
+        "answers": [
+          "Idea or concept, not live yet",
+          "Live, first customers or revenue",
+          "Established and growing",
+          "Financially stable, to be developed further"
+        ]
+      },
+      {
+        "question": "What is your current monthly revenue?",
+        "answers": [
+          "No revenue yet",
+          "Under €10,000",
+          "€10,000–50,000",
+          "More than €50,000"
+        ]
+      },
+      {
+        "question": "How profitable is the business at the moment?",
+        "answers": [
+          "Build-up phase with growth investments",
+          "Positive contribution margin, not yet profitable overall",
+          "Operationally profitable",
+          "Profitability is not measured systematically"
+        ]
+      },
+      {
+        "question": "How much does the business depend on you personally?",
+        "answers": [
+          "Very much; customers and decisions go through me",
+          "Partly; processes in place, I am heavily involved",
+          "Low; the business operates largely independently",
+          "Very little; processes are systematized"
+        ]
+      },
+      {
+        "question": "How standardized are the operating processes?",
+        "answers": [
+          "Documented and largely automated",
+          "Defined, but partly manual",
+          "Many processes are individual or manual",
+          "Few binding processes"
+        ]
+      },
+      {
+        "question": "Which tasks would you like to hand over to us?",
+        "answers": [
+          "The entire operation",
+          "Most of it; some core functions stay in-house",
+          "Individual areas such as service or marketing",
+          "Analysis first, operation later if applicable"
+        ]
+      },
+      {
+        "question": "How would you like to be involved in operational decisions?",
+        "answers": [
+          "Define goals and delegate execution",
+          "Informed regularly, involved in important questions",
+          "Make decisions together",
+          "Make almost all decisions myself"
+        ]
+      },
+      {
+        "question": "When would you like to hand over, and what budget is planned?",
+        "answers": [
+          "Within four weeks; budget defined",
+          "In 1–3 months; budget range available",
+          "In 3–6 months; budget still to be clarified",
+          "Still open; first explore the options"
+        ]
+      }
+    ],
+    "summary": {
+      "title": "Summary",
+      "restart": "Again",
+      "confirm": "Correct"
+    },
+    "privacyHref": "privacy.html",
+    "form": {
+      "title": "Your details",
+      "text": "Done – thank you for your answers! So that we can contact you personally if the assessment is positive, we still need your contact details and some information about your company.",
+      "note": "We treat your information confidentially and with due care to protect your data. We use it solely to review your enquiry and to contact you if there is mutual interest.",
+      "tip": "Please fill in all required fields correctly before sending.",
+      "error":  "Failed to send. Please try again.",
+      "fields": [
+        { "name": "firstname", "label": "First name *", "error": "Please enter your first name (letters only)." },
+        { "name": "lastname", "label": "Last name *", "error": "Please enter your last name (letters only)." },
+        { "name": "company", "label": "Company *", "error": "Please enter your company (letters, digits, common punctuation)." },
+        { "name": "position", "label": "Position / role", "error": "Please use only letters, digits and common punctuation." },
+        { "name": "email", "label": "E-mail *", "error": "Please enter a valid e-mail address." },
+        { "name": "phone", "label": "Phone", "error": "Please enter a valid phone number (digits, + ( ) / -)." },
+        { "name": "website", "label": "Website or platform", "error": "Please enter a valid address, e.g. www.example.com." }
+      ],
+      "consent": {
+        "before": "I have read the ",
+        "link": "privacy notice",
+        "after": " and agree that my information may be used to process my enquiry. *",
+        "error": "Please agree to the use of your information."
+      },
+      "required": "* Required field",
+      "cancel": "Cancel",
+      "send": "Send"
+    },
+    "thanks": {
+      "title": "Thank you",
+      "text": [
+        "Thank you for your interest in Digital Vista Entertainment. We will evaluate your answers personally and get back to you shortly.",
+        "This may take a few days – we kindly ask for your patience. Please refrain from further contact until then; your enquiry is being handled with care."
+      ],
+      "close": "Close"
+    }
+  },
+  "de": {
+    "editLabel": "Antwort ändern",
+    "intro": {
+      "title": "Bevor es los geht:",
+      "text": [
+        "Bitte nehmen Sie sich dafür etwas Zeit. Sollte eine Zusammenarbeit derzeit nicht infrage kommen, teilen wir Ihnen dies am Ende offen mit. Vielen Dank für Ihr Verständnis und Ihre Angaben.",
+        "Wir behandeln Ihre Angaben vertraulich und mit der gebotenen Sorgfalt zum Schutz Ihrer Daten."
+      ],
+      "start": "Los geht's"
+    },
+    "questions": [
+      {
+        "question": "Was ist der Hauptgrund, warum Sie einen externen Operator suchen?",
+        "answers": [
+          "Zeit gewinnen und Tagesgeschäft reduzieren",
+          "Fehlende Ressourcen oder Expertise ergänzen",
+          "Geschäft skalieren, ohne proportional aufzubauen",
+          "Geschäft professionalisieren oder perspektivisch veräußern"
+        ]
+      },
+      {
+        "question": "Wie würden Sie Ihr digitales Geschäftsmodell beschreiben?",
+        "answers": [
+          "Vermittlungsplattform oder Marktplatz",
+          "Fehlende Ressourcen oder Expertise ergänzen",
+          "Digitale Services über eine Plattform",
+          "Transaktionsbasiertes oder hybrides Modell"
+        ]
+      },
+      {
+        "question": "In welcher Phase befindet sich Ihr digitales Geschäft?",
+        "answers": [
+          "Idee oder Konzept, noch nicht live",
+          "Live, erste Kunden oder Umsätze",
+          "Etabliert und wachsend",
+          "Wirtschaftlich stabil, soll weiterentwickelt werden"
+        ]
+      },
+      {
+        "question": "Wie hoch ist der aktuelle monatliche Umsatz?",
+        "answers": [
+          "Noch kein Umsatz",
+          "Unter 10.000 €",
+          "10.000–50.000 €",
+          "Mehr als 50.000 €"
+        ]
+      },
+      {
+        "question": "Wie profitabel ist das Geschäft aktuell?",
+        "answers": [
+          "Aufbauphase mit Wachstumsinvestitionen",
+          "Positiver Deckungsbeitrag, noch nicht insgesamt profitabel",
+          "Operativ profitabel",
+          "Profitabilität wird nicht systematisch gemessen"
+        ]
+      },
+      {
+        "question": "Wie stark hängt das Geschäft von Ihnen persönlich ab?",
+        "answers": [
+          "Sehr stark - Kunden und Entscheidungen laufen über mich",
+          "Teilweise - Prozesse vorhanden, ich bin stark eingebunden",
+          "Gering - Das Geschäft läuft weitgehend unabhängig",
+          "Sehr gering - Prozesse sind systematisiert"
+        ]
+      },
+      {
+        "question": "Wie standardisiert sind die operativen Abläufe?",
+        "answers": [
+          "Dokumentiert und weitgehend automatisiert",
+          "Definiert, aber teilweise manuell",
+          "Viele Abläufe individuell oder manuell",
+          "Wenige verbindliche Prozesse"
+        ]
+      },
+      {
+        "question": "Welche Aufgaben möchten Sie an uns übergeben?",
+        "answers": [
+          "Gesamten operativen Betrieb",
+          "Großteil; einzelne Kernfunktionen bleiben intern",
+          "Einzelne Bereiche wie Service oder Marketing",
+          "Zunächst Analyse, später ggf. Betrieb"
+        ]
+      },
+      {
+        "question": "Wie möchten Sie in operative Entscheidungen eingebunden sein?",
+        "answers": [
+          "Ziele definieren und Umsetzung delegieren",
+          "Regelmäßig informiert, bei wichtigen Fragen beteiligt",
+          "Entscheidungen gemeinsam treffen",
+          "Nahezu alle Entscheidungen selbst treffen"
+        ]
+      },
+      {
+        "question": "Wann möchten Sie übergeben und welches Budget ist vorgesehen?",
+        "answers": [
+          "Innerhalb von vier Wochen; Budget definiert",
+          "In 1–3 Monaten; Budgetrahmen vorhanden",
+          "In 3–6 Monaten; Budget noch zu klären",
+          "Noch offen; zunächst Möglichkeiten sondieren"
+        ]
+      }
+    ],
+    "summary": {
+      "title": "Zusammenfassung",
+      "restart": "nochmal",
+      "confirm": "korrekt"
+    },
+    "privacyHref": "datenschutz.html",
+    "form": {
+      "title": "Ihre Daten",
+      "text": "Geschafft – vielen Dank für Ihre Antworten! Damit wir uns bei positiver Bewertung persönlich bei Ihnen melden können, benötigen wir noch Ihre Kontaktdaten und einige Angaben zu Ihrem Unternehmen.",
+      "note": "Ihre Angaben behandeln wir vertraulich und mit der gebotenen Sorgfalt zum Schutz Ihrer Daten. Wir verwenden sie ausschließlich, um Ihre Anfrage zu prüfen und Sie bei Interesse zu kontaktieren.",
+      "tip": "Bitte füllen Sie alle Pflichtfelder korrekt aus, bevor Sie senden.",
+      "error": "Senden fehlgeschlagen. Bitte erneut versuchen.",
+      "fields": [
+        { "name": "firstname", "label": "Vorname *", "error": "Bitte geben Sie Ihren Vornamen an (nur Buchstaben)." },
+        { "name": "lastname", "label": "Nachname *", "error": "Bitte geben Sie Ihren Nachnamen an (nur Buchstaben)." },
+        { "name": "company", "label": "Unternehmen *", "error": "Bitte geben Sie Ihr Unternehmen an (Buchstaben, Ziffern, gängige Satzzeichen)." },
+        { "name": "position", "label": "Position / Funktion", "error": "Bitte nur Buchstaben, Ziffern und gängige Satzzeichen verwenden." },
+        { "name": "email", "label": "E-Mail *", "error": "Bitte geben Sie eine gültige E-Mail-Adresse an." },
+        { "name": "phone", "label": "Telefon", "error": "Bitte eine gültige Telefonnummer angeben (Ziffern, + ( ) / -)." },
+        { "name": "website", "label": "Website oder Plattform", "error": "Bitte eine gültige Adresse angeben, z. B. www.beispiel.de." }
+      ],
+      "consent": {
+        "before": "Ich habe die ",
+        "link": "Hinweise zum Datenschutz",
+        "after": " gelesen und bin damit einverstanden, dass meine Angaben zur Bearbeitung meiner Anfrage verwendet werden. *",
+        "error": "Bitte stimmen Sie der Verwendung Ihrer Angaben zu."
+      },
+      "required": "* Pflichtfeld",
+      "cancel": "Abbrechen",
+      "send": "Senden"
+    },
+    "thanks": {
+      "title": "Vielen Dank",
+      "text": [
+        "Vielen Dank für Ihr Interesse an Digital Vista Entertainment. Wir werten Ihre Antworten persönlich aus und melden uns in Kürze bei Ihnen.",
+        "Das kann einige Tage dauern – wir bitten Sie um etwas Geduld. Bitte sehen Sie bis dahin von weiteren Kontaktaufnahmen ab; Ihre Anfrage wird sorgfältig bearbeitet."
+      ],
+      "close": "Schließen"
+    }
+  },
+  "es": {
+    "editLabel": "Cambiar respuesta",
+    "intro": {
+      "title": "Antes de comenzar:",
+      "text": [
+        "Le rogamos que dedique unos minutos a este proceso. Si una colaboración no es posible por el momento, se lo comunicaremos con franqueza al final. Gracias por su comprensión y por su aportación.",
+        "Tratamos su información de forma confidencial y con el debido cuidado para proteger sus datos."
+      ],
+      "start": "Comencemos"
+    },
+    "questions": [
+      {
+        "question": "¿Cuál es el principal motivo por el que busca un operador externo?",
+        "answers": [
+          "Ganar tiempo y reducir el trabajo diario",
+          "Incorporar recursos o conocimientos que faltan",
+          "Escalar el negocio sin crecer en la misma proporción",
+          "Profesionalizar el negocio o prepararlo para una futura venta"
+        ]
+      },
+      {
+        "question": "¿Cómo describiría su modelo de negocio digital?",
+        "answers": [
+          "Plataforma intermediaria o marketplace",
+          "Incorporar recursos o conocimientos que faltan",
+          "Servicios digitales prestados a través de una plataforma",
+          "Modelo basado en transacciones o híbrido"
+        ]
+      },
+      {
+        "question": "¿En qué fase se encuentra su negocio digital?",
+        "answers": [
+          "Idea o concepto, aún no en funcionamiento",
+          "En funcionamiento, con los primeros clientes o ingresos",
+          "Consolidado y en crecimiento",
+          "Financieramente estable, con margen de desarrollo"
+        ]
+      },
+      {
+        "question": "¿Cuál es su facturación mensual actual?",
+        "answers": [
+          "Aún sin ingresos",
+          "Menos de 10.000 €",
+          "10.000–50.000 €",
+          "Más de 50.000 €"
+        ]
+      },
+      {
+        "question": "¿Qué grado de rentabilidad tiene el negocio actualmente?",
+        "answers": [
+          "Fase de construcción con inversiones en crecimiento",
+          "Margen de contribución positivo, aún sin rentabilidad global",
+          "Rentable a nivel operativo",
+          "La rentabilidad no se mide de forma sistemática"
+        ]
+      },
+      {
+        "question": "¿En qué medida depende el negocio de usted personalmente?",
+        "answers": [
+          "Mucho: los clientes y las decisiones pasan por mí",
+          "En parte: hay procesos definidos, pero participo mucho",
+          "Bajo: el negocio funciona en gran medida de forma independiente",
+          "Muy poco: los procesos están sistematizados"
+        ]
+      },
+      {
+        "question": "¿Qué grado de estandarización tienen los procesos operativos?",
+        "answers": [
+          "Documentados y en gran parte automatizados",
+          "Definidos, pero en parte manuales",
+          "Muchos procesos son individuales o manuales",
+          "Pocos procesos vinculantes"
+        ]
+      },
+      {
+        "question": "¿Qué tareas le gustaría delegar en nosotros?",
+        "answers": [
+          "Toda la operación",
+          "La mayor parte; algunas funciones clave permanecen internas",
+          "Áreas concretas, como atención al cliente o marketing",
+          "Primero un análisis y, en su caso, la operación más adelante"
+        ]
+      },
+      {
+        "question": "¿Cómo le gustaría participar en las decisiones operativas?",
+        "answers": [
+          "Definir los objetivos y delegar la ejecución",
+          "Estar informado con regularidad y participar en las cuestiones importantes",
+          "Tomar las decisiones conjuntamente",
+          "Tomar casi todas las decisiones yo mismo"
+        ]
+      },
+      {
+        "question": "¿Cuándo le gustaría realizar el traspaso y qué presupuesto tiene previsto?",
+        "answers": [
+          "En un plazo de cuatro semanas; presupuesto definido",
+          "En 1–3 meses; hay un rango de presupuesto",
+          "En 3–6 meses; presupuesto aún por aclarar",
+          "Aún abierto; primero explorar las opciones"
+        ]
+      }
+    ],
+    "summary": {
+      "title": "Resumen",
+      "restart": "Repetir",
+      "confirm": "Correcto"
+    },
+    "privacyHref": "privacidad.html",
+    "form": {
+      "title": "Sus datos",
+      "text": "¡Listo, gracias por sus respuestas! Para poder contactarle personalmente si la valoración es positiva, necesitamos aún sus datos de contacto y algunos datos sobre su empresa.",
+      "note": "Tratamos su información de forma confidencial y con el debido cuidado para proteger sus datos. La utilizamos únicamente para revisar su consulta y para contactarle si existe interés mutuo.",
+      "tip": "Rellene correctamente todos los campos obligatorios antes de enviar.",
+      "error": "Error al enviar. Inténtalo de nuevo.",
+      "fields": [
+        { "name": "firstname", "label": "Nombre *", "error": "Introduzca su nombre (solo letras)." },
+        { "name": "lastname", "label": "Apellidos *", "error": "Introduzca sus apellidos (solo letras)." },
+        { "name": "company", "label": "Empresa *", "error": "Introduzca su empresa (letras, cifras y signos de puntuación habituales)." },
+        { "name": "position", "label": "Cargo / puesto", "error": "Utilice solo letras, cifras y signos de puntuación habituales." },
+        { "name": "email", "label": "Correo electrónico *", "error": "Introduzca una dirección de correo electrónico válida." },
+        { "name": "phone", "label": "Teléfono", "error": "Introduzca un número de teléfono válido (cifras, + ( ) / -)." },
+        { "name": "website", "label": "Sitio web o plataforma", "error": "Introduzca una dirección válida, p. ej. www.ejemplo.com." }
+      ],
+      "consent": {
+        "before": "He leído la ",
+        "link": "política de privacidad",
+        "after": " y acepto que mis datos se utilicen para tramitar mi consulta. *",
+        "error": "Acepte el uso de sus datos."
+      },
+      "required": "* Campo obligatorio",
+      "cancel": "Cancelar",
+      "send": "Enviar"
+    },
+    "thanks": {
+      "title": "Gracias",
+      "text": [
+        "Gracias por su interés en Digital Vista Entertainment. Valoraremos personalmente sus respuestas y nos pondremos en contacto con usted en breve.",
+        "Puede tardar unos días; le rogamos paciencia. Hasta entonces, le pedimos que no se ponga en contacto de nuevo; su consulta se está tramitando con el debido cuidado."
+      ],
+      "close": "Cerrar"
+    }
+  },
+  "pt": {
+    "editLabel": "Alterar resposta",
+    "intro": {
+      "title": "Antes de começarmos:",
+      "text": [
+        "Pedimos-lhe que dedique algum tempo a este questionário. Se uma colaboração não for, de momento, uma opção, dizê-lo-emos com franqueza no final. Obrigado pela sua compreensão e pelas suas respostas.",
+        "Tratamos as suas informações com confidencialidade e com o devido cuidado para proteger os seus dados."
+      ],
+      "start": "Vamos começar"
+    },
+    "questions": [
+      {
+        "question": "Qual é o principal motivo pelo qual procura um operador externo?",
+        "answers": [
+          "Ganhar tempo e reduzir o trabalho do dia a dia",
+          "Acrescentar recursos ou conhecimentos em falta",
+          "Expandir o negócio sem crescer na mesma proporção",
+          "Profissionalizar o negócio ou prepará-lo para uma futura venda"
+        ]
+      },
+      {
+        "question": "Como descreveria o seu modelo de negócio digital?",
+        "answers": [
+          "Plataforma intermediária ou mercado online",
+          "Acrescentar recursos ou conhecimentos em falta",
+          "Serviços digitais prestados através de uma plataforma",
+          "Modelo baseado em transações ou híbrido"
+        ]
+      },
+      {
+        "question": "Em que fase se encontra o seu negócio digital?",
+        "answers": [
+          "Ideia ou conceito, ainda não está em funcionamento",
+          "Em funcionamento, com os primeiros clientes ou receitas",
+          "Estabelecido e em crescimento",
+          "Financeiramente estável, a desenvolver ainda mais"
+        ]
+      },
+      {
+        "question": "Qual é a sua receita mensal atual?",
+        "answers": [
+          "Ainda sem receitas",
+          "Menos de 10.000 €",
+          "10.000–50.000 €",
+          "Mais de 50.000 €"
+        ]
+      },
+      {
+        "question": "Qual é, neste momento, a rentabilidade do negócio?",
+        "answers": [
+          "Fase de arranque com investimentos em crescimento",
+          "Margem de contribuição positiva, mas ainda não rentável no conjunto",
+          "Rentável do ponto de vista operacional",
+          "A rentabilidade não é medida de forma sistemática"
+        ]
+      },
+      {
+        "question": "Em que medida o negócio depende de si pessoalmente?",
+        "answers": [
+          "Muito: os clientes e as decisões passam por mim",
+          "Em parte: há processos definidos, mas estou muito envolvido",
+          "Baixo: o negócio funciona de forma amplamente autónoma",
+          "Muito pouco: os processos estão sistematizados"
+        ]
+      },
+      {
+        "question": "Qual é o grau de padronização dos processos operacionais?",
+        "answers": [
+          "Documentados e em grande parte automatizados",
+          "Definidos, mas em parte manuais",
+          "Muitos processos são individuais ou manuais",
+          "Poucos processos vinculativos"
+        ]
+      },
+      {
+        "question": "Que tarefas gostaria de nos confiar?",
+        "answers": [
+          "Toda a operação",
+          "A maior parte; algumas funções essenciais ficam internas",
+          "Áreas específicas, como o apoio ao cliente ou o marketing",
+          "Primeiro uma análise e, eventualmente, a operação mais tarde"
+        ]
+      },
+      {
+        "question": "De que forma gostaria de participar nas decisões operacionais?",
+        "answers": [
+          "Definir os objetivos e delegar a execução",
+          "Ser informado regularmente e participar nas questões importantes",
+          "Tomar as decisões em conjunto",
+          "Tomar quase todas as decisões eu próprio"
+        ]
+      },
+      {
+        "question": "Quando gostaria de passar a operação e que orçamento está previsto?",
+        "answers": [
+          "Nas próximas quatro semanas; orçamento definido",
+          "Dentro de 1 a 3 meses; intervalo de orçamento disponível",
+          "Dentro de 3 a 6 meses; orçamento ainda por esclarecer",
+          "Ainda em aberto; primeiro explorar as opções"
+        ]
+      }
+    ],
+    "summary": {
+      "title": "Resumo",
+      "restart": "Repetir",
+      "confirm": "Correto"
+    },
+    "privacyHref": "privacidade.html",
+    "form": {
+      "title": "Os seus dados",
+      "text": "Concluído – obrigado pelas suas respostas! Para podermos contactá-lo pessoalmente, caso a avaliação seja positiva, precisamos ainda dos seus dados de contacto e de algumas informações sobre a sua empresa.",
+      "note": "Tratamos as suas informações com confidencialidade e com o devido cuidado para proteger os seus dados. Utilizamo-las exclusivamente para analisar o seu pedido e para o contactar, caso exista interesse mútuo.",
+      "tip": "Preencha corretamente todos os campos obrigatórios antes de enviar.",
+      "error": "Falha no envio. Tente novamente.",
+      "fields": [
+        { "name": "firstname", "label": "Nome próprio *", "error": "Indique o seu nome próprio (apenas letras)." },
+        { "name": "lastname", "label": "Apelido *", "error": "Indique o seu apelido (apenas letras)." },
+        { "name": "company", "label": "Empresa *", "error": "Indique a sua empresa (letras, algarismos, pontuação comum)." },
+        { "name": "position", "label": "Cargo / função", "error": "Utilize apenas letras, algarismos e pontuação comum." },
+        { "name": "email", "label": "E-mail *", "error": "Indique um endereço de e-mail válido." },
+        { "name": "phone", "label": "Telefone", "error": "Indique um número de telefone válido (algarismos, + ( ) / -)." },
+        { "name": "website", "label": "Website ou plataforma", "error": "Indique um endereço válido, por exemplo www.exemplo.com." }
+      ],
+      "consent": {
+        "before": "Li o ",
+        "link": "aviso de privacidade",
+        "after": " e concordo que as minhas informações sejam utilizadas para tratar o meu pedido. *",
+        "error": "Concorde com a utilização das suas informações."
+      },
+      "required": "* Campo obrigatório",
+      "cancel": "Cancelar",
+      "send": "Enviar"
+    },
+    "thanks": {
+      "title": "Obrigado",
+      "text": [
+        "Obrigado pelo seu interesse na Digital Vista Entertainment. Vamos avaliar pessoalmente as suas respostas e entraremos em contacto em breve.",
+        "Este processo pode demorar alguns dias – agradecemos a sua paciência. Pedimos-lhe que evite novos contactos até lá; o seu pedido está a ser tratado com cuidado."
+      ],
+      "close": "Fechar"
+    }
+  },
+  "nl": {
+    "editLabel": "Antwoord wijzigen",
+    "intro": {
+      "title": "Voordat we beginnen:",
+      "text": [
+        "Neemt u hier alstublieft even de tijd voor. Als samenwerking momenteel niet tot de mogelijkheden behoort, laten wij dat u aan het einde openlijk weten. Hartelijk dank voor uw begrip en uw input.",
+        "Wij behandelen uw gegevens vertrouwelijk en met de nodige zorgvuldigheid om uw gegevens te beschermen."
+      ],
+      "start": "Laten we beginnen"
+    },
+    "questions": [
+      {
+        "question": "Wat is de belangrijkste reden waarom u een externe operator zoekt?",
+        "answers": [
+          "Tijd winnen en dagelijkse werkzaamheden verminderen",
+          "Ontbrekende middelen of expertise aanvullen",
+          "Het bedrijf opschalen zonder evenredig op te bouwen",
+          "Het bedrijf professionaliseren of voorbereiden op een toekomstige verkoop"
+        ]
+      },
+      {
+        "question": "Hoe zou u uw digitale bedrijfsmodel omschrijven?",
+        "answers": [
+          "Bemiddelingsplatform of marktplaats",
+          "Ontbrekende middelen of expertise aanvullen",
+          "Digitale diensten die via een platform worden geleverd",
+          "Transactiegebaseerd of hybride model"
+        ]
+      },
+      {
+        "question": "In welke fase bevindt uw digitale bedrijf zich?",
+        "answers": [
+          "Idee of concept, nog niet live",
+          "Live, eerste klanten of omzet",
+          "Gevestigd en groeiend",
+          "Financieel stabiel, verder te ontwikkelen"
+        ]
+      },
+      {
+        "question": "Wat is uw huidige maandelijkse omzet?",
+        "answers": [
+          "Nog geen omzet",
+          "Minder dan € 10.000",
+          "€ 10.000–50.000",
+          "Meer dan € 50.000"
+        ]
+      },
+      {
+        "question": "Hoe winstgevend is het bedrijf op dit moment?",
+        "answers": [
+          "Opbouwfase met groei-investeringen",
+          "Positieve dekkingsbijdrage, over het geheel nog niet winstgevend",
+          "Operationeel winstgevend",
+          "Winstgevendheid wordt niet systematisch gemeten"
+        ]
+      },
+      {
+        "question": "In hoeverre is het bedrijf van u persoonlijk afhankelijk?",
+        "answers": [
+          "Zeer sterk - klanten en beslissingen lopen via mij",
+          "Deels - processen zijn ingericht, ik ben sterk betrokken",
+          "Laag - het bedrijf draait grotendeels zelfstandig",
+          "Zeer weinig - processen zijn gesystematiseerd"
+        ]
+      },
+      {
+        "question": "Hoe gestandaardiseerd zijn de operationele processen?",
+        "answers": [
+          "Gedocumenteerd en grotendeels geautomatiseerd",
+          "Gedefinieerd, maar deels handmatig",
+          "Veel processen zijn individueel of handmatig",
+          "Weinig bindende processen"
+        ]
+      },
+      {
+        "question": "Welke taken wilt u aan ons overdragen?",
+        "answers": [
+          "De volledige operatie",
+          "Het grootste deel; enkele kernfuncties blijven intern",
+          "Afzonderlijke onderdelen zoals service of marketing",
+          "Eerst analyse, eventueel later de operatie"
+        ]
+      },
+      {
+        "question": "Hoe wilt u betrokken zijn bij operationele beslissingen?",
+        "answers": [
+          "Doelen bepalen en de uitvoering delegeren",
+          "Regelmatig geïnformeerd, betrokken bij belangrijke vragen",
+          "Samen beslissingen nemen",
+          "Vrijwel alle beslissingen zelf nemen"
+        ]
+      },
+      {
+        "question": "Wanneer wilt u overdragen en welk budget is daarvoor gepland?",
+        "answers": [
+          "Binnen vier weken; budget vastgesteld",
+          "Over 1–3 maanden; budgetbandbreedte beschikbaar",
+          "Over 3–6 maanden; budget nog te bepalen",
+          "Nog open; eerst de mogelijkheden verkennen"
+        ]
+      }
+    ],
+    "summary": {
+      "title": "Samenvatting",
+      "restart": "Opnieuw",
+      "confirm": "Juist"
+    },
+    "privacyHref": "privacybeleid.html",
+    "form": {
+      "title": "Uw gegevens",
+      "text": "Klaar – hartelijk dank voor uw antwoorden! Om persoonlijk contact met u op te kunnen nemen als de beoordeling positief is, hebben wij nog uw contactgegevens en enkele gegevens over uw bedrijf nodig.",
+      "note": "Wij behandelen uw gegevens vertrouwelijk en met de nodige zorgvuldigheid om uw gegevens te beschermen. Wij gebruiken ze uitsluitend om uw aanvraag te beoordelen en om contact met u op te nemen bij wederzijdse interesse.",
+      "tip": "Vul voor het verzenden alle verplichte velden correct in.",
+      "error": "Verzenden mislukt. Probeer het opnieuw.",
+      "fields": [
+        { "name": "firstname", "label": "Voornaam *", "error": "Voer uw voornaam in (alleen letters)." },
+        { "name": "lastname", "label": "Achternaam *", "error": "Voer uw achternaam in (alleen letters)." },
+        { "name": "company", "label": "Bedrijf *", "error": "Voer uw bedrijf in (letters, cijfers, gangbare leestekens)." },
+        { "name": "position", "label": "Functie", "error": "Gebruik alleen letters, cijfers en gangbare leestekens." },
+        { "name": "email", "label": "E-mailadres *", "error": "Voer een geldig e-mailadres in." },
+        { "name": "phone", "label": "Telefoon", "error": "Voer een geldig telefoonnummer in (cijfers, + ( ) / -)." },
+        { "name": "website", "label": "Website of platform", "error": "Voer een geldig adres in, bijv. www.voorbeeld.nl." }
+      ],
+      "consent": {
+        "before": "Ik heb de ",
+        "link": "privacyverklaring",
+        "after": " gelezen en ga ermee akkoord dat mijn gegevens worden gebruikt om mijn aanvraag te verwerken. *",
+        "error": "Ga akkoord met het gebruik van uw gegevens."
+      },
+      "required": "* Verplicht veld",
+      "cancel": "Annuleren",
+      "send": "Verzenden"
+    },
+    "thanks": {
+      "title": "Hartelijk dank",
+      "text": [
+        "Hartelijk dank voor uw interesse in Digital Vista Entertainment. Wij beoordelen uw antwoorden persoonlijk en nemen binnenkort contact met u op.",
+        "Dit kan enkele dagen duren – wij vragen u vriendelijk om uw geduld. Zie tot die tijd af van verder contact; uw aanvraag wordt zorgvuldig behandeld."
+      ],
+      "close": "Sluiten"
+    }
+  },
+  "it": {
+    "editLabel": "Modifica risposta",
+    "intro": {
+      "title": "Prima di cominciare:",
+      "text": [
+        "La preghiamo di dedicarci un po' di tempo. Se al momento una collaborazione non fosse possibile, glielo comunicheremo apertamente al termine. La ringraziamo per la comprensione e per le informazioni che ci fornirà.",
+        "Trattiamo le sue informazioni in modo riservato e con la dovuta cura per proteggere i suoi dati."
+      ],
+      "start": "Cominciamo"
+    },
+    "questions": [
+      {
+        "question": "Qual è il motivo principale per cui cerca un operatore esterno?",
+        "answers": [
+          "Guadagnare tempo e ridurre il lavoro quotidiano",
+          "Integrare risorse o competenze mancanti",
+          "Far crescere il business senza ampliare la struttura in proporzione",
+          "Professionalizzare il business o prepararlo a una futura vendita"
+        ]
+      },
+      {
+        "question": "Come descriverebbe il suo modello di business digitale?",
+        "answers": [
+          "Piattaforma di intermediazione o marketplace",
+          "Integrare risorse o competenze mancanti",
+          "Servizi digitali erogati tramite una piattaforma",
+          "Modello basato sulle transazioni o ibrido"
+        ]
+      },
+      {
+        "question": "In quale fase si trova il suo business digitale?",
+        "answers": [
+          "Idea o concetto, non ancora online",
+          "Già online, con i primi clienti o ricavi",
+          "Consolidato e in crescita",
+          "Finanziariamente stabile, da sviluppare ulteriormente"
+        ]
+      },
+      {
+        "question": "Qual è il suo fatturato mensile attuale?",
+        "answers": [
+          "Ancora nessun ricavo",
+          "Meno di 10.000 €",
+          "10.000–50.000 €",
+          "Più di 50.000 €"
+        ]
+      },
+      {
+        "question": "Quanto è redditizio al momento il business?",
+        "answers": [
+          "Fase di avviamento con investimenti per la crescita",
+          "Margine di contribuzione positivo, non ancora redditizio nel complesso",
+          "Redditizio a livello operativo",
+          "La redditività non viene misurata in modo sistematico"
+        ]
+      },
+      {
+        "question": "Quanto dipende il business da lei personalmente?",
+        "answers": [
+          "Moltissimo: clienti e decisioni passano da me",
+          "In parte: i processi esistono, ma il mio coinvolgimento è elevato",
+          "Basso: l’attività funziona in gran parte in modo autonomo",
+          "Molto poco: i processi sono strutturati"
+        ]
+      },
+      {
+        "question": "Quanto sono standardizzati i processi operativi?",
+        "answers": [
+          "Documentati e in gran parte automatizzati",
+          "Definiti, ma in parte manuali",
+          "Molti processi sono individuali o manuali",
+          "Pochi processi vincolanti"
+        ]
+      },
+      {
+        "question": "Quali attività desidera affidarci?",
+        "answers": [
+          "L'intera operatività",
+          "La maggior parte; alcune funzioni chiave restano interne",
+          "Singole aree come assistenza o marketing",
+          "Prima l'analisi, l'operatività eventualmente in un secondo momento"
+        ]
+      },
+      {
+        "question": "Come desidera essere coinvolto nelle decisioni operative?",
+        "answers": [
+          "Definire gli obiettivi e delegare l'esecuzione",
+          "Essere informato regolarmente e coinvolto nelle questioni importanti",
+          "Decidere insieme",
+          "Prendere io quasi tutte le decisioni"
+        ]
+      },
+      {
+        "question": "Quando desidera affidarci l'incarico e quale budget è previsto?",
+        "answers": [
+          "Entro quattro settimane; budget definito",
+          "Tra 1 e 3 mesi; fascia di budget disponibile",
+          "Tra 3 e 6 mesi; budget ancora da chiarire",
+          "Ancora aperto; prima esplorare le opzioni"
+        ]
+      }
+    ],
+    "summary": {
+      "title": "Riepilogo",
+      "restart": "Ripeti",
+      "confirm": "Corretto"
+    },
+    "privacyHref": "informativa-privacy.html",
+    "form": {
+      "title": "I suoi dati",
+      "text": "Fatto, grazie per le sue risposte! Per poterla contattare personalmente in caso di valutazione positiva, ci servono ancora i suoi recapiti e alcune informazioni sulla sua azienda.",
+      "note": "Trattiamo le sue informazioni in modo riservato e con la dovuta cura per proteggere i suoi dati. Le utilizziamo esclusivamente per esaminare la sua richiesta e per contattarla in caso di interesse reciproco.",
+      "tip": "Prima dell'invio compili correttamente tutti i campi obbligatori.",
+      "error": "Invio non riuscito. Riprova.",
+      "fields": [
+        { "name": "firstname", "label": "Nome *", "error": "Inserisca il suo nome (solo lettere)." },
+        { "name": "lastname", "label": "Cognome *", "error": "Inserisca il suo cognome (solo lettere)." },
+        { "name": "company", "label": "Azienda *", "error": "Inserisca la sua azienda (lettere, cifre, punteggiatura comune)." },
+        { "name": "position", "label": "Ruolo / posizione", "error": "Utilizzi solo lettere, cifre e punteggiatura comune." },
+        { "name": "email", "label": "E-mail *", "error": "Inserisca un indirizzo e-mail valido." },
+        { "name": "phone", "label": "Telefono", "error": "Inserisca un numero di telefono valido (cifre, + ( ) / -)." },
+        { "name": "website", "label": "Sito web o piattaforma", "error": "Inserisca un indirizzo valido, ad es. www.example.com." }
+      ],
+      "consent": {
+        "before": "Ho letto l'",
+        "link": "informativa sulla privacy",
+        "after": " e acconsento all'utilizzo dei miei dati per l'elaborazione della mia richiesta. *",
+        "error": "Acconsenta all'utilizzo dei suoi dati."
+      },
+      "required": "* Campo obbligatorio",
+      "cancel": "Annulla",
+      "send": "Invia"
+    },
+    "thanks": {
+      "title": "Grazie",
+      "text": [
+        "La ringraziamo per l'interesse dimostrato verso Digital Vista Entertainment. Valuteremo personalmente le sue risposte e la ricontatteremo a breve.",
+        "Potrebbero essere necessari alcuni giorni: la ringraziamo per la pazienza. Fino ad allora la preghiamo di non inviare ulteriori richieste; la sua richiesta è in buone mani."
+      ],
+      "close": "Chiudi"
+    }
+  },
+  "ru": {
+    "editLabel": "Изменить ответ",
+    "intro": {
+      "title": "Прежде чем начать:",
+      "text": [
+        "Пожалуйста, уделите этому немного времени. Если сотрудничество в настоящий момент невозможно, мы честно скажем вам об этом в конце. Благодарим за понимание и за ваши ответы.",
+        "Мы обрабатываем вашу информацию конфиденциально и с должной тщательностью, чтобы защитить ваши данные."
+      ],
+      "start": "Начнём"
+    },
+    "questions": [
+      {
+        "question": "Какова основная причина, по которой вы ищете внешнего оператора?",
+        "answers": [
+          "Выиграть время и сократить текущую рутину",
+          "Добавить недостающие ресурсы или экспертизу",
+          "Масштабировать бизнес без пропорционального наращивания штата",
+          "Профессионализировать бизнес или подготовить его к будущей продаже"
+        ]
+      },
+      {
+        "question": "Как бы вы описали свою цифровую бизнес-модель?",
+        "answers": [
+          "Посредническая платформа или маркетплейс",
+          "Добавить недостающие ресурсы или экспертизу",
+          "Цифровые услуги, предоставляемые через платформу",
+          "Транзакционная или гибридная модель"
+        ]
+      },
+      {
+        "question": "На какой стадии находится ваш цифровой бизнес?",
+        "answers": [
+          "Идея или концепция, ещё не запущен",
+          "Запущен, первые клиенты или выручка",
+          "Устоявшийся и растущий",
+          "Финансово стабильный, требует дальнейшего развития"
+        ]
+      },
+      {
+        "question": "Какова ваша текущая ежемесячная выручка?",
+        "answers": [
+          "Выручки пока нет",
+          "Менее 10 000 €",
+          "10 000–50 000 €",
+          "Более 50 000 €"
+        ]
+      },
+      {
+        "question": "Насколько прибылен бизнес в настоящий момент?",
+        "answers": [
+          "Фаза становления с инвестициями в рост",
+          "Положительная маржинальная прибыль, в целом пока не прибылен",
+          "Операционно прибылен",
+          "Прибыльность систематически не измеряется"
+        ]
+      },
+      {
+        "question": "Насколько бизнес зависит от вас лично?",
+        "answers": [
+          "Очень сильно: клиенты и решения проходят через меня",
+          "Отчасти: процессы налажены, но я сильно вовлечён",
+          "Низкий; бизнес работает в значительной степени самостоятельно",
+          "Очень слабо: процессы систематизированы"
+        ]
+      },
+      {
+        "question": "Насколько стандартизированы операционные процессы?",
+        "answers": [
+          "Задокументированы и в основном автоматизированы",
+          "Определены, но частично выполняются вручную",
+          "Многие процессы индивидуальны или выполняются вручную",
+          "Мало обязательных процессов"
+        ]
+      },
+      {
+        "question": "Какие задачи вы хотели бы передать нам?",
+        "answers": [
+          "Всю операционную деятельность",
+          "Большую часть; некоторые ключевые функции остаются внутри компании",
+          "Отдельные направления, например сервис или маркетинг",
+          "Сначала анализ, операционное управление позже, при необходимости"
+        ]
+      },
+      {
+        "question": "Как вы хотели бы участвовать в принятии операционных решений?",
+        "answers": [
+          "Определять цели и делегировать исполнение",
+          "Получать регулярную информацию и участвовать в важных вопросах",
+          "Принимать решения совместно",
+          "Принимать почти все решения самостоятельно"
+        ]
+      },
+      {
+        "question": "Когда вы хотели бы передать управление и какой бюджет запланирован?",
+        "answers": [
+          "В течение четырёх недель; бюджет определён",
+          "Через 1–3 месяца; есть диапазон бюджета",
+          "Через 3–6 месяцев; бюджет ещё предстоит уточнить",
+          "Пока открыто; сначала изучить варианты"
+        ]
+      }
+    ],
+    "summary": {
+      "title": "Резюме",
+      "restart": "Заново",
+      "confirm": "Верно"
+    },
+    "privacyHref": "konfidentsialnost.html",
+    "form": {
+      "title": "Ваши данные",
+      "text": "Готово – благодарим за ваши ответы! Чтобы мы могли лично связаться с вами в случае положительной оценки, нам нужны ещё ваши контактные данные и некоторая информация о вашей компании.",
+      "note": "Мы обрабатываем вашу информацию конфиденциально и с должной тщательностью, чтобы защитить ваши данные. Мы используем её исключительно для рассмотрения вашего запроса и для связи с вами при наличии взаимного интереса.",
+      "tip": "Пожалуйста, перед отправкой правильно заполните все обязательные поля.",
+      "error": "Не удалось отправить. Попробуйте ещё раз.", 
+      "fields": [
+        { "name": "firstname", "label": "Имя *", "error": "Пожалуйста, введите ваше имя (только буквы)." },
+        { "name": "lastname", "label": "Фамилия *", "error": "Пожалуйста, введите вашу фамилию (только буквы)." },
+        { "name": "company", "label": "Компания *", "error": "Пожалуйста, введите название компании (буквы, цифры, обычные знаки препинания)." },
+        { "name": "position", "label": "Должность / роль", "error": "Пожалуйста, используйте только буквы, цифры и обычные знаки препинания." },
+        { "name": "email", "label": "Эл. почта *", "error": "Пожалуйста, введите действительный адрес электронной почты." },
+        { "name": "phone", "label": "Телефон", "error": "Пожалуйста, введите действительный номер телефона (цифры, + ( ) / -)." },
+        { "name": "website", "label": "Сайт или платформа", "error": "Пожалуйста, введите действительный адрес, например www.example.com." }
+      ],
+      "consent": {
+        "before": "Я ознакомился(-лась) с ",
+        "link": "политикой конфиденциальности",
+        "after": " и согласен(-на) с тем, что моя информация может использоваться для обработки моего запроса. *",
+        "error": "Пожалуйста, подтвердите согласие на использование вашей информации."
+      },
+      "required": "* Обязательное поле",
+      "cancel": "Отмена",
+      "send": "Отправить"
+    },
+    "thanks": {
+      "title": "Благодарим вас",
+      "text": [
+        "Благодарим за интерес к Digital Vista Entertainment. Мы лично оценим ваши ответы и в ближайшее время свяжемся с вами.",
+        "Это может занять несколько дней – просим вас проявить терпение. Пожалуйста, воздержитесь до тех пор от дальнейших обращений; ваш запрос обрабатывается с должным вниманием."
+      ],
+      "close": "Закрыть"
+    }
+  }
+}

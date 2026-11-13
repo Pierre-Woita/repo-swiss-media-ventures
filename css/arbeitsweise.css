@@ -1,0 +1,122 @@
+/* ==========================================================================
+   Swiss Media Ventures AG – Unterseite „Arbeitsweise“ / „How we work“
+   --------------------------------------------------------------------------
+   Ergänzt styles.css (Tokens, Raster, Buttons, Header/Footer, CTA, „Vorteile“-
+   Split werden geerbt).
+   Aufbau:  1 Tokens  2 Ankernavigation  3 Prozessschritte  4 Zusammenarbeit  5 Bewegung
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. TOKENS
+   ========================================================================== */
+:root {
+  --band-deep:  linear-gradient(135deg, #d92d79 0%, #00749f 100%);   /* Pink → Blau, dunkel genug für weißen Text */
+  --anchor-h:   10.8rem;  /* Höhe der Ankernavigation + ca. 1 rem Luft: Abstand für scroll-margin, Section landet direkt unter der Navigation */
+  --check-pink: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23d92d79' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E");
+}
+
+
+@media (min-width: 1024px) { :root { --anchor-h: 10.7rem; } }
+/* Russisch: längere Kachel-Titel machen die Ankernavigation höher (+ ca. 1,5 rem) */
+html[lang="ru"] { --anchor-h: 12.3rem; }
+@media (min-width: 1024px) { html[lang="ru"] { --anchor-h: 12.2rem; } }
+
+
+/* ==========================================================================
+   2. ANKERNAVIGATION „Auf einen Blick“ – identisch zu „Leistungen“ (sticky unter dem Header)
+   ========================================================================== */
+.anchor-nav {
+  position: sticky; top: calc(var(--header-h) - 1px); z-index: 90;
+  margin-top: 1.6rem; padding: .8rem 0 .9rem;
+  background: rgba(255, 255, 255, .92);
+  -webkit-backdrop-filter: saturate(1.4) blur(12px);
+  backdrop-filter: saturate(1.4) blur(12px);
+}
+.anchor-nav .carousel { margin-top: 0; }
+/* Platz für den 8-px-Schatten der Kacheln (der Slider schneidet sonst ab) */
+.anchor-nav .carousel__viewport { margin-inline-end: 0; padding: .4rem 1.2rem 1.2rem .4rem; margin: -.4rem 0 -.6rem -.4rem; }
+.anchor-nav .carousel__track { padding-inline-end: 0; }
+.anchor-nav .carousel__nav { justify-content: center; margin-top: .3rem; }   /* Steuerung zentriert unter den Kacheln */
+.anchor-nav .icon-btn { width: 2.4rem; height: 2.4rem; }
+.anchor-nav .icon-btn .icon { width: 1.1rem; height: 1.1rem; }
+
+/* Kachel: nur so hoch wie der Inhalt, weiß mit 8 px versetztem Schatten */
+.card--anchor { --card-w: 15rem; min-height: 0 !important; padding: 0; position: relative; overflow: hidden; isolation: isolate; background: #fff; box-shadow: 8px 8px 16px rgba(20, 24, 40, .14); }
+.card--anchor::before {   /* Hover: Farbverlauf Pink → Blau */
+  content: ""; position: absolute; inset: 0; z-index: -1; opacity: 0;
+  background: var(--band-deep); transition: opacity .25s var(--ease);
+}
+.card--anchor:hover { transform: none; }
+.card--anchor:hover::before, .card--anchor:focus-within::before, .card--anchor.is-active::before { opacity: 1; }
+.card__link {
+  display: flex; flex-direction: column; gap: .5rem; height: 100%;
+  padding: .9rem 1rem .95rem; border-radius: var(--radius-card);
+}
+.card__link:focus-visible { border-radius: var(--radius-card); }
+.card--anchor .card__icon { width: 2rem; height: 2rem; transition: color .25s var(--ease); }
+.card--anchor .card__title { margin-top: 0; color: var(--color-accent); font-size: 1rem; overflow-wrap: break-word; hyphens: auto; transition: color .25s var(--ease); }
+.card--anchor:hover .card__icon, .card--anchor:hover .card__title,
+.card--anchor:focus-within .card__icon, .card--anchor:focus-within .card__title,
+.card--anchor.is-active .card__icon, .card--anchor.is-active .card__title { color: #fff; }   /* aktiv = wie Hover */
+
+/* ==========================================================================
+   3. PROZESSSCHRITTE (Analysieren · Integrieren · Betreiben · Optimieren)
+   ========================================================================== */
+.aw-steps { display: grid; gap: 1.5rem; padding-top: 1.5rem; }
+@media (min-width: 1024px) { .aw-steps { gap: 1.6rem; padding-top: 2rem; } }
+
+/* Mobil: Bild oben, Text auf Verlauf darunter */
+.pstep { position: relative; overflow: hidden; isolation: isolate; display: grid; border-radius: var(--radius-hero); background: var(--band-deep); color: #fff; scroll-margin-top: calc(var(--anchor-h) - 1rem); }   /* + scroll-padding-top der Seite (Header + 1 rem) = Header + --anchor-h: Section landet direkt unter der Ankernavigation */
+.pstep__text { position: relative; display: grid; gap: 1.1rem; align-content: center; justify-items: start; padding: 1.5rem; }
+.pstep .aw-title { font-size: clamp(2.8rem, 12vw, 3.6rem); font-weight: var(--fw-semibold); line-height: 1; color: #fff; text-wrap: balance; overflow-wrap: break-word; hyphens: auto; }
+.pstep .aw-sub { font-size: calc(var(--fs-card-title) * 1.15); font-weight: var(--fw-semibold); line-height: var(--lh-snug); color: #fff; }
+.pstep .aw-text { max-width: 40rem; font-size: var(--fs-body); line-height: var(--lh-body); color: rgba(255, 255, 255, .96); }
+
+/* Zahlenkreis „1.“ – „4.“ */
+.pstep__top { display: flex; align-items: center; gap: .8rem; }
+.aw-badge { display: grid; place-items: center; flex: none; width: 3rem; height: 3rem; border-radius: 50%; background: #fff; color: #d92d79; font-size: 1.2rem; font-weight: var(--fw-semibold); line-height: 1; }
+@media (max-width: 767.98px) {   /* mobil: Kreis unten links auf dem Bild, nah an der Headline */
+  .pstep__top { position: absolute; z-index: 2; left: 1.5rem; top: -4rem; }
+}
+
+/* Liste wie auf „Leistungen“: Glas-Kacheln mit weißem Häkchen-Kreis */
+.aw-list { display: grid; gap: .7rem; width: 100%; margin: .4rem 0 0; padding: 0; list-style: none; }
+.aw-list li { position: relative; display: flex; align-items: center; gap: .9rem; padding: 1rem 1.1rem; border: 1px solid rgba(255, 255, 255, .4); border-radius: var(--radius-card); background: rgba(255, 255, 255, .14); line-height: 1.3; font-weight: var(--fw-semibold); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
+.aw-list li::before { content: ""; flex: none; width: 2rem; height: 2rem; border-radius: 50%; background: #fff var(--check-pink) center / 62% no-repeat; }
+
+.pstep__media { position: relative; order: -1; aspect-ratio: 4 / 3; background: #16384f; }
+.pstep__media picture, .pstep__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .8s var(--ease); }
+@media (hover: hover) { .pstep:hover .pstep__media img { transform: scale(1.03); } }
+
+/* Ab 768 px: Hintergrundfläche (::before) endet im Bild. Das Bild (40 % Breite, Format 620 × 420) liegt zu ca. einem
+   Viertel über der Fläche und ist nach unten versetzt um Radius der Fläche + 20 px.
+   Spalten: Text | Überlappung (9 %) | Rest des Bildes (31 %). */
+@media (min-width: 768px) {
+  .pstep { background: none; overflow: visible; grid-template-columns: minmax(0, 1fr) 9% 31%; }
+  .pstep::before { content: ""; z-index: -1; grid-column: 1 / 3; grid-row: 1; border-radius: var(--radius-hero); background: var(--band-deep); }
+  .pstep__text { grid-column: 1; grid-row: 1; padding: 2.2rem 1.6rem 2.2rem 2.2rem; }
+  .pstep__media { grid-column: 2 / 4; grid-row: 1; align-self: start; order: 0; aspect-ratio: 620 / 420; margin-top: calc(var(--radius-hero) + 20px); border-radius: var(--radius-media); overflow: hidden; box-shadow: 0 .8rem 2rem rgba(20, 24, 40, .22); }
+  .pstep .aw-title { font-size: 3.6rem; }
+}
+@media (min-width: 1024px) {
+  .pstep__text { padding: 3rem 2.4rem 3rem 3.2rem; gap: 1.3rem; }
+  .pstep .aw-title { font-size: 4.6rem; }
+}
+
+
+/* ==========================================================================
+   4. ZUSAMMENARBEIT (Gestaltung wie „Ihre Vorteile“; ab 768 px Bild links)
+   ========================================================================== */
+@media (min-width: 768px) { #zusammenarbeit .split, #collaboration .split { flex-direction: row-reverse; } }
+
+
+/* ==========================================================================
+   5. BEWEGUNG
+   ========================================================================== */
+.reveal--hidden { opacity: 0; transform: translateY(1.6rem); }
+.reveal { transition: opacity .7s var(--ease), transform .7s var(--ease); }
+@media (prefers-reduced-motion: reduce) {
+  .reveal--hidden { opacity: 1; transform: none; }
+  .pstep__media img { transition: none; }
+}

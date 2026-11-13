@@ -1,0 +1,16 @@
+/* Swiss Media Ventures – Seite „About us“ / „Über uns“: Design wie „How we work“ und „Benefits“
+   (Reihenfolge: styles.css, smv.css, arbeitsweise.css, services-smv.css, how-smv.css, about-smv.css) */
+
+/* Seitenhintergrund weiss */
+body.page-ueber-uns, body.page-ueber-uns main { background: #FFFFFF; }
+
+/* Panel-Badge mit Icon: weisse Outline, transparent, weisses Icon (auch mobil) */
+.aw-badge--icon { background: transparent; border: 2px solid #FFFFFF; color: #FFFFFF; }
+.aw-badge--icon .icon { width: 1.6rem; height: 1.6rem; stroke-width: 1.6; }
+
+/* Infografik hat weissen Grund → komplett zeigen, nicht beschneiden */
+.pstep__media--fit img { object-fit: contain; background: #FFFFFF; }
+
+/* Weicher Zeilenumbruch nur ab 768 px */
+.br-md { display: none; }
+@media (min-width: 768px) { .br-md { display: inline; } }

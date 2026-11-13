@@ -1,0 +1,92 @@
+/* Swiss Media Ventures – Seite „Services“ (nur services.html): ergänzt styles.css, smv.css und leistungen.css */
+
+/* Seitenhintergrund weiss */
+body.page-leistungen, body.page-leistungen main { background: #FFFFFF; }
+
+/* Ankernavigation: Kacheln weiss mit roter 1-px-Outline, Open Sans Regular, Ecken 4 px */
+.card--anchor { border: 1px solid #B41917; border-radius: 4px; box-shadow: none; }
+.card__link, .card__link:focus-visible { border-radius: 4px; }
+.card--anchor .card__title { font-weight: 400; font-style: normal; }
+
+/* Slidernavigation: Stil wie auf der Startseite (Secondary Button, 1 px Outline, 4 px Ecken;
+   aktiv rot, inaktiv in der Icon-Farbe, Hover rote Füllung mit weissem Icon und 8 px Schatten) */
+.anchor-nav .icon-btn,
+.anchor-nav .icon-btn:focus-visible { border-radius: 4px; }
+.anchor-nav .icon-btn,
+.anchor-nav .icon-btn:disabled { background: transparent; box-shadow: none; opacity: 1; }
+.anchor-nav .icon-btn:disabled { color: var(--color-control-fg); border: 1px solid var(--color-control-fg); }
+.anchor-nav .icon-btn--primary:not(:disabled) { background-color: transparent; color: #B41917; border: 1px solid #B41917; box-shadow: none; }
+.anchor-nav .icon-btn--primary:not(:disabled):hover { background-color: #B41917; color: #FFFFFF; box-shadow: 0 0 8px rgba(0, 0, 0, .5); }
+
+/* Ankernavigation: Abstand der Kacheln 4 px */
+.anchor-nav .carousel__track { gap: 4px; }
+
+/* ==========================================================================
+   Leistungs-Panels: Breite = Gestaltungsraster (Spalte 1 bis Ende Spalte 12), wie Ankernavigation
+   ========================================================================== */
+.services-stack.container--hero { padding-inline: var(--gutter); }
+
+/* ==========================================================================
+   Alle Leistungs-Panels (Vorlage: Strategy)
+   ========================================================================== */
+.svc .svc__panel {
+  border-radius: 0;
+  background: linear-gradient(to bottom right, #B41917 0%, #000000 100%);   /* oben links Rot → unten rechts Schwarz */
+}
+.svc .svc__bg { display: none; }   /* grosses Deko-Icon entfällt */
+
+/* Headline wie H2 der Startseite (48 px / mobil 28 px, ExtraBold Italic, Weiss) */
+.svc .svc__title {
+  font-size: var(--fs-headline); font-weight: var(--fw-headline); font-style: italic;
+  line-height: var(--lh-tight); color: #FFFFFF;
+}
+@media (max-width: 767.98px) { .svc .svc__title { font-size: 28px; } }
+
+/* Copytext: gleiche Grösse wie der Text im oberen Textbereich */
+.svc .svc__text { font-size: var(--fs-body); line-height: var(--lh-body); color: rgba(255, 255, 255, .95); }
+
+/* USP-Liste: ohne Rahmung, Divider (#fff, 50 % transparent) zwischen den Zeilen */
+.svc .svc__list { gap: 0; }
+.svc .svc__list li {
+  padding: .9rem 0; border: 0; border-radius: 0; background: none;
+  backdrop-filter: none; -webkit-backdrop-filter: none;
+  border-top: 1px solid rgba(255, 255, 255, .5);
+}
+.svc .svc__list li:first-child { border-top: 0; padding-top: 0; }
+.svc .svc__list li:last-child { padding-bottom: 0; }
+
+/* USP-Icon: weisser Haken (Strichstärke 2 px bei 20 px Grösse = 2,4 im 24er-Raster) in Kreis mit 1 px Outline */
+.svc .svc__list li::before {
+  box-sizing: border-box; width: 2.2rem; height: 2.2rem; border: 1px solid #FFFFFF; border-radius: 50%;
+  background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / 20px 20px no-repeat;
+}
+
+/* Ankernavigation: erste Kachel beginnt exakt am linken Rasterrand (Spalte 1), ohne Versatz durch Schattenpuffer */
+.anchor-nav .carousel__viewport { margin-left: 0; padding-left: 0; }
+
+/* ==========================================================================
+   Schriftgrössen der Leistungs-Panels: Mobil < 768 px / Tablet 768–1023 px / Desktop ≥ 1024 px
+   ========================================================================== */
+.svc .svc__title { font-size: 28px; }
+.svc .svc__text, .svc .svc__list li { font-size: 14px; }
+@media (min-width: 768px)  { .svc .svc__title { font-size: 32px; } }
+@media (min-width: 1024px) {
+  .svc .svc__title { font-size: 38px; }
+  .svc .svc__text, .svc .svc__list li { font-size: 18px; }
+}
+
+/* Panel-Headline: Open Sans ExtraBold 800, nicht kursiv */
+.svc .svc__title { font-weight: 800; font-style: normal; }
+
+/* Ankernavigation: grosser, weicher Schatten. Der Slider schneidet Überstand ab, daher Puffer rundum
+   (negatives Margin gleicht ihn aus, die erste Kachel bleibt an Spalte 1; scroll-padding hält den Start bei scrollLeft 0) */
+.card--anchor { box-shadow: 0 .8rem 1rem -.8rem rgba(0, 0, 0, .4); }   /* kleiner, nur nach unten */
+.anchor-nav .carousel__viewport {
+  padding: 1.4rem 0 2.8rem 1.8rem; margin: -1.4rem 0 -2.2rem -1.8rem; scroll-padding-left: 1.8rem;
+}
+
+/* < 768 px: Slidernavigation der Ankerleiste entfällt, stattdessen schwarze Punkte als Positionsanzeige (ohne Interaktion) – wie auf der Startseite */
+@media (max-width: 767.98px) {
+  .anchor-nav .carousel__nav { display: none; }
+  .anchor-nav .carousel__dots { display: flex; justify-content: center; gap: .5rem; padding-block: .6rem; pointer-events: none; }
+}

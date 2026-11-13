@@ -1,0 +1,53 @@
+/* Swiss Media Ventures – Rechtstext-Seiten (Privacy / Datenschutz, Terms / AGB, Legal Notice / Impressum, Compliance)
+   Reihenfolge: styles.css, smv.css, impressum.css, legal-smv.css */
+
+/* Seitenhintergrund weiss */
+body.page-impressum, body.page-impressum main { background: #FFFFFF; }
+
+/* Inhaltsbereich: weisse Fläche auf Rasterbreite statt dunklem Seitenverlauf */
+main > section.container.section--legal:not([aria-labelledby="hero-title"]) {
+  background: #FFFFFF; padding-inline: var(--gutter); padding-top: 2.5rem; padding-bottom: 4.8rem;
+}
+@media (min-width: 768px) { main > section.container.section--legal:not([aria-labelledby="hero-title"]) { padding-top: 4rem; padding-bottom: 7.2rem; } }
+
+/* Label und Haupt-Headline (wie die Panel-Headlines: Mobil 28 / Tablet 32 / Desktop 38 px, ExtraBold 800) */
+.legal .eyebrow { margin: 0 0 .5rem; color: #B41917; font-size: 18px; font-weight: 800; font-style: normal; line-height: var(--lh-tight); }
+.legal .section-header__title { margin: 0; color: #000000; font-size: 28px; font-weight: 800; font-style: normal; line-height: var(--lh-tight); }
+@media (min-width: 768px)  { .legal .section-header__title { font-size: 32px; } }
+@media (min-width: 1024px) { .legal .section-header__title { font-size: 38px; } .legal .eyebrow { font-size: 22px; } }
+
+/* Fliesstext und Listen: schwarz; Mobil/Tablet 14 px, Desktop 16 px */
+.legal { color: #000000; font-size: 14px; line-height: var(--lh-body); }
+.legal p, .legal address, .legal li, .legal td, .legal th { font-size: inherit; line-height: var(--lh-body); }
+.legal__block ul, .legal__block ol { font-size: inherit; }
+@media (min-width: 1024px) { .legal { font-size: 16px; } }
+
+/* Zwischenüberschriften */
+.legal__title { color: #B41917; font-size: 18px; font-weight: 800; font-style: normal; line-height: var(--lh-snug); }
+@media (min-width: 1024px) { .legal__title { font-size: 22px; } }
+.legal__block h3 { color: #000000; font-size: inherit; font-weight: 700; }
+.legal__stand { color: #5a5a5a; }
+
+/* Links */
+.legal a:not(.btn) { color: #B41917; }
+.legal a:not(.btn):hover { color: #5C0D0C; }
+
+/* Buttons (Impressum: E-Mail anzeigen; Compliance: Meldestelle): rot, eckig wie der Hero-Button */
+.legal .btn, .legal .btn--secondary {
+  border-radius: 0; background: #B41917; border: 1px solid #B41917; color: #FFFFFF; font-weight: 700; font-style: italic;
+  box-shadow: 0 .8rem 1.6rem rgba(0, 0, 0, .25);
+  transition: background-color .35s var(--ease), transform .35s var(--ease), box-shadow .35s var(--ease);
+}
+.legal .btn:hover, .legal .btn--secondary:hover { background: #5C0D0C; border-color: #5C0D0C; transform: translate(4px, -4px); box-shadow: 0 1.2rem 2.2rem rgba(0, 0, 0, .3); }
+.legal .btn--reveal.is-revealed { background: #5C0D0C; border-color: #5C0D0C; color: #FFFFFF; }
+.legal .btn:focus-visible { border-radius: 0; }
+@media (prefers-reduced-motion: reduce) { .legal .btn:hover, .legal .btn--secondary:hover { transform: none; } }
+
+/* Heller Dialog (Compliance: Meldestellen): eckig, Texte schwarz/rot */
+.dialog { border-radius: 0; }
+@media (min-width: 768px) { .dialog { border-radius: 0; } }
+.dialog--light .dialog__title { color: #000000; font-size: 28px; font-weight: 800; font-style: normal; line-height: var(--lh-tight); }
+@media (min-width: 768px)  { .dialog--light .dialog__title { font-size: 32px; } }
+@media (min-width: 1024px) { .dialog--light .dialog__title { font-size: 38px; } }   /* wie H2 der Seiten: 28 / 32 / 38 px, ExtraBold 800 */
+.dialog--light .dialog__close, .dialog__table .icon-btn { border-radius: 4px; color: #B41917; }
+.dialog__table a { color: #B41917; }
