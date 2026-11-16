@@ -1,6 +1,0 @@
-RewriteEngine On
-
-RewriteCond %{REQUEST_METHOD}      ^POST$ [NC]
-RewriteRule formActions\.json$ ./formActions.php [L,QSA,END]
-
-RewriteRule ^.*\.php  - [F]
