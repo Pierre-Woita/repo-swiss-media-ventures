@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Accessibility – Swiss Media Ventures</title>
+  <meta name="description" content="Accessibility statement of Swiss Media Ventures: our goal (WCAG 2.1 AA), status of conformance, how we tested, known limitations and how to give feedback.">
+  <meta name="robots" content="index, follow">
+  <link rel="preload" href="../assets/fonts/OpenSans-VariableFont_wdth,wght.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="alternate" hreflang="x-default" href="../barrierefreiheit.html">
+  <link rel="alternate" hreflang="de" href="../barrierefreiheit.html">
+  <link rel="alternate" hreflang="en" href="accessibility.html">
+  <link rel="icon" href="../assets/img/icons/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/icons/apple-touch-icon.png">
+  <link rel="manifest" href="../assets/img/icons/site.webmanifest.json">
+  <link rel="stylesheet" href="../css/styles.css?v=20261031">
+  <link rel="stylesheet" href="../css/smv.css?v=1794579214">
+  <link rel="stylesheet" href="../css/impressum.css?v=20261025">
+  <link rel="stylesheet" href="../css/legal-smv.css?v=1794579214">
+  <script src="../js/main.js?v=1794574931" defer></script>
+</head>
+<body class="page-impressum">
+
+  <!-- ================================================================
+       SVG-Sprite: alle Icons (Linienstil, currentColor).
+       Verwendung: <svg class="icon"><use href="#i-name"/></svg>
+       ================================================================ -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <!-- Service-Icons -->
+      <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="1.2"/><path d="M12 1.5v5M12 17.5v5M1.5 12h5M17.5 12h5"/></symbol>
+      <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></symbol>
+      <symbol id="i-cube" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96 12 12.01l8.73-5.05M12 22.08V12"/></symbol>
+      <symbol id="i-bars" viewBox="0 0 24 24"><rect x="2" y="14" width="5" height="8" rx="1"/><rect x="9.5" y="8" width="5" height="14" rx="1"/><rect x="17" y="2" width="5" height="20" rx="1"/></symbol>
+      <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></symbol>
+      <symbol id="i-headset" viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></symbol>
+      <symbol id="i-card" viewBox="0 0 24 24"><rect x="1.5" y="4" width="21" height="16" rx="2"/><path d="M1.5 10h21"/></symbol>
+      <symbol id="i-users" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+      <symbol id="i-cycle" viewBox="0 0 24 24"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></symbol>
+      <!-- UI-Icons -->
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>
+      <symbol id="i-chev-left" viewBox="0 0 24 24"><path d="m15 5-7 7 7 7"/></symbol>
+      <symbol id="i-chev-right" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+      <symbol id="i-burger" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 4v16M4 12h16"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+      <symbol id="i-check-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M7.5 12.4l3 3 6-6.4"/></symbol>
+      <symbol id="i-close" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5 5 19"/></symbol>
+    </defs>
+  </svg>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ================================================================
+       HEADER (sticky)
+       ================================================================ -->
+  <header class="site-header">
+    <div class="container container--header">
+     <div class="row site-header__inner">
+      <div class="col-auto col-lg-3">
+        <a class="brand" href="index.html" aria-label="Swiss Media Ventures – Home">
+          <img class="brand__logo" src="../assets/logos/logo_swiss_alpha.png" width="833" height="303" alt="Swiss Media Ventures">
+        </a>
+      </div>
+
+      <button class="nav-toggle col-auto ms-auto" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu" data-label-open="Close menu" data-label-closed="Open menu">
+        <svg class="icon nav-toggle__open"><use href="#i-burger"/></svg>
+        <svg class="icon nav-toggle__close"><use href="#i-close"/></svg>
+      </button>
+
+      <div class="site-header__menu col-lg-9" id="site-nav">
+        <nav class="site-nav" aria-label="Main navigation">
+          <ul class="site-nav__list">
+            <li class="site-nav__home"><a class="site-nav__link" href="index.html">Swiss Media Ventures</a></li>
+            <li><a class="site-nav__link" href="how-we-work.html">What we do</a></li>
+            <li><a class="site-nav__link" href="services.html">What we can do</a></li>
+            <li><a class="site-nav__link" href="benefits.html">What we offer</a></li>
+            <li><a class="site-nav__link" href="about.html">Who we are</a></li>
+          </ul>
+        </nav>
+
+        <!-- Language switch: EN / DE / ES / PT / NL / IT / RU (Text_Header-Footer.md) -->
+        <div class="lang" role="group" aria-label="Choose language">
+          <a href="../barrierefreiheit.html" lang="de" hreflang="de">DE</a><span class="lang__sep" aria-hidden="true">|</span><a href="accessibility.html" lang="en" hreflang="en" aria-current="true">EN</a>
+        </div>
+      </div>
+     </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ACCESSIBILITY STATEMENT (English): translation of barrierefreiheit.html (German). Voluntary statement; there is no general legal obligation for a purely B2B
+         website of a private company in Switzerland. Statements must reflect the actual state. Basis: automated technical check (November 2026);
+         manual testing (keyboard, screen reader, 200% text size) is still outstanding. Blue passages (class "ph") are values/placeholders to be confirmed.
+         Keep in sync with the German page. Update sections 3-6 after a manual test or audit. -->
+    <section class="section section--legal container" aria-labelledby="accessibility-title">
+     <div class="legal">
+
+      <header class="section-header">
+        <p class="eyebrow">Legal</p>
+        <h1 class="section-header__title" id="accessibility-title">Accessibility</h1>
+      </header>
+
+      <section class="legal__block">
+        <h2 class="legal__title">1. Our goal</h2>
+        <p>Swiss Media Ventures AG wants its website to be accessible and usable for as many people as possible, including people with visual, hearing, motor or cognitive impairments and people who use assistive technologies. We orient ourselves by the guidelines for accessible web content <strong>WCAG 2.1, conformance level AA</strong> (Web Content Accessibility Guidelines of the W3C).</p>
+        <p>This statement is <strong>voluntary</strong>. For our offering to business customers, there is currently no legal obligation to publish an accessibility statement. We publish it for transparency and to enable feedback.</p>
+      </section>
+
+      <section class="legal__block">
+        <h2 class="legal__title">2. Scope</h2>
+        <p>This statement applies to the website <a href="https://www.swiss-media-ventures.ch" target="_blank" rel="noopener">www.swiss-media-ventures.ch</a> in its German and English versions. Not covered are digital platforms and web shops that we operate or support on behalf of our customers. The respective requirements and agreements with the customer apply to their accessibility.</p>
+      </section>
+
+      <section class="legal__block">
+        <h2 class="legal__title">3. Status of conformance</h2>
+        <p>In our assessment, the website is <strong>partially compliant with WCAG 2.1 AA</strong>. The technical foundations are met (see section 5). We have not yet completed a full test under real conditions of use, in particular with keyboard and screen reader. We therefore do not currently claim full conformance.</p>
+      </section>
+
+      <section class="legal__block">
+        <h2 class="legal__title">4. How we tested</h2>
+        <p>In <span class="ph">[November 2026]</span> we examined the website internally using an automated technical check, at various screen widths (320 to 1024 pixels). Among other things, we checked page language and title, heading structure, alternative texts, form labels, landmarks, text contrast on solid-colored areas, display on narrow screens (reflow), minimum sizes of controls and duplicate element identifiers. No independent external audit has taken place so far.</p>
+      </section>
+
+      <section class="legal__block">
+        <h2 class="legal__title">5. What has already been implemented</h2>
+        <ul>
+          <li>Every page has a language declaration, a unique page title and exactly one main heading (H1); the headings follow a logical order.</li>
+          <li>A “Skip to content” link makes it possible to bypass the navigation. Header, navigation, main content and footer are marked up as regions.</li>
+          <li>All content images have alternative text. Purely decorative images are hidden from assistive technologies.</li>
+          <li>Form fields have visible labels, required fields are marked, and error messages are announced as alerts.</li>
+          <li>Text contrast on solid-colored areas meets the required values. We use the red brand color on black only for large text.</li>
+          <li>The focus (keyboard indicator) is visible. Pages can be enlarged; zooming is not disabled.</li>
+          <li>Content remains readable without horizontal scrolling even at narrow widths (320 pixels); long words are hyphenated.</li>
+          <li>Controls such as the menu, sliders and anchor navigation are marked up as buttons and links and given a name. The click areas of the footer links and slider dots meet the recommended minimum size.</li>
+          <li>Animations are restrained; with the system setting “reduce motion” they are largely not executed.</li>
+        </ul>
+      </section>
+
+      <section class="legal__block">
+        <h2 class="legal__title">6. Known limitations and outstanding tests</h2>
+        <p>The following points have not yet been conclusively tested or may contain limitations:</p>
+        <ul>
+          <li><strong>White text on image areas:</strong> The contrast of text on tiles with a photo and a colored gradient cannot be measured automatically and has not yet been assessed manually.</li>
+          <li><strong>Keyboard operation:</strong> Full operation of all elements (menu, sliders, anchor navigation, dialogs, form) using only the keyboard, as well as the focus order, have not yet been conclusively tested.</li>
+          <li><strong>Screen readers:</strong> Output with common screen readers has not yet been systematically tested.</li>
+          <li><strong>Text size and text spacing:</strong> Behavior at 200% text size and with increased line and word spacing has not yet been conclusively tested.</li>
+          <li><strong>Sliders:</strong> Content that is reachable only by swiping or clicking sideways additionally offers buttons or dots; usability with assistive technologies remains to be confirmed.</li>
+          <li><strong>English version:</strong> It has been tested to a lesser extent than the German version.</li>
+        </ul>
+        <p>We remedy identified shortcomings step by step and update this statement after every test.</p>
+      </section>
+
+      <section class="legal__block">
+        <h2 class="legal__title">7. Images and AI-generated content</h2>
+        <p>The images on this website are partly generated with the help of artificial intelligence. They serve illustration purposes and contain no information that is not also in the text. They are described with short alternative texts.</p>
+      </section>
+
+      <section class="legal__block">
+        <h2 class="legal__title">8. Feedback and contact</h2>
+        <p>Do you have difficulties using this website, or do you need content in another form? Please write to us. It helps if you tell us the page concerned, a description of the problem and, if applicable, the assistive technology you use (for example a screen reader or magnification software). We usually reply within <span class="ph">[5]</span> working days and look for a solution together with you.</p>
+        <address class="legal__address">
+          Swiss Media Ventures AG<br>
+          Bahnhofstrasse 21, 6300 Zug, SWITZERLAND<br>
+          Phone (office): <a href="tel:+41415050287">+41 (0)41 50 50 287</a><br>
+          Contact form: <a href="contact.html">Get in touch</a>
+        </address>
+        <!-- The email address is deliberately not in the page source: data-reveal-user / data-reveal-host hold it written BACKWARDS; ../js/main.js assembles it on click. -->
+        <p class="legal__cta"><a class="btn btn--secondary btn--reveal" href="contact.html" data-reveal-user="eciffo" data-reveal-host="hc.serutnev-aidem-ssiws" data-hide-label="Hide email address"><span class="btn__swap"><span class="btn__label">Show email address</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-close"/></svg></span></a></p>
+      </section>
+
+      <section class="legal__block">
+        <h2 class="legal__title">9. Note on the legal situation</h2>
+        <p>This statement is not an assurance of conformity with any particular law or standard. It describes the status of our own testing. Accessibility obligations may arise for individual offerings from Swiss disability equality law or, for offerings to consumers in the EU, from the European Accessibility Act. They depend on the respective offering.</p>
+        <p class="legal__stand">Version: November 2026</p>
+      </section>
+
+     </div>
+    </section>
+
+  </main>
+
+
+  <!-- ================================================================
+       FOOTER
+       ================================================================ -->
+  <footer class="site-footer">
+    <div class="container container--footer">
+     <div class="row site-footer__inner">
+      <div class="site-footer__brand col-lg-6">
+        <a class="brand brand--footer" href="index.html" aria-label="Swiss Media Ventures – Home">
+          <img class="brand__logo" src="../assets/logos/logo_swiss_alpha_negativ.png" width="833" height="303" alt="Swiss Media Ventures" loading="lazy">
+        </a>
+        <p class="site-footer__copy">© 2026 Swiss Media Ventures AG. All rights reserved.</p>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+      <nav class="site-footer__nav" aria-label="Site overview">
+        <ul class="footer-links footer-links--main">
+          <li><a href="how-we-work.html">What we do</a></li>
+          <li><a href="services.html">What we can do</a></li>
+          <li><a href="benefits.html">What we offer</a></li>
+          <li><a href="about.html">Who we are</a></li>
+          <li><a href="contact.html">How to reach us</a></li>
+        </ul>
+      </nav>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+      <nav class="site-footer__legal" aria-label="Legal">
+        <ul class="footer-links">
+          <li><a href="imprint.html">Legal Notice</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms &amp; Conditions</a></li>
+          <li><a href="compliance.html">Compliance</a></li>
+          <li><a href="accessibility.html">Accessibility</a></li>
+        </ul>
+      </nav>
+      </div>
+     </div>
+    </div>
+  </footer>
+
+</body>
+</html>
