@@ -11,8 +11,8 @@
  *   MAIL_FROM  Absenderadresse; muss zur Domain des Servers passen (SPF/DKIM), sonst landen Mails im Spam
  */
 
-const MAIL_TO   = 'pierre@aniloox.com';   // Empfängeradresse der Anfragen
-const MAIL_FROM = 'office@swiss-media-ventures.ch';   // Absender auf eigener Domain (SPF/DKIM beim Hoster prüfen)
+const MAIL_TO   = 'office@swissmediaventures.ch';   // Empfängeradresse der Anfragen
+const MAIL_FROM = 'info@swissmediaventures.ch';   // Absender auf eigener Domain (SPF/DKIM beim Hoster prüfen)
 const SUBJECT_PREFIX = '[Website] ';
 const MIN_SECONDS_BETWEEN_SUBMITS = 30;              // Mengenbegrenzung pro IP
 

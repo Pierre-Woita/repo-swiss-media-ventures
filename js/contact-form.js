@@ -88,8 +88,32 @@
         submitBtn.disabled = false;
         submitBtn.classList.remove("is-sending");
         if (!r.ok) { if (errorBox) errorBox.hidden = false; return; }
-        form.hidden = true;
-        if (thanks) { thanks.hidden = false; thanks.focus(); }
+        form.reset();
+        syncPhone();
+        if (thanks) openThanks(); else form.hidden = true;
       });
   });
+
+  /* Dankes-Overlay: schließen per Button, Kreuz, Klick daneben oder Esc; Fokus zurück zum Sendebutton */
+  var lastFocus = null;
+  function openThanks() {
+    lastFocus = document.activeElement;
+    thanks.hidden = false;
+    document.documentElement.classList.add("has-thanks");
+    var box = thanks.querySelector(".cform__thanks-box");
+    if (box) box.focus();
+  }
+  function closeThanks() {
+    thanks.hidden = true;
+    document.documentElement.classList.remove("has-thanks");
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  if (thanks) {
+    thanks.addEventListener("click", function (e) {
+      if (e.target === thanks || (e.target.closest && e.target.closest("[data-thanks-close]"))) closeThanks();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && !thanks.hidden) closeThanks();
+    });
+  }
 })();

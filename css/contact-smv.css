@@ -187,3 +187,17 @@ body.page-kontakt #main .contact-intro .section-header__title { line-height: 1.3
 /* Formular: Hinweis „Pflichtfeld“ steht oben (nach dem Einleitungstext, vor dem ersten Feld), Schrift wie der Einleitungstext */
 .cform__note { margin: 0 0 1.2rem; font-size: var(--fs-body); line-height: var(--lh-body); opacity: 1; color: #000000; }
 @media (max-width: 767.98px) { .cform__note { font-size: 18px; } }
+
+/* Dankes-Overlay: abgedunkelter Hintergrund (schwarz 50 %), weisse eckige Box, rotes Schliessen-Kreuz, Secondary-Button */
+.cform__thanks { position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 16px; background: rgba(0, 0, 0, .5); overflow-y: auto; }
+.cform__thanks[hidden] { display: none; }
+.has-thanks body { overflow: hidden; }
+.cform__thanks-box { position: relative; box-sizing: border-box; width: 100%; max-width: 560px; padding: 3rem 2rem 2rem; background: #FFFFFF; border-radius: 0; box-shadow: 0 1.2rem 3rem rgba(0, 0, 0, .3); color: #000000; font-size: 18px; line-height: var(--lh-body); }
+.cform__thanks-box:focus { outline: none; }
+.cform__thanks .cform__thanks-title { margin: 0 0 .8rem; padding-right: 2rem; color: #000000; }
+.cform__thanks-x { position: absolute; top: 8px; right: 8px; width: 44px; height: 44px; padding: 0; display: flex; align-items: center; justify-content: center; background: transparent; border: 0; border-radius: 0; color: #B41917; cursor: pointer; }
+.cform__thanks-x .icon { width: 24px; height: 24px; }
+.cform__thanks-x:hover { color: #5C0D0C; }
+#main .cform__thanks .cform__thanks-btn { margin-top: 1.6rem; background: #FFFFFF; color: #B41917; border: 1px solid #B41917; border-radius: 0; font-style: normal; transform: none; box-shadow: none; }
+#main .cform__thanks .cform__thanks-btn:hover, #main .cform__thanks .cform__thanks-btn:active { background: #FFFFFF; color: #5C0D0C; border-color: #5C0D0C; transform: none; box-shadow: none; }
+@media (min-width: 1024px) { .cform__thanks-box { padding: 3.5rem 3rem 2.5rem; } }
